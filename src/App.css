@@ -143,7 +143,7 @@ h5 {
   outline: none;
   background: var(--orange);
   color: var(--white);
-  padding: 6px 20px;
+  padding: 8px 20px;
   transition: .5s;
   border: 1px solid var(--orange);
   border-radius: 5px;
@@ -153,8 +153,8 @@ h5 {
 
 .filled-button:hover {
   background: var(--transprant);
-  border: 1px solid var(--orange);
-  color: var(--orange);
+  border: 1px solid var(--white);
+  color: var(--white);
 }
 
 /* Border Button  */
@@ -164,7 +164,7 @@ h5 {
   outline: none;
   background: var(--transprant);
   color: var(--white);
-  padding: 6px 0px;
+  padding: 8px 0px;
   transition: .5s;
   position: relative;
   font-size: 1.2rem;

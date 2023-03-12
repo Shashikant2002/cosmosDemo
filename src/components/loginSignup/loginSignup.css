@@ -1,0 +1,6 @@
+.login-signup ul{
+    gap: 10px;
+}
+.login-signup ul li a{
+    font-size: 25px;
+}
