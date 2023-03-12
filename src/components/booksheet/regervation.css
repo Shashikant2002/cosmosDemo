@@ -1,0 +1,28 @@
+.regervation{
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(../../../public/assets/img/book.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 200px 0;
+}
+
+.regervation .r-l-line{
+    color: var(--white);
+}
+.regervation .r-l-line::before,
+.regervation .r-l-line::after{
+    background: var(--white);
+}
+
+.regervation h2{
+    margin-top: 10px;
+}
+.regervation p{
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.regervation button{
+    margin-top: 20px;
+}

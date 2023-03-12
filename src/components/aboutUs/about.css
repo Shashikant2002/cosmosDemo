@@ -1,0 +1,25 @@
+.about .container{
+    gap: 60px;
+}
+.about .img{
+    width: 50%;
+}
+.about .content{
+    width: 50%;
+}
+.about .content h2{
+    margin-top: 20px;
+    width: 100%;
+    max-width: 480px;
+}
+.about .img .image{
+    width: 100%;
+}
+.about .img .image{
+    width: 100%;
+    max-width: 415px;
+}
+.about .content .image{
+    width: 100%;
+    margin-top: 50px;
+}

@@ -1,0 +1,12 @@
+.header-main{
+    width: 100%;
+    padding: 30px 0;
+    float: left;
+    position: fixed;
+    z-index: 9999;
+    background: var(--transprant);
+    transition: .5s;
+}
+.header-mainBackground{
+    background: var(--darkGray);
+}

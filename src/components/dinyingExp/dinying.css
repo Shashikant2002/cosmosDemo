@@ -1,0 +1,22 @@
+.dinying .border-button{
+    margin-top: 40px;
+    padding: 10px 5px 10px 0;
+}
+.dinying .border-button::after{
+    background: var(--orange);
+}
+
+.dinying .container{
+    gap: 40px;
+}
+
+.dinying .content h2{
+    margin: 20px 0;
+}
+.dinying .content figure{
+    margin-top: 50px;
+}
+.dinying .content,
+.dinying .image{
+    width: 50%;
+}

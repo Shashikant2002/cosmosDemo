@@ -1,0 +1,10 @@
+.social ul{
+    gap: 15px;
+}
+.social ul li a svg{
+    transition: all .5;
+}
+
+.social ul li a:hover svg{
+    color: var(--orange);
+}

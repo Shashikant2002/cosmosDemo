@@ -1,0 +1,33 @@
+.menu-card{
+    width: 33.3333%;
+    /* border: 1px solid red; */
+    position: relative;
+}
+.menu-card .content{
+    position: absolute;
+    background: var(--darkGray);
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    padding: 30px;
+    opacity: 0;
+    transition: .3s;
+}
+.menu-card:hover .content{
+    opacity: 1;
+    cursor: pointer;
+}
+.menu-card .content h3{
+    margin-top: 10px;
+}
+.menu-card .content p{
+    margin-top: 20px;
+}
+.menu-card button{
+    margin-top: 20px;
+    display: inline-block;
+}
+.menu-card .border-button::after {
+    background: var(--orange);
+}
