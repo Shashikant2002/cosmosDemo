@@ -6,8 +6,8 @@
 }
 
 body {
-  /* font-family: var(--cormorantBold); */
-  font-family: var(--jost);
+  font-family: var(--cormorantBold);
+  /* font-family: var(--jost); */
   background: var(--darkGray);
 }
 
@@ -62,8 +62,8 @@ img {
 /* Text Control  */
 button {
   cursor: pointer;
-  /* font-family: var(--cormorantBold); */
-  font-family: var(--jost);
+  font-family: var(--cormorantBold);
+  /* font-family: var(--jost); */
 }
 
 svg {
@@ -78,8 +78,8 @@ a {
   text-decoration: none;
   color: var(--white);
   font-size: 14px;
-  /* font-family: var(--cormorantBold); */
-  font-family: var(--jost);
+  font-family: var(--cormorantBold);
+  /* font-family: var(--jost); */
 }
 
 p {

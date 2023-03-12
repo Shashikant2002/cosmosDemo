@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './nav.css'
 
 const Nav = () => {
@@ -6,10 +7,10 @@ const Nav = () => {
     <>
         <nav className='nav-bar flex align-center'>
             <ul className='flex align-center'>
-                <li><a className='active' href="#banner">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Products</a></li>
-                <li><a href="/">Contact</a></li>
+                <li><Link className='active' to="/">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="#services">Products</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
             </ul>
         </nav>
     </>
