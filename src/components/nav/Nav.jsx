@@ -8,8 +8,8 @@ const Nav = () => {
             <ul className='flex align-center'>
                 <li><a className='active' href="#banner">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="/">Contact Us</a></li>
+                <li><a href="#services">Products</a></li>
+                <li><a href="/">Contact</a></li>
             </ul>
         </nav>
     </>

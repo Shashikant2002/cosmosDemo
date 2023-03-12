@@ -1,13 +1,19 @@
 @font-face {
   font-family: cormorantBold;
-  src: url("../public/assets/fontFamily/CormorantGaramond-Bold.ttf");
+  src: url("../public/assets/fontFamily/cormorant/CormorantGaramond-Bold.ttf");
+}
+@font-face {
+  font-family: jost;
+  src: url("../public/assets/fontFamily/jost/Jost-Regular.ttf");
 }
 
 :root {
   --cormorantBold: cormorantBold;
+  --jost: 'Jost', sans-serif;
   --transprant: transprant;
   --white: #fff;
-  --orange: #e45707;
+  /* --orange: #e45707; */
+  --orange: #57405d;
   --darkGray: #0e0d09;
 }
 

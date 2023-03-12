@@ -16,7 +16,7 @@
 
 .banner .buttons{
     margin-top: 50px;
-    gap: 10px;
+    gap: 30px;
 }
 
 .banner .scroll-content{
@@ -26,5 +26,5 @@
     bottom: 20px;
     z-index: 9;
     gap: 5px;
-    font-size: .8rem;
+    font-size: 14px;
 }

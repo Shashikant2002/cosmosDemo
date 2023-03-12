@@ -6,7 +6,8 @@
 }
 
 body {
-  font-family: var(--cormorantBold);
+  /* font-family: var(--cormorantBold); */
+  font-family: var(--jost);
   background: var(--darkGray);
 }
 
@@ -61,7 +62,8 @@ img {
 /* Text Control  */
 button {
   cursor: pointer;
-  font-family: var(--cormorantBold);
+  /* font-family: var(--cormorantBold); */
+  font-family: var(--jost);
 }
 
 svg {
@@ -76,7 +78,8 @@ a {
   text-decoration: none;
   color: var(--white);
   font-size: 1.2rem;
-  font-family: var(--cormorantBold);
+  /* font-family: var(--cormorantBold); */
+  font-family: var(--jost);
 }
 
 p {
@@ -104,6 +107,7 @@ h5 {
   font-size: 1.2rem;
   color: var(--white);
   color: var(--orange);
+  text-transform: uppercase;
 }
 
 .r-l-line,
@@ -139,11 +143,12 @@ h5 {
   outline: none;
   background: var(--orange);
   color: var(--white);
-  padding: 10px 20px;
+  padding: 6px 20px;
   transition: .5s;
   border: 1px solid var(--orange);
   border-radius: 5px;
   font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
 .filled-button:hover {
@@ -159,10 +164,11 @@ h5 {
   outline: none;
   background: var(--transprant);
   color: var(--white);
-  padding: 10px 10px;
+  padding: 6px 0px;
   transition: .5s;
   position: relative;
   font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
 .border-button::after {
@@ -170,7 +176,7 @@ h5 {
   position: absolute;
   background: var(--white);
   height: 2px;
-  width: 5%;
+  width: 100%;
   bottom: 0;
   left: 50%;
   border-radius: 5px;
