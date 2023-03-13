@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: var(--cormorantBold);
+  font-family: var(--cormorant);
   /* font-family: var(--jost); */
   background: var(--darkGray);
 }
@@ -62,10 +62,12 @@ img {
 /* Text Control  */
 button {
   cursor: pointer;
-  font-family: var(--cormorantBold);
+  font-family: var(--cormorant);
   /* font-family: var(--jost); */
 }
-
+b{
+  font-family: var(--jostBold);
+}
 svg {
   display: flex;
 }
@@ -78,13 +80,13 @@ a {
   text-decoration: none;
   color: var(--white);
   font-size: 14px;
-  font-family: var(--cormorantBold);
-  /* font-family: var(--jost); */
+  display: inline-block;
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--white);
+  font-family: var(--jost);
 }
 
 h1 {
@@ -110,6 +112,26 @@ h5 {
   text-transform: uppercase;
 }
 
+textarea{
+  height: 130px;
+}
+textarea,
+input{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--white);
+  background: var(--transprant);
+  color: var(--white);
+  padding: 2px 5px 5px 3px;
+  width: 100%;
+}
+label{
+  color: var(--white);
+  font-family: var(--jost);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 .r-l-line,
 .right-line {
   position: relative;
@@ -130,10 +152,10 @@ h5 {
 .right-line::after {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 100px;
   height: 1px;
-  top: 55%;
-  right: -110%;
+  top: 50%;
+  right: -110px;
   background: var(--orange);
 }
 
@@ -146,9 +168,10 @@ h5 {
   padding: 8px 20px;
   transition: .5s;
   border: 1px solid var(--orange);
-  border-radius: 5px;
+  /* border-radius: 5px; */
   font-size: 14px;
   text-transform: uppercase;
+  font-family: var(--jost);
 }
 
 .filled-button:hover {
@@ -160,6 +183,7 @@ h5 {
 /* Border Button  */
 
 .border-button {
+  font-family: var(--jost);
   border: none;
   outline: none;
   background: var(--transprant);

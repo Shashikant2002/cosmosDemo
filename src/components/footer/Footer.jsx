@@ -8,7 +8,8 @@ const Footer = () => {
         <footer className="footer common-section">
             <div className="container ">
                 <figure className='logo'>
-                    <img src="assets/img/logo.png" alt="" />
+                    {/* <img src="assets/img/logo.png" alt="" /> */}
+                    <img src="assets/img/logo-colored.png" alt="" />
                 </figure>
                 <p className='text-center'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor | sit amet consectetur adipisicing elit. Aliquid, placeat.</p>
                 <Socal />

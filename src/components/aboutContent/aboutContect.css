@@ -1,0 +1,46 @@
+.aboutUsContent{
+    padding: 150px 0 0px 0;
+}
+
+.aboutUsContent .container {
+  gap: 50px;
+}
+.aboutUsContent .image {
+  width: 60%;
+}
+.aboutUsContent .content {
+  width: 40%;
+}
+.aboutUsContent .content h2 {
+  width: 100%;
+  max-width: 390px;
+  margin-top: 10px;
+}
+
+.aboutUsContent .content .border-button {
+  margin-top: 20px;
+}
+.aboutUsContent .content .border-button::after {
+  background: var(--orange);
+}
+.aboutUsContent .content .spacetop {
+  margin-top: 20px;
+}
+
+.aboutUsContent .image div img:first-child {
+    max-width: 100%;
+    width: 350px;
+}
+.aboutUsContent .image div img:nth-child(2) {
+    max-width: 100%;
+    width: 350px;
+}
+.aboutUsContent .image div {
+  width: 100%;
+  position: relative;
+}
+.aboutUsContent .image .absImage {
+  position: absolute;
+  top: -10%;
+  right: 0;
+}

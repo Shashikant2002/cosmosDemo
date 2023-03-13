@@ -5,6 +5,7 @@
     position: relative;
     padding: 2px 5px;
     text-transform: uppercase;
+    font-family: var(--jost);
 }
 .nav-bar ul li a::after{
     position: absolute;

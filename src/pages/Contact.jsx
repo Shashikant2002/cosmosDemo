@@ -5,7 +5,7 @@ import InnerBanner from '../components/innerBanner/InnerBanner'
 const Contact = () => {
   return (
     <>
-      <InnerBanner title="Contact Us" />
+       <InnerBanner bgImg={"/assets/img/inner-banner.jpg"} title={"Contact Us"} />
       <ContactUsSection />
     </>
   )

@@ -1,3 +1,35 @@
-.contactSection{
-    background: var(--black);
+.contactSection {
+  background: var(--black);
+}
+
+.contactSection .content {
+  width: 50%;
+}
+.contactSection .form {
+  width: 50%;
+}
+.contactSection .container {
+  gap: 30px;
+}
+.contactSection .content .border-button {
+  margin-top: 20px;
+}
+.contactSection .content .border-button::after {
+  background: var(--orange);
+}
+.contactSection .content h5 {
+  margin-bottom: 10px;
+}
+.contactSection .content .telNum,
+.contactSection .content .info,
+.contactSection .content .bookingEmail,
+.contactSection .content .openingHour {
+  margin-top: 20px;
+}
+
+.contactSection .form form > div {
+  margin-top: 25px;
+}
+.contactSection .form form button {
+  margin-top: 20px;
 }
