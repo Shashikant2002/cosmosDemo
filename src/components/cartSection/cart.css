@@ -1,0 +1,90 @@
+.cartSec {
+  padding-bottom: 0;
+}
+.cartSec .table .body,
+.cartSec .table .heading {
+  width: 16.6666666666666%;
+  text-align: right;
+  padding: 15px 10px;
+}
+.cartSec .table .body:first-child,
+.cartSec .table .heading:first-child {
+  text-align: left;
+}
+.cartSec .table figure img {
+  object-fit: cover;
+  height: 100%;
+}
+.cartSec .table figure {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+.cartSec .table {
+  border: 1px solid #ffffff5a;
+  border-bottom: none;
+}
+.cartSec .table:last-child {
+  border-bottom: 1px solid #ffffff5a;
+}
+.cartSec .table .body p svg {
+  color: var(--white);
+  cursor: pointer;
+}
+.cartSec .table .body .quentity {
+  width: 80px;
+  float: right;
+}
+.cartSec .table .body .quentity button {
+  width: 20px;
+  background: transparent;
+  border: 1px solid #ffffff5a;
+  outline: none;
+  color: var(--white);
+}
+.cartSec .table .body .quentity input {
+  width: 40px;
+  background: transparent;
+  border-top: 1px solid #ffffff5a;
+  border-bottom: 1px solid #ffffff5a;
+  vertical-align: middle;
+  padding: 5px 5px;
+}
+
+.cartSec .cartTotal {
+  margin-top: 50px;
+}
+.cartSec .subTotal {
+  border-bottom: 1px solid #ffffff5a;
+}
+.cartSec .cartTotal > div {
+  width: 50%;
+}
+.cartSec .cartTotal h4 {
+  margin-bottom: 20px;
+}
+.cartSec .cartTotal .subTotal {
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+.cartSec .cartTotal p:first-child {
+  width: 30%;
+}
+.cartSec .cartTotal p:last-child {
+  width: 70%;
+}
+
+.cartSec .filled-button {
+  margin-top: 20px;
+  width: 100%;
+}
+.cartSec .updateCart .filled-button {
+  margin-top: 0;
+  width: auto;
+  float: right;
+}
+.cartSec .updateCart .heading {
+  width: 100%;
+}

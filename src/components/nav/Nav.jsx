@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './nav.css'
 
 const Nav = () => {
@@ -7,10 +7,10 @@ const Nav = () => {
     <>
         <nav className='nav-bar flex align-center'>
             <ul className='flex align-center'>
-                <li><Link className='active' to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="#services">Products</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
+                <li><NavLink className='' to="/">Home</NavLink></li>
+                <li><NavLink to="/about">About</NavLink></li>
+                <li><NavLink to="/cart">Products</NavLink></li>
+                <li><NavLink to="/contact">Contact</NavLink></li>
             </ul>
         </nav>
     </>

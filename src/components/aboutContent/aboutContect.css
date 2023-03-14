@@ -1,5 +1,6 @@
 .aboutUsContent{
-    padding: 150px 0 0px 0;
+    /* padding: 150px 0 0px 0; */
+    padding-bottom: 0;
 }
 
 .aboutUsContent .container {
@@ -33,7 +34,6 @@
 }
 .aboutUsContent .image div img:nth-child(2) {
     max-width: 100%;
-    width: 350px;
 }
 .aboutUsContent .image div {
   width: 100%;
@@ -41,6 +41,8 @@
 }
 .aboutUsContent .image .absImage {
   position: absolute;
-  top: -10%;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0;
+  height: 90%;
 }

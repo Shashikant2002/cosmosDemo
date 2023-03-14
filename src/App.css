@@ -81,6 +81,7 @@ a {
   color: var(--white);
   font-size: 14px;
   display: inline-block;
+  font-family: var(--jost);
 }
 
 p {
@@ -105,11 +106,18 @@ h3 {
   color: var(--white);
 }
 
-h5 {
+h4{
+  font-family: var(--cormorant);
   font-size: 1.2rem;
+  color: var(--white);
+}
+
+h5 {
+  font-size: 1rem;
   color: var(--white);
   color: var(--orange);
   text-transform: uppercase;
+  font-family: var(--jost);
 }
 
 textarea{
@@ -119,7 +127,7 @@ textarea,
 input{
   border: none;
   outline: none;
-  border-bottom: 1px solid var(--white);
+  border-bottom: 1px solid #ffffff2d;
   background: var(--transprant);
   color: var(--white);
   padding: 2px 5px 5px 3px;
@@ -199,7 +207,7 @@ label{
   content: "";
   position: absolute;
   background: var(--white);
-  height: 2px;
+  height: 1px;
   width: 100%;
   bottom: 0;
   left: 50%;

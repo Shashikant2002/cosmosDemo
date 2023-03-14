@@ -1,0 +1,50 @@
+.whereItAllBegain{
+    padding-top: 150px;
+}
+
+.whereItAllBegain .container {
+  gap: 50px;
+}
+
+.whereItAllBegain .content {
+  width: 40%;
+}
+.whereItAllBegain .image {
+  width: 60%;
+}
+.whereItAllBegain .content h2 {
+  width: 100%;
+  max-width: 390px;
+  margin-top: 10px;
+}
+
+.whereItAllBegain .content .border-button {
+  margin-top: 20px;
+}
+.whereItAllBegain .content .border-button::after {
+  background: var(--orange);
+}
+.whereItAllBegain .content .spacetop {
+  margin-top: 20px;
+}
+
+.whereItAllBegain .image div img:first-child {
+  max-width: 100%;
+  width: 350px;
+  height: 400px;
+  object-fit: cover;
+}
+.whereItAllBegain .image div img:nth-child(2) {
+  max-width: 300px;
+  height: 400px;
+  width: 100%;
+}
+.whereItAllBegain .image div {
+  width: 100%;
+  position: relative;
+}
+.whereItAllBegain .image .absImage {
+  position: absolute;
+  top: -80px;
+  right: 0;
+}

@@ -6,6 +6,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Loading from "./components/loading/Loading";
 import About from "./pages/About";
+import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 
@@ -47,6 +48,15 @@ const App = () => {
                 element={
                   <>
                     <Contact />
+                  </>
+                }
+              />
+
+              <Route
+                path="/cart"
+                element={
+                  <>
+                    <Cart />
                   </>
                 }
               />

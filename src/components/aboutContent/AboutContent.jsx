@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./aboutContect.css";
 
-const AboutContent = ({imgPos, subTitle, title, buttonLink = false, bottomPadding, imageBg, imageFr}) => {
+const AboutContent = ({imgPos, subTitle, title, buttonLink = false, imageBg, imageFr}) => {
     const {butName, path} = buttonLink;
   return (
     <>
-        <div className="aboutUsContent common-section" style={{paddingBottom:`${bottomPadding}`}}>
+        <div className="aboutUsContent common-section">
             <div className="container flex align-center">
                 <div style={{order: `${imgPos === "right" ? 2 : 1}`}} className="content">
                     <h5 className='right-line'>{subTitle}</h5>

@@ -4,7 +4,7 @@ const ImageChef = ({image}) => {
   return (
     <>
         <div className="fullImage">
-            <img src={image} alt="" />
+            <img style={{width: "100%"}} src={image} alt="" />
         </div>
     </>
   )
