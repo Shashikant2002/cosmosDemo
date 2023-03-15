@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
+import Product from "./pages/Product";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -57,6 +58,15 @@ const App = () => {
                 element={
                   <>
                     <Cart />
+                  </>
+                }
+              />
+
+              <Route
+                path="/product"
+                element={
+                  <>
+                    <Product />
                   </>
                 }
               />

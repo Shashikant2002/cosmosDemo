@@ -1,0 +1,10 @@
+.productCardMain{
+    width: 100%;
+    max-width: 225px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 8px 0px;
+}
+.productCardMain p{
+    margin-top: 15px;
+}

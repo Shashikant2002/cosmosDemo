@@ -1,0 +1,12 @@
+.productPage .container{
+    gap: 20px;
+}
+.productPage .filters{
+    width: 100%;
+    max-width: 500px;
+    /* border: 1px solid red; */
+}
+.productPage .mainProduct{
+    /* border: 1px solid red; */
+    width: 70%;
+}

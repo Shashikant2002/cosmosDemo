@@ -1,6 +1,7 @@
 import React from "react";
-import { BiLogInCircle } from "react-icons/bi";
+import { BiLogInCircle, BiCartAlt } from "react-icons/bi";
 import { MdSupervisorAccount } from "react-icons/md";
+import { Link } from "react-router-dom";
 import "./loginSignup.css";
 
 const LoginSignup = () => {
@@ -17,6 +18,11 @@ const LoginSignup = () => {
             <a title="Sign Up" href="/">
               <MdSupervisorAccount />
             </a>
+          </li>
+          <li>
+            <Link title="Sign Up" to="/cart">
+              <BiCartAlt />
+            </Link>
           </li>
         </ul>
       </div>

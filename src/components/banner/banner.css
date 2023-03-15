@@ -1,3 +1,13 @@
+.banner{
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(../../../public/assets/img/slider.jpg);
+    padding: 230px 0;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
 .banner h1{
     width: 100%;
     max-width: 815px;

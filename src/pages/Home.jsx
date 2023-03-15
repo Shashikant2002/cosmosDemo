@@ -1,8 +1,8 @@
 import React from "react";
 import About from "../components/aboutUs/About";
 import Banner from "../components/banner/Banner";
-// import Regervation from "../components/booksheet/Regervation";
-// import Dinying from "../components/dinyingExp/Dinying";
+import Regervation from "../components/booksheet/Regervation";
+import Dinying from "../components/dinyingExp/Dinying";
 import OurMenues from "../components/menues/OurMenues";
 
 // For Change Title
@@ -18,8 +18,8 @@ const Home = () => {
       <Banner />
       <About />
       <OurMenues />
-      {/* <Dinying /> */}
-      {/* <Regervation /> */}
+      <Dinying />
+      <Regervation />
     </>
   );
 };

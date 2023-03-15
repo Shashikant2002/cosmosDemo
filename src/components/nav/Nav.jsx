@@ -11,7 +11,7 @@ const Nav = ({togleMenu}) => {
             <ul className='flex align-center'>
                 <li><NavLink className='' to="/">Home</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/cart">Products</NavLink></li>
+                <li><NavLink to="/product">Products</NavLink></li>
                 <li><NavLink to="/contact">Contact</NavLink></li>
             </ul>
         </nav>
