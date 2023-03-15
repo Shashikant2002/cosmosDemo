@@ -13,7 +13,7 @@ const Home = () => {
     <>
     <Helmet><title>Home</title></Helmet>
       <Banner />
-      {/* <About /> */}
+      <About />
       {/* <OurMenues /> */}
       {/* <Dinying /> */}
       {/* <Regervation /> */}
