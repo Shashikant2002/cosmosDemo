@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import LoginSignup from "../loginSignup/LoginSignup";
 import Nav from "../nav/Nav";
 import "./header-main.css";
+import { FaBars } from "react-icons/fa";
 
 const Header = () => {
   const header = useRef();
@@ -22,13 +23,21 @@ const Header = () => {
     }
   }
 
+  const togleMenu = () => {
+    document.querySelector(".nav-bar").classList.toggle("showMenu");
+    document.querySelector(".login-signup").classList.toggle("showLogin-signup");
+  };
+
   return (
     <>
       <header ref={header} className="header-main">
         <div className="container flex justify-spacebetween">
           <div className="empth"></div>
-          <Nav />
+          <Nav togleMenu={togleMenu} />
           <LoginSignup />
+          <span className="barNavOpen" onClick={togleMenu}>
+            <FaBars />
+          </span>
         </div>
       </header>
     </>

@@ -1,12 +1,73 @@
-.header-main{
-    width: 100%;
-    padding: 30px 0;
-    float: left;
-    position: fixed;
-    z-index: 9999;
-    background: var(--transprant);
-    transition: .5s;
+.header-main {
+  width: 100%;
+  padding: 30px 0;
+  float: left;
+  position: fixed;
+  z-index: 9999;
+  background: var(--transprant);
+  transition: 0.5s;
 }
-.header-mainBackground{
+.header-main .container {
+  padding: 0 20px;
+}
+.header-mainBackground {
+  background: var(--darkGray);
+}
+.header-main .barNavOpen,
+.header-main .close {
+  display: none;
+}
+
+@media (max-width: 550px) {
+  .header-main .nav-bar {
+    position: fixed;
     background: var(--darkGray);
+    height: 100vh;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    padding-left: 50px;
+    padding-top: 20%;
+    transition: 0.5s;
+    align-items: initial;
+  }
+  .header-main .showMenu {
+    right: 0;
+  }
+
+  .header-main .nav-bar li a {
+    font-size: 1.5rem;
+  }
+  .header-main .close {
+    display: block;
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    font-size: 2rem;
+  }
+  .header-main .barNavOpen {
+    display: block;
+    font-size: 2rem;
+  }
+  .header-main .nav-bar ul {
+    flex-direction: column;
+    text-align: left;
+    align-items: initial;
+  }
+
+  .header-main .login-signup {
+    position: fixed;
+    z-index: 99;
+    background: var(--darkGray);
+    width: 100%;
+    max-width: 400px;
+    right: -100%;
+    top: 385px;
+    padding-left: 50px;
+    transition: 0.5s;
+  }
+  .header-main .showLogin-signup {
+    right: 0;
+  }
 }

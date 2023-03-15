@@ -28,3 +28,11 @@
     gap: 5px;
     font-size: 14px;
 }
+
+
+
+@media (max-width: 769px) {
+    .banner h1{
+        max-width: 600px;
+    }
+}
