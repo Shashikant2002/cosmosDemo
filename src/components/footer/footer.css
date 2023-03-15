@@ -1,7 +1,9 @@
 .footer{
     padding: 100px 0 70px 0;
 }
-
+.footer .container{
+    padding: 0 20px;
+}
 .footer .logo{
     width: 100%;
     max-width: 180px;
