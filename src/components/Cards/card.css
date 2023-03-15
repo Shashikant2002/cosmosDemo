@@ -38,3 +38,15 @@
 .menu-card .border-button::after {
     background: var(--orange);
 }
+
+
+@media (max-width: 1025px) {
+    .menu-card {
+        width: 50%;
+    }
+}
+@media (max-width: 550px) {
+    .menu-card {
+        width: 100%;
+    }
+}

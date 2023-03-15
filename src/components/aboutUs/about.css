@@ -28,6 +28,11 @@
     margin-top: 50px;
 }
 
+@media (max-width: 1025px) {
+    .about .container{
+        gap: 20px;
+    }
+}
 @media (max-width: 550px) {
     .about .container{
         gap: 0px;

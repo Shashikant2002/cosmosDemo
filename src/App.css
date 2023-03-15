@@ -65,7 +65,7 @@ button {
   font-family: var(--cormorant);
   /* font-family: var(--jost); */
 }
-b{
+b {
   font-family: var(--jostBold);
 }
 svg {
@@ -107,7 +107,7 @@ h3 {
   color: var(--white);
 }
 
-h4{
+h4 {
   font-family: var(--cormorant);
   font-size: 1.2rem;
   color: var(--white);
@@ -121,11 +121,11 @@ h5 {
   font-family: var(--jost);
 }
 
-textarea{
+textarea {
   height: 130px;
 }
 textarea,
-input{
+input {
   border: none;
   outline: none;
   border-bottom: 1px solid #ffffff2d;
@@ -134,7 +134,7 @@ input{
   padding: 2px 5px 5px 3px;
   width: 100%;
 }
-label{
+label {
   color: var(--white);
   font-family: var(--jost);
   font-size: 1rem;
@@ -150,7 +150,7 @@ label{
 .r-l-line::before {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 100px;
   height: 1px;
   top: 55%;
   left: -110%;
@@ -175,7 +175,7 @@ label{
   background: var(--orange);
   color: var(--white);
   padding: 8px 20px;
-  transition: .5s;
+  transition: 0.5s;
   border: 1px solid var(--orange);
   /* border-radius: 5px; */
   font-size: 14px;
@@ -198,7 +198,7 @@ label{
   background: var(--transprant);
   color: var(--white);
   padding: 8px 0px;
-  transition: .5s;
+  transition: 0.5s;
   position: relative;
   font-size: 14px;
   text-transform: uppercase;
@@ -213,7 +213,7 @@ label{
   bottom: 0;
   left: 50%;
   border-radius: 5px;
-  transition: .5s;
+  transition: 0.5s;
   transform: translateX(-50%);
 }
 
@@ -221,19 +221,30 @@ label{
   width: 100%;
 }
 
-
 @media (max-width: 769px) {
-  h1{
+  h1 {
     font-size: 3.4rem;
   }
-  h2{
+  h2 {
     font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .r-l-line::before {
+    width: 60px;
+    left: -100%;
+  }
+
+  .r-l-line::after,
+  .right-line::after {
+    width: 60px;
+    right: -100%;
   }
 }
 
-
 @media (max-width: 550px) {
-  h1{
+  h1 {
     font-size: 3rem;
   }
   .filled-button {
@@ -241,9 +252,8 @@ label{
   }
 }
 
-
 @media (max-width: 426px) {
-  h1{
+  h1 {
     font-size: 2.2rem;
   }
 }
