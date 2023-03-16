@@ -4,6 +4,7 @@
 
 .whereItAllBegain .container {
   gap: 50px;
+  padding: 0 20px;
 }
 
 .whereItAllBegain .content {
@@ -47,4 +48,30 @@
   position: absolute;
   top: -80px;
   right: 0;
+}
+
+
+@media (max-width: 769px) {
+  .whereItAllBegain .right-line::after{
+    right: -50%;
+  }
+}
+@media (max-width: 550px) {
+  .whereItAllBegain .image .absImage{
+    top: 0px;
+    width: 100%;
+  }
+  .whereItAllBegain{
+    padding-top: 60px;
+    padding-bottom: 0;
+  }
+  .whereItAllBegain .image,
+  .whereItAllBegain .content{
+    width: 100%;
+    max-width: 300px;
+  }
+  .whereItAllBegain .container{
+    flex-direction: column;
+    gap: 10px;
+  }
 }
