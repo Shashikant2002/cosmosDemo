@@ -1,30 +1,40 @@
 .productCardMain {
   width: 100%;
-  max-width: 225px;
-  height: 340px;
+  max-width: 330px;
+  height: 160px;
   border-radius: 10px;
   padding: 15px 15px;
   box-shadow: rgba(255, 255, 255, 0.045) 0px 0px 2px 2px;
   align-self: center;
+  gap: 10px;
+}
+.productCardMain figure{
+    width: 100%;
 }
 .productCardMain figure img {
   border-radius: 20px;
-  object-fit: contain;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
-.productCardMain figure {
-  width: 100%;
-  height: 60%;
+.productCardMain .title{
+    text-transform: uppercase;
 }
-.productCardMain .title {
-  margin-top: 15px;
+.productCardMain > a{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+.productCardMain .mainContent{
+    width: 50%;
 }
 .productCardMain .addInCart {
-  width: 50%;
-  margin-top: 20px;
+    width: 100%;
+    margin-top: 5px;
 }
-
+.productCardMain .mainContent .addInCart > button{
+    margin-top: 10px;
+}
 .productCardMain .addInCart input {
   width: 40px;
   background: transparent;
@@ -33,10 +43,13 @@
   vertical-align: middle;
   padding: 5px 5px;
 }
-.productCardMain .addInCart button {
-  width: 20px;
-  background: transparent;
-  border: 1px solid #ffffff5a;
-  outline: none;
-  color: var(--white);
+.productCardMain .addInCart .incDec button {
+    width: 20px;
+    background: transparent;
+    border: 1px solid #ffffff5a;
+    outline: none;
+    color: var(--white);
+}
+.productCardMain .filled-button{
+    padding: 1px 5px;
 }

@@ -1,14 +1,36 @@
-import React from 'react'
-import ContactUsSection from '../components/contactUsSection/ContactUsSection'
-import InnerBanner from '../components/innerBanner/InnerBanner'
+import React, { useEffect, useState } from "react";
+import ContactUsSection from "../components/contactUsSection/ContactUsSection";
+import InnerBanner from "../components/innerBanner/InnerBanner";
+import Loading from "../components/loading/Loading";
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
+  const showLoading = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  };
+
+  useEffect(() => {
+    showLoading();
+  }, []);
+
   return (
     <>
-       <InnerBanner bgImg={"/assets/img/inner-banner.jpg"} title={"Contact Us"} />
-      <ContactUsSection />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <InnerBanner
+            bgImg={"/assets/img/inner-banner.jpg"}
+            title={"Contact Us"}
+          />
+          <ContactUsSection />
+        </>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

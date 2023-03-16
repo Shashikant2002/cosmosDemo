@@ -1,3 +1,23 @@
-.allProducts{
-    gap: 10px;
+.allProducts {
+  gap: 10px;
+}
+.allProducts .pagenationProduct {
+  margin-top: 20px;
+  width: 100%;
+}
+.allProducts .pagenationProduct > * {
+  margin: 0 1px;
+}
+.allProducts .pagenationProduct .filled-button {
+  border: 1px solid var(--white);
+  background: var(--transprant);
+}
+.allProducts .pagenationProduct .activePage {
+  background: var(--orange);
+  color: var(--white);
+  border: 1px solid var(--orange);
+}
+.productPage.common-section,
+.allProducts.common-section {
+  padding-bottom: 0;
 }
