@@ -33,6 +33,20 @@ const AllOroduct = () => {
     setpage(page);
   };
 
+  const nextPage = () => {
+    if (page >= Math.ceil(product.allProducts.length / 6)) {
+      return;
+    }
+    setpage(page + 1);
+  };
+
+  const prePage = () => {
+    if (page <= 1) {
+      return;
+    }
+    setpage(page - 1);
+  };
+
   return (
     <>
       <div className="allProducts common-section flex flexWrap justify-spacebetween">
@@ -48,9 +62,16 @@ const AllOroduct = () => {
                 })}
             {product && product.allProducts.length >= 6 && (
               <div className="pagenationProduct flex justify-center">
-                <button className="filled-button activePage">
-                  <AiOutlineDoubleLeft />
-                </button>
+                {page === 1 ? (
+                  ""
+                ) : (
+                  <button
+                    onClick={prePage}
+                    className="filled-button activePage"
+                  >
+                    <AiOutlineDoubleLeft />
+                  </button>
+                )}
                 {[...Array(Math.ceil(product.allProducts.length / 6))].map(
                   (_, i) => {
                     return (
@@ -66,9 +87,16 @@ const AllOroduct = () => {
                     );
                   }
                 )}
-                <button className="filled-button activePage">
-                  <AiOutlineDoubleRight />
-                </button>
+                {page === Math.ceil(product.allProducts.length / 6) ? (
+                  ""
+                ) : (
+                  <button
+                    onClick={nextPage}
+                    className="filled-button activePage"
+                  >
+                    <AiOutlineDoubleRight />
+                  </button>
+                )}
               </div>
             )}
           </>

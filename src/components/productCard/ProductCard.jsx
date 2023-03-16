@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./productCard.css";
-import { MdAddShoppingCart } from "react-icons/md";
+// import { MdAddShoppingCart } from "react-icons/md";
 
 const ProductCard = ({ data }) => {
   const {
     product_name,
     product_images,
-    product_description,
+    // product_description,
     quantity = 0,
-    product_regular_price,
+    // product_regular_price,
     product_sale_price,
   } = data;
   const [changeQut, setChangeQut] = useState(0);
@@ -47,10 +47,10 @@ const ProductCard = ({ data }) => {
         <div className="mainContent">
           <Link to={"/"}>
             <h4>Product -</h4>
-            <h5 className="title">
+            <h5 title={product_name} className="title">
               <b>
-                {product_name.slice(0, 15)}
-                {product_name.length > 15 ? "..." : ""}
+                {product_name.slice(0, 13)}
+                {product_name.length > 13 ? "..." : ""}
               </b>
             </h5>
           </Link>

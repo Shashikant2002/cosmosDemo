@@ -11,11 +11,13 @@
 .allProducts .pagenationProduct .filled-button {
   border: 1px solid var(--white);
   background: var(--transprant);
+  padding: 5px 10px;
 }
 .allProducts .pagenationProduct .activePage {
   background: var(--orange);
   color: var(--white);
   border: 1px solid var(--orange);
+  padding: 5px 10px;
 }
 .productPage.common-section,
 .allProducts.common-section {
