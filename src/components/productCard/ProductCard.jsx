@@ -35,7 +35,11 @@ const ProductCard = ({ data }) => {
         <Link to={"/"}>
           <figure className="thumb flex align-center">
             <img
-              src={product_images[0].image_url ? "assets/img/fakefood.png" : ""}
+              src={
+                product_images[0].image_url
+                  ? product_images[0].image_url
+                  : "assets/img/fakefood.png"
+              }
               alt=""
             />
           </figure>

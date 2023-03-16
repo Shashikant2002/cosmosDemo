@@ -1,25 +1,56 @@
-.dinying{
-    padding-bottom: 120px;
+.dinying {
+  padding-bottom: 120px;
 }
-.dinying .border-button{
-    margin-top: 40px;
-    padding: 10px 5px 10px 0;
+.dinying .container {
+  padding: 0 20px;
 }
-.dinying .border-button::after{
-    background: var(--orange);
+.dinying .border-button {
+  margin-top: 40px;
+  padding: 10px 5px 10px 0;
+}
+.dinying .border-button::after {
+  background: var(--orange);
 }
 
-.dinying .container{
-    gap: 40px;
+.dinying .container {
+  gap: 40px;
 }
 
-.dinying .content h2{
-    margin: 20px 0;
+.dinying .content h2 {
+  margin: 20px 0;
 }
-.dinying .content figure{
-    margin-top: 50px;
+.dinying .content figure {
+  margin-top: 50px;
 }
 .dinying .content,
-.dinying .image{
-    width: 50%;
+.dinying .image {
+  width: 50%;
+}
+
+@media (max-width: 769px) {
+  .dinying .right-line::after {
+    right: -40%;
+  }
+  .dinying .container {
+    gap: 10px;
+  }
+  .dinying .content figure,
+  .dinying .border-button {
+    margin-top: 10px;
+  }
+  .dinying .content h2 {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .dinying .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .dinying .content,
+  .dinying .image {
+    max-width: 300px;
+    width: 100%;
+  }
 }
