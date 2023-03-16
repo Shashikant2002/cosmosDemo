@@ -1,10 +1,42 @@
-.productCardMain{
-    width: 100%;
-    max-width: 225px;
-    border-radius: 5px;
-    padding: 10px 15px;
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 8px 0px;
+.productCardMain {
+  width: 100%;
+  max-width: 225px;
+  height: 340px;
+  border-radius: 10px;
+  padding: 15px 15px;
+  box-shadow: rgba(255, 255, 255, 0.045) 0px 0px 2px 2px;
+  align-self: center;
 }
-.productCardMain p{
-    margin-top: 15px;
+.productCardMain figure img {
+  border-radius: 20px;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.productCardMain figure {
+  width: 100%;
+  height: 60%;
+}
+.productCardMain .title {
+  margin-top: 15px;
+}
+.productCardMain .addInCart {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.productCardMain .addInCart input {
+  width: 40px;
+  background: transparent;
+  border-top: 1px solid #ffffff5a;
+  border-bottom: 1px solid #ffffff5a;
+  vertical-align: middle;
+  padding: 5px 5px;
+}
+.productCardMain .addInCart button {
+  width: 20px;
+  background: transparent;
+  border: 1px solid #ffffff5a;
+  outline: none;
+  color: var(--white);
 }
