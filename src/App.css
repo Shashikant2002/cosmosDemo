@@ -125,6 +125,10 @@ h5 {
   font-family: var(--jost);
 }
 
+h6{
+  font-size: .7rem;
+}
+
 textarea {
   height: 130px;
 }
@@ -226,6 +230,12 @@ label {
 }
 
 @media (max-width: 769px) {
+  .border-button{
+    font-size: .8rem;
+  }
+  .filled-button{
+    font-size: .8rem;
+  }
   h1 {
     font-size: 3.4rem;
   }
@@ -239,6 +249,12 @@ label {
     width: 60px;
     left: -100%;
   }
+  h5 {
+    font-size: 1rem;
+  }
+  p{
+    font-size: .8rem;
+  }
 
   .r-l-line::after,
   .right-line::after {
@@ -248,6 +264,7 @@ label {
   .common-section{
     padding: 40px 0;
   }
+
 }
 
 @media (max-width: 550px) {

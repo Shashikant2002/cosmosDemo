@@ -1,6 +1,6 @@
 .productCardMain {
   width: 100%;
-  max-width: 330px;
+  max-width: 49%;
   height: 160px;
   border-radius: 10px;
   padding: 15px 15px;
@@ -53,4 +53,42 @@
 }
 .productCardMain .filled-button{
     padding: 1px 5px;
+}
+
+
+@media (max-width: 1025px) {
+    .productPage .mainProduct{
+        width: 75%;
+    }
+    .productPage .filters{
+        max-width: 150px;
+    }
+}
+
+
+@media (max-width: 850px) {
+    .productCardMain{
+        flex-direction: column;
+        height: 300px;
+        max-width: 48%;
+        height: 270px;
+    }
+    .productCardMain > a{
+        width: 100%;
+    }
+    .productCardMain .mainContent{
+        width: 100%;
+    }
+    .productPage .mainProduct{
+        width: 65%;
+    }
+}
+
+@media (max-width: 550px) {
+    .productCardMain{
+        flex-direction: row;
+        width: 100%;
+        max-width: 100%;
+        height: 130px;
+    }
 }

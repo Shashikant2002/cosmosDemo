@@ -46,12 +46,10 @@ const ProductCard = ({ data }) => {
         </Link>
         <div className="mainContent">
           <Link to={"/"}>
-            <h4>Product -</h4>
+            {/* <h4>Product -</h4> */}
             <h5 title={product_name} className="title">
-              <b>
-                {product_name.slice(0, 13)}
-                {product_name.length > 13 ? "..." : ""}
-              </b>
+                {product_name.slice(0, 10)}
+                {product_name.length > 10 ? "..." : ""}
             </h5>
           </Link>
           {/* <p>

@@ -11,3 +11,21 @@
     /* border: 1px solid red; */
     width: 70%;
 }
+
+@media (max-width: 550px) {
+    .productPage .container{
+        align-items: center;
+        gap: 10px;
+        flex-direction: column;
+    }
+    .productPage .filters{
+        max-width: 300px;
+    }
+    .productPage .container{
+        padding: 0 0px;
+    }
+    .productPage .mainProduct{
+        width: 100%;
+        padding: 0 20px;
+    }
+}

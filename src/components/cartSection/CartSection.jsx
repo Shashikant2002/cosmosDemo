@@ -9,71 +9,73 @@ const CartSection = () => {
       <div className="cartSec common-section">
         <div className="container">
           <div className="cartMatter">
-            <div className="table flex justify-spacebetween">
-              <div className="heading">-</div>
-              <div className="heading">-</div>
-              <div className="heading">
-                <p>
-                  <b>PRODUCT</b>
-                </p>
+            <div className="productCartmain">
+              <div className="table flex justify-spacebetween">
+                <div className="heading">-</div>
+                <div className="heading">-</div>
+                <div className="heading">
+                  <p>
+                    <b>PRODUCT</b>
+                  </p>
+                </div>
+                <div className="heading">
+                  <p>
+                    <b>PRICE</b>
+                  </p>
+                </div>
+                <div className="heading">
+                  <p>
+                    <b>QUANTITY</b>
+                  </p>
+                </div>
+                <div className="heading">
+                  <p>
+                    <b>SUBTOTAL</b>
+                  </p>
+                </div>
               </div>
-              <div className="heading">
-                <p>
-                  <b>PRICE</b>
-                </p>
-              </div>
-              <div className="heading">
-                <p>
-                  <b>QUANTITY</b>
-                </p>
-              </div>
-              <div className="heading">
-                <p>
-                  <b>SUBTOTAL</b>
-                </p>
-              </div>
-            </div>
-            {data &&
-              data.map((ele) => {
-                return (
-                  <div
-                    key={ele}
-                    className="table flex justify-spacebetween align-center"
-                  >
-                    <div className="body">
-                      <p>
-                        <MdClose />
-                      </p>
-                    </div>
-                    <div className="body">
-                      <figure>
-                        <img src="assets/img/about-banner.jpg" alt="" />
-                      </figure>
-                    </div>
-                    <div className="body">
-                      <p>PRODUCT{ele}</p>
-                    </div>
-                    <div className="body">
-                      <p>{ele}00</p>
-                    </div>
-                    <div className="body">
-                      <div className="quentity flex">
-                        <button>+</button>
-                        <input
-                          className="text-center"
-                          value={ele}
-                          type="text"
-                          readOnly={true}
-                        />
-                        <button>-</button>
+              {data &&
+                data.map((ele) => {
+                  return (
+                    <div
+                      key={ele}
+                      className="table flex justify-spacebetween align-center"
+                    >
+                      <div className="body">
+                        <p>
+                          <MdClose />
+                        </p>
+                      </div>
+                      <div className="body">
+                        <figure>
+                          <img src="assets/img/about-banner.jpg" alt="" />
+                        </figure>
+                      </div>
+                      <div className="body">
+                        <p>PRODUCT{ele}</p>
+                      </div>
+                      <div className="body">
+                        <p>{ele}00</p>
+                      </div>
+                      <div className="body">
+                        <div className="quentity flex">
+                          <button>+</button>
+                          <input
+                            className="text-center"
+                            value={ele}
+                            type="text"
+                            readOnly={true}
+                          />
+                          <button>-</button>
+                        </div>
+                      </div>
+                      <div className="body">
+                        <p>{ele * ele}00</p>
                       </div>
                     </div>
-                    <div className="body">
-                      <p>{ele * ele}00</p>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+            </div>
             <div className="table flex justify-spacebetween updateCart">
               <div className="heading">
                 <button className="filled-button">UPDATE CART</button>

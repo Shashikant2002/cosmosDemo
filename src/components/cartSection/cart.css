@@ -1,6 +1,9 @@
 .cartSec {
   padding-bottom: 0;
 }
+.cartSec .container {
+  padding: 0 20px;
+}
 .cartSec .table .body,
 .cartSec .table .heading {
   width: 16.6666666666666%;
@@ -87,4 +90,27 @@
 }
 .cartSec .updateCart .heading {
   width: 100%;
+}
+
+@media (max-width: 769px) {
+  .cartSec .table .body,
+  .cartSec .table .heading {
+    padding: 9px 10px;
+  }
+  .productCartmain {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .productCartmain > div {
+    min-width: 770px;
+  }
+}
+
+@media (max-width: 550px) {
+  .cartSec .empty {
+    display: none;
+  }
+  .cartSec .cartTotal .total{
+    width: 100%;
+  }
 }
