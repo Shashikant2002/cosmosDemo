@@ -1,6 +1,6 @@
 import React from "react";
 import "./cart.css";
-import { MdClose } from "react-icons/md";
+import CardCart from "./CardCart";
 
 const CartSection = () => {
   const data = [1, 2, 3, 4, 5];
@@ -37,42 +37,7 @@ const CartSection = () => {
               {data &&
                 data.map((ele) => {
                   return (
-                    <div
-                      key={ele}
-                      className="table flex justify-spacebetween align-center"
-                    >
-                      <div className="body">
-                        <p>
-                          <MdClose />
-                        </p>
-                      </div>
-                      <div className="body">
-                        <figure>
-                          <img src="assets/img/about-banner.jpg" alt="" />
-                        </figure>
-                      </div>
-                      <div className="body">
-                        <p>PRODUCT{ele}</p>
-                      </div>
-                      <div className="body">
-                        <p>{ele}00</p>
-                      </div>
-                      <div className="body">
-                        <div className="quentity flex">
-                          <button>+</button>
-                          <input
-                            className="text-center"
-                            value={ele}
-                            type="text"
-                            readOnly={true}
-                          />
-                          <button>-</button>
-                        </div>
-                      </div>
-                      <div className="body">
-                        <p>{ele * ele}00</p>
-                      </div>
-                    </div>
+                    <CardCart ele={ele} />
                   );
                 })}
             </div>

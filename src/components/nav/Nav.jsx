@@ -9,10 +9,10 @@ const Nav = ({togleMenu}) => {
         <nav className='nav-bar flex align-center'>
           <span className='close' onClick={togleMenu}><MdClose /></span>
             <ul className='flex align-center'>
-                <li><NavLink className='' to="/">Home</NavLink></li>
-                <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/product">Products</NavLink></li>
-                <li><NavLink to="/contact">Contact</NavLink></li>
+                <li><NavLink className='' to="/" onClick={togleMenu}>Home</NavLink></li>
+                <li><NavLink to="/about" onClick={togleMenu}>About</NavLink></li>
+                <li><NavLink to="/product" onClick={togleMenu}>Products</NavLink></li>
+                <li><NavLink to="/contact" onClick={togleMenu}>Contact</NavLink></li>
             </ul>
         </nav>
     </>

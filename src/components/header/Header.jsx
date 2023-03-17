@@ -34,7 +34,7 @@ const Header = () => {
         <div className="container flex justify-spacebetween">
           <div className="empth"></div>
           <Nav togleMenu={togleMenu} />
-          <LoginSignup />
+          <LoginSignup togleMenu={togleMenu} />
           <span className="barNavOpen" onClick={togleMenu}>
             <FaBars />
           </span>
