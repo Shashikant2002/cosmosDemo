@@ -35,6 +35,7 @@
 }
 .productCardMain .mainContent .addInCart > button{
     margin-top: 10px;
+    font-size: 12px;
 }
 .productCardMain .addInCart input {
   width: 40px;
@@ -52,7 +53,8 @@
     color: var(--white);
 }
 .productCardMain .filled-button{
-    padding: 1px 5px;
+    /* padding: 1px 5px; */
+    padding: 3px 8px;
 }
 
 

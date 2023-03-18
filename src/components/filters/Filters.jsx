@@ -14,10 +14,10 @@ const Filters = ({ categoryForFilter }) => {
                   {ele._id === "" ? (
                     ""
                   ) : (
-                    <label class="box flex align-center">
+                    <label className="box flex align-center">
                       <p>{ele._id}</p>
                       <input type="checkbox" />
-                      <span class="mark"></span>
+                      <span className="mark"></span>
                     </label>
                   )}
                 </li>

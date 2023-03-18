@@ -9,9 +9,11 @@ import ProductCategory from "../components/productCategory/ProductCategory";
 import "./product.css";
 
 const Product = () => {
-  const baseUrl = process.env.PUBLIC_URL || "http://localhost:5000";
+  const baseUrl = process.env.BASE_URL || "http://localhost:5000";
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState();
+
+  console.log(baseUrl);
 
   const fetchBannerData = async () => {
     setLoading(true);

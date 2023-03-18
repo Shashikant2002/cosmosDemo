@@ -15,9 +15,9 @@ const ProductCard = ({ data }) => {
   const [changeQut, setChangeQut] = useState(0);
 
   const increageQuantity = () => {
-    if (quantity <= changeQut) {
-      return;
-    }
+    // if (quantity <= changeQut) {
+    //   return;
+    // }
     setChangeQut(changeQut + 1);
   };
   const decreaseQuantity = () => {
@@ -58,7 +58,7 @@ const ProductCard = ({ data }) => {
               : "Description Not Found"}
           </p> */}
           <p className="quantityPrice flex justify-spacebetween">
-            <span>Qt. {quantity}</span>
+            {/* <span>Qt. {quantity}</span> */}
             <span>
               ₹{/* <strike>{product_regular_price}</strike> */}
               {product_sale_price}
@@ -82,7 +82,7 @@ const ProductCard = ({ data }) => {
               <MdAddShoppingCart />
             </button> */}
             <button
-              style={{ pointerEvents: changeQut >= 1 ? "inherit" : "none" }}
+              // style={{ pointerEvents: changeQut >= 1 ? "inherit" : "none" }}
               className="filled-button"
             >
               Add in Cart

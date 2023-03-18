@@ -6,6 +6,9 @@
   cursor: pointer;
 }
 
+.categories .box p{
+  text-transform: uppercase;
+}
 .categories .box .mark {
   position: absolute;
   top: 50%;
