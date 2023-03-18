@@ -50,7 +50,7 @@ const ProductCategory = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="productCategory ">
+        <div className="productCategory common-section">
           <div className="container">
             {category ? (
               <Carousel infinite={true} responsive={responsive}>

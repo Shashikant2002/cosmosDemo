@@ -1,33 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import Loading from "../loading/Loading";
+import React, { useState } from "react";
 import ProductCard from "../productCard/ProductCard";
 import "./allProduct.css";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 
-const AllOroduct = () => {
-  const baseUrl = process.env.PUBLIC_URL || "http://localhost:5000";
-  const [loading, setLoading] = useState(false);
-  const [product, setProduct] = useState();
+const AllOroduct = ({product}) => {
   const [page, setpage] = useState(1);
-
-  const fetchBannerData = async () => {
-    setLoading(true);
-    try {
-      const { data } = await axios.get(`${baseUrl}/api/all/products`);
-      setProduct(data);
-      setLoading(false);
-    } catch (err) {
-      console.log("Error " + err);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchBannerData();
-  }, []);
-
-  console.log(product);
 
   const pageSelect = (page) => {
     setpage(page);
@@ -50,13 +27,9 @@ const AllOroduct = () => {
   return (
     <>
       <div className="allProducts common-section flex flexWrap justify-spacebetween">
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
             {product &&
               product.allProducts
-                .slice(page * 6 - 6, page * 6)
+                .slice(page * 9 - 9, page * 9)
                 .map((ele, i) => {
                   return <ProductCard key={i} data={ele} />;
                 })}
@@ -72,7 +45,7 @@ const AllOroduct = () => {
                     <AiOutlineDoubleLeft />
                   </button>
                 )}
-                {[...Array(Math.ceil(product.allProducts.length / 6))].map(
+                {[...Array(Math.ceil(product.allProducts.length / 9))].map(
                   (_, i) => {
                     return (
                       <button
@@ -87,7 +60,7 @@ const AllOroduct = () => {
                     );
                   }
                 )}
-                {page === Math.ceil(product.allProducts.length / 6) ? (
+                {page === Math.ceil(product.allProducts.length / 9) ? (
                   ""
                 ) : (
                   <button
@@ -99,8 +72,6 @@ const AllOroduct = () => {
                 )}
               </div>
             )}
-          </>
-        )}
       </div>
     </>
   );

@@ -1,0 +1,45 @@
+.categories .box{
+    position: relative;
+}
+.categories .box input {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.categories .box .mark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  background-color: var(--white);
+  right: 10%;
+}
+
+.categories .box:hover input ~ .mark {
+  background-color: gray;
+}
+
+.categories .box input:checked ~ .mark {
+  background-color: var(--orange);
+}
+
+.categories .box .mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.categories .box input:checked ~ .mark:after {
+  display: block;
+}
+
+.categories .box .mark:after {
+    left: 5px;
+    top: 1px;
+    width: 3px;
+    height: 6px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}

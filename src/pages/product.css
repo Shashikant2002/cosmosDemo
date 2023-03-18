@@ -4,12 +4,12 @@
 }
 .productPage .filters{
     width: 100%;
-    max-width: 400px;
+    max-width: 140px;
     /* border: 1px solid red; */
 }
 .productPage .mainProduct{
     /* border: 1px solid red; */
-    width: 70%;
+    width: 100%;
 }
 
 @media (max-width: 550px) {
@@ -19,7 +19,7 @@
         flex-direction: column;
     }
     .productPage .filters{
-        max-width: 300px;
+        max-width: 200px;
     }
     .productPage .container{
         padding: 0 0px;

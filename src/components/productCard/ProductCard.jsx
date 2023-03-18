@@ -48,8 +48,8 @@ const ProductCard = ({ data }) => {
           <Link to={"/"}>
             {/* <h4>Product -</h4> */}
             <h5 title={product_name} className="title">
-                {product_name.slice(0, 10)}
-                {product_name.length > 10 ? "..." : ""}
+                {product_name.slice(0, 9)}
+                {product_name.length > 9 ? "..." : ""}
             </h5>
           </Link>
           {/* <p>
