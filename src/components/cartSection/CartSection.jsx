@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./cart.css";
 import CardCart from "./CardCart";
+import { fetch_cart } from "../../utils/globalFunction";
 
 const CartSection = () => {
-  const data = [1, 2, 3, 4, 5];
+  const [subPrice, setSubPrice] = useState();
+  const [cartData, setCartData] = useState();
+
+  const subTotal = () => {
+    let subPrice = 0;
+  };
+  useEffect(() => {
+    const cartProduct = fetch_cart();
+    setCartData(cartProduct);
+    subTotal();
+  }, []);
+
   return (
     <>
       <div className="cartSec common-section">
@@ -34,11 +46,9 @@ const CartSection = () => {
                   </p>
                 </div>
               </div>
-              {data &&
-                data.map((ele) => {
-                  return (
-                    <CardCart ele={ele} />
-                  );
+              {cartData &&
+                cartData.map((ele, i) => {
+                  return <CardCart key={ele._id} ele={ele} index={i} />;
                 })}
             </div>
             <div className="table flex justify-spacebetween updateCart">
@@ -55,7 +65,7 @@ const CartSection = () => {
               <div className="table">
                 <div className="subTotal flex">
                   <p>Subtotal</p>
-                  <p>$5500</p>
+                  <p>${subPrice}</p>
                 </div>
                 <div className="subTotal flex">
                   <p>Total</p>

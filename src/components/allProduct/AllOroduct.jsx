@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "../productCard/ProductCard";
 import "./allProduct.css";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
@@ -31,7 +31,7 @@ const AllOroduct = ({product}) => {
               product.allProducts
                 .slice(page * 9 - 9, page * 9)
                 .map((ele, i) => {
-                  return <ProductCard key={i} data={ele} />;
+                  return <ProductCard key={i} data={ele}/>;
                 })}
             {product && product.allProducts.length >= 6 && (
               <div className="pagenationProduct flex justify-center">

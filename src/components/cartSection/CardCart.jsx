@@ -1,22 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
+import { fetch_cart } from "../../utils/globalFunction";
 
-const CardCart = ({ele}) => {
-    const [qut, setQut] = useState(0);
+const CardCart = ({ ele }) => {
+  const [qut, setQut] = useState(0);
+  const [allProduct, setAllProduct] = useState();
 
-    const incQutCart = () => {
-        setQut(qut + 1)
+  useEffect(() => {
+    setQut(ele.changeQut);
+    let fetchData = fetch_cart();
+    setAllProduct(fetchData);
+  }, []);
+
+  const incQutCart = () => {
+    setQut(qut + 1);
+    let filteredProduct = allProduct.filter(
+      (element) => element.data._id !== ele.data._id
+    );
+    filteredProduct.push({ data: ele, changeQut: qut });
+    console.log(filteredProduct)
+    // localStorage.setItem("cartPro", JSON.stringify(filteredProduct));
+  };
+  const decQutCart = () => {
+    if (qut <= 0) {
+      return;
     }
-    const decQutCart = () => {
-        if(qut <= 0){
-            return;
-        }
-        setQut(qut - 1)
-    }
+    setQut(qut - 1);
+  };
 
   return (
     <>
-      <div key={ele} className="table flex justify-spacebetween align-center">
+      <div className="table flex justify-spacebetween align-center">
         <div className="body">
           <p>
             <MdClose />
@@ -28,10 +42,10 @@ const CardCart = ({ele}) => {
           </figure>
         </div>
         <div className="body">
-          <p>PRODUCT{ele}</p>
+          <p>{ele.data.product_name}</p>
         </div>
         <div className="body">
-          <p>{ele}00</p>
+          <p>{ele.data.product_sale_price}</p>
         </div>
         <div className="body">
           <div className="quentity flex">
@@ -46,7 +60,7 @@ const CardCart = ({ele}) => {
           </div>
         </div>
         <div className="body">
-          <p>{ele * ele}00</p>
+          <p>{qut * ele.data.product_sale_price}</p>
         </div>
       </div>
     </>

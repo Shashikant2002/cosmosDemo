@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../utils/globalFunction";
 import "./productCard.css";
-// import { MdAddShoppingCart } from "react-icons/md";
+import { fetch_cart } from "../../utils/globalFunction";
 
 const ProductCard = ({ data }) => {
+  const [view, setView] = useState(false);
+  const allProduct = fetch_cart();
+  const [cartproduct, setProduct] = useState();
+  
+  useEffect(() => {
+    setProduct(allProduct);
+    console.log(cartproduct);
+    // cartproduct &&
+    //   cartproduct.forEach((element) => {
+    //     console.log(element.data._id);
+    //     // if (element._id === data.allProducts._id) {
+    //     //   setView(true);
+    //     // }
+    //   });
+  }, []);
+  // console.log(view)
   const {
     product_name,
     product_images,
@@ -46,10 +63,10 @@ const ProductCard = ({ data }) => {
         </Link>
         <div className="mainContent">
           <Link to={"/"}>
-            {/* <h4>Product -</h4> */}
+            <h4>{view} -</h4>
             <h5 title={product_name} className="title">
-                {product_name.slice(0, 9)}
-                {product_name.length > 9 ? "..." : ""}
+              {product_name.slice(0, 9)}
+              {product_name.length > 9 ? "..." : ""}
             </h5>
           </Link>
           {/* <p>
@@ -70,7 +87,7 @@ const ProductCard = ({ data }) => {
               <input
                 className="text-center"
                 type="text"
-                readOnly=""
+                readOnly={true}
                 value={changeQut}
               />
               <button onClick={increageQuantity}>+</button>
@@ -81,12 +98,20 @@ const ProductCard = ({ data }) => {
             >
               <MdAddShoppingCart />
             </button> */}
-            <button
-              // style={{ pointerEvents: changeQut >= 1 ? "inherit" : "none" }}
-              className="filled-button"
-            >
-              Add in Cart
-            </button>
+            {view && view ? (
+              <>
+                <Link to={"/"} className="filled-button">
+                  View Cart
+                </Link>
+              </>
+            ) : (
+              <button
+                className="filled-button"
+                onClick={() => addToCart({ data, changeQut })}
+              >
+                Add to Cart
+              </button>
+            )}
           </div>
         </div>
       </div>

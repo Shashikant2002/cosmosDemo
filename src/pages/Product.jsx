@@ -9,16 +9,17 @@ import ProductCategory from "../components/productCategory/ProductCategory";
 import "./product.css";
 
 const Product = () => {
-  const baseUrl = process.env.BASE_URL || "http://localhost:5000";
+  // const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
+  const baseUrl = "http://localhost:5000";
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState();
 
-  console.log(baseUrl);
 
   const fetchBannerData = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`${baseUrl}/api/all/products`);
+      const { data } = await axios.get("http://localhost:5000/api/all/products");
+      // const { data } = await axios.get(`${baseUrl}api/all/products`);
       setProduct(data);
       setLoading(false);
     } catch (err) {
@@ -26,10 +27,13 @@ const Product = () => {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     fetchBannerData();
   }, []);
+
+  // console.log(product);
 
   return (
     <>

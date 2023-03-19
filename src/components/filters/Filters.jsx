@@ -2,7 +2,6 @@ import React from "react";
 import "./filters.css";
 
 const Filters = ({ categoryForFilter }) => {
-  console.log(categoryForFilter);
   return (
     <>
       <div className="categories">
@@ -10,11 +9,11 @@ const Filters = ({ categoryForFilter }) => {
           {categoryForFilter &&
             categoryForFilter.map((ele, i) => {
               return (
-                <li>
+                <li key={i}>
                   {ele._id === "" ? (
                     ""
                   ) : (
-                    <label className="box flex align-center">
+                    <label key={ele._id} className="box flex align-center">
                       <p>{ele._id}</p>
                       <input type="checkbox" />
                       <span className="mark"></span>
