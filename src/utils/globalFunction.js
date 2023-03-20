@@ -20,3 +20,25 @@ export const fetch_cart = () => {
     console.log("Error: " + err);
   }
 };
+
+export const remove_cart = (eleR) => {
+  try {
+    let productArray = JSON.parse(localStorage.getItem("cartPro"));
+
+    const filterData = productArray.filter(
+      (datamain) => eleR.data._id !== datamain.data._id
+    );
+
+    localStorage.setItem("cartPro", JSON.stringify(filterData));
+  } catch (err) {
+    console.log("Error: " + err);
+  }
+};
+
+export const updateCart = (data) => {
+  try {
+    localStorage.setItem("cartPro", JSON.stringify(data));
+  } catch (err) {
+    console.log("Error: " + err);
+  }
+};

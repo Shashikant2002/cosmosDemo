@@ -6,20 +6,17 @@ import { fetch_cart } from "../../utils/globalFunction";
 
 const ProductCard = ({ data }) => {
   const [view, setView] = useState(false);
+  const [counter, setCounter] = useState(0);
   const allProduct = fetch_cart();
-  const [cartproduct, setProduct] = useState();
-  
+
   useEffect(() => {
-    setProduct(allProduct);
-    console.log(cartproduct);
-    // cartproduct &&
-    //   cartproduct.forEach((element) => {
-    //     console.log(element.data._id);
-    //     // if (element._id === data.allProducts._id) {
-    //     //   setView(true);
-    //     // }
-    //   });
-  }, []);
+    allProduct &&
+      allProduct.forEach((element) => {
+        if (element.data._id === data._id) {
+          setView(true);
+        }
+      });
+  });
   // console.log(view)
   const {
     product_name,
@@ -100,14 +97,17 @@ const ProductCard = ({ data }) => {
             </button> */}
             {view && view ? (
               <>
-                <Link to={"/"} className="filled-button">
+                <Link to={"/cart"} className="filled-button">
                   View Cart
                 </Link>
               </>
             ) : (
               <button
                 className="filled-button"
-                onClick={() => addToCart({ data, changeQut })}
+                onClick={() => {
+                  addToCart({ data, changeQut });
+                  setCounter(counter + 1);
+                }}
               >
                 Add to Cart
               </button>

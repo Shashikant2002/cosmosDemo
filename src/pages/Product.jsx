@@ -18,7 +18,7 @@ const Product = () => {
   const fetchBannerData = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get("http://localhost:5000/api/all/products");
+      const { data } = await axios.get("https://kozmo.onrender.com/api/all/products"); 
       // const { data } = await axios.get(`${baseUrl}api/all/products`);
       setProduct(data);
       setLoading(false);

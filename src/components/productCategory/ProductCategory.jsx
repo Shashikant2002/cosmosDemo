@@ -6,14 +6,15 @@ import Loading from "../loading/Loading";
 import "./productCategory.css";
 
 const ProductCategory = () => {
-  const baseUrl = process.env.PUBLIC_URL || "http://localhost:5000";
+  const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState();
 
   const fetchBannerData = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`${baseUrl}/api/all/products`);
+      const { data } = await axios.get(`https://kozmo.onrender.com/api/all/products`);
+      // const { data } = await axios.get(`${baseUrl}/api/all/products`);
       setCategory(data);
       setLoading(false);
     } catch (err) {

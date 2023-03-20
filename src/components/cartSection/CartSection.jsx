@@ -5,16 +5,25 @@ import { fetch_cart } from "../../utils/globalFunction";
 
 const CartSection = () => {
   const [subPrice, setSubPrice] = useState();
-  const [cartData, setCartData] = useState();
+  const [cartData, setCartData] = useState(0);
 
-  const subTotal = () => {
-    let subPrice = 0;
-  };
   useEffect(() => {
-    const cartProduct = fetch_cart();
-    setCartData(cartProduct);
+    let productArray = fetch_cart();
+    setCartData(productArray);
     subTotal();
   }, []);
+
+  const subTotal = () => {
+    let subPricecal = 0;
+
+    subPricecal = 8;
+
+
+    // console.log(cartData);
+
+
+    setSubPrice(subPricecal)
+  };
 
   return (
     <>
@@ -48,7 +57,7 @@ const CartSection = () => {
               </div>
               {cartData &&
                 cartData.map((ele, i) => {
-                  return <CardCart key={ele._id} ele={ele} index={i} />;
+                  return <CardCart key={i} ele={ele} index={i} />;
                 })}
             </div>
             <div className="table flex justify-spacebetween updateCart">
