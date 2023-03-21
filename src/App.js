@@ -18,6 +18,8 @@ const App = () => {
     setLoading(false);
   }, 1000);
 
+  console.log(process.env.REACT_APP_BASE_URL)
+
   return (
     <>
       {loading && loading ? (
