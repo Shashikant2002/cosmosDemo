@@ -35,7 +35,7 @@ const Header = () => {
           <figure className="logo"> <img src="assets/img/logo.png" alt="" /> </figure>
           <Nav togleMenu={togleMenu} />
           <LoginSignup togleMenu={togleMenu} />
-          <span className="barNavOpen" onClick={togleMenu}>
+          <span className="barNavOpen flex align-center" onClick={togleMenu}>
             <FaBars />
           </span>
         </div>
