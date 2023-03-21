@@ -43,14 +43,14 @@
     font-size: 1.1rem;
   }
   .header-main .close {
-    display: flex;
+    display: block;
     position: absolute;
     top: 3%;
     right: 5%;
     font-size: 2rem;
   }
   .header-main .barNavOpen {
-    display: block;
+    display: flex;
     font-size: 2rem;
   }
   .header-main .nav-bar ul {
