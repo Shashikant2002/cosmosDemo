@@ -6,6 +6,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Loading from "./components/loading/Loading";
 import About from "./pages/About";
+import Career from "./pages/Carrier";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -67,6 +68,15 @@ const App = () => {
                 element={
                   <>
                     <Product />
+                  </>
+                }
+              />
+
+              <Route
+                path="/career"
+                element={
+                  <>
+                    <Career />
                   </>
                 }
               />

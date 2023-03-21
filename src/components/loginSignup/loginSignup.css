@@ -4,3 +4,18 @@
 .login-signup ul li a{
     font-size: 25px;
 }
+
+.login-signup .cart_number{
+    /* border: 1px solid red; */
+    position: relative;
+}
+.login-signup .cart_number .cartCircle{
+    background: var(--white);
+    position: absolute;
+    margin-top: 0;
+    color: var(--orange);
+    padding: 1px 5px;
+    border-radius: 50%;
+    top: -9px;
+    right: -14px;
+}

@@ -32,7 +32,7 @@ const Header = () => {
     <>
       <header ref={header} className="header-main">
         <div className="container flex justify-spacebetween">
-          <div className="empth"></div>
+          <figure className="logo"> <img src="assets/img/logo.png" alt="" /> </figure>
           <Nav togleMenu={togleMenu} />
           <LoginSignup togleMenu={togleMenu} />
           <span className="barNavOpen" onClick={togleMenu}>
