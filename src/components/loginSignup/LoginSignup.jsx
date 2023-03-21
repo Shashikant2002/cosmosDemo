@@ -10,7 +10,9 @@ const LoginSignup = ({ togleMenu }) => {
   const fetchCart = fetch_cart();
 
   useEffect(() => {
-    setTotalCart(fetchCart && fetchCart.length);
+    if (fetchCart) {
+      setTotalCart(fetchCart && fetchCart.length);
+    }
   }, []);
 
   return (
