@@ -6,13 +6,12 @@ import { fetch_cart } from "../../utils/globalFunction";
 import "./loginSignup.css";
 
 const LoginSignup = ({ togleMenu }) => {
-  const[totalCart, setTotalCart] = useState(0);
+  const [totalCart, setTotalCart] = useState(0);
   const fetchCart = fetch_cart();
 
   useEffect(() => {
-    console.log(fetchCart)
-    setTotalCart(fetchCart.length)
-  }, [])
+    setTotalCart(fetchCart && fetchCart.length);
+  }, []);
 
   return (
     <>
@@ -30,7 +29,7 @@ const LoginSignup = ({ togleMenu }) => {
           </li>
           <li className="cart_number">
             <p className="cartCircle">{totalCart}</p>
-            <Link title="Sign Up" to="/cart" onClick={togleMenu}>
+            <Link title="Cart" to="/cart" onClick={togleMenu}>
               <BiCartAlt />
             </Link>
           </li>
