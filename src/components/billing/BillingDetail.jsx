@@ -10,6 +10,7 @@ const BillingDetail = () => {
     let subPricecal = 0;
     let arr = [];
 
+    console.log(cart);
     cart.forEach((element) => {
       arr.push(element.changeQut * element.data.product_sale_price);
     });
@@ -24,7 +25,6 @@ const BillingDetail = () => {
   useEffect(() => {
     let cartData = fetch_cart();
     setCart(cartData);
-    console.log(cartData)
     subTotal();
   }, []);
 
