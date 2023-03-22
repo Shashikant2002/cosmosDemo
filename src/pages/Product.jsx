@@ -12,7 +12,7 @@ const Product = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
   // const baseUrl = "http://localhost:5000";
   let baseUrlNew =  `${process.env.REACT_APP_BASE_URL}api/all/products`
-  console.log(baseUrlNew);
+  // console.log(baseUrlNew);
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState();
 
@@ -20,7 +20,7 @@ const Product = () => {
   const fetchBannerData = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}api/all/products`); 
+      const { data } = await axios.get(`${baseUrl}/api/all/products`); 
       // const { data } = await axios.get(`http://localhost:5000/api/all/products`);
       setProduct(data);
       setLoading(false);

@@ -5,25 +5,33 @@ import { fetch_cart } from "../../utils/globalFunction";
 
 const CartSection = () => {
   const [subPrice, setSubPrice] = useState();
-  const [cartData, setCartData] = useState(0);
+  const [cartData, setCartData] = useState();
 
-  useEffect(() => {
-    let productArray = fetch_cart();
-    setCartData(productArray);
-    subTotal();
-  }, []);
-
-  const subTotal = () => {
+  const subTotal = async () => {
     let subPricecal = 0;
 
-    subPricecal = 8;
+    let productArray = await fetch_cart();
+    setCartData(productArray);
 
+    let arr = [];
 
-    // console.log(cartData);
+    productArray.forEach((element) => {
+      arr.push(element.changeQut * element.data.product_sale_price);
+    });
 
+    console.log(arr);
+    arr.forEach((element) => {
+      subPricecal += element;
+    });
 
-    setSubPrice(subPricecal)
+    console.log(subPricecal);
+
+    setSubPrice(subPricecal);
   };
+
+  useEffect(() => {
+    subTotal();
+  }, []);
 
   return (
     <>
@@ -78,7 +86,7 @@ const CartSection = () => {
                 </div>
                 <div className="subTotal flex">
                   <p>Total</p>
-                  <p>$5500</p>
+                  <p>${subPrice}</p>
                 </div>
               </div>
               <button className="filled-button">PROCEED TO CHECKOUT</button>
