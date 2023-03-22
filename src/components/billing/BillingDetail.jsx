@@ -1,7 +1,33 @@
-import React from "react";
-import "./billing.css"
+import React, { useEffect, useState } from "react";
+import { fetch_cart } from "../../utils/globalFunction";
+import "./billing.css";
 
 const BillingDetail = () => {
+  const [cart, setCart] = useState([]);
+  const [subPrice, setSubPrice] = useState(0);
+
+  const subTotal = async () => {
+    let subPricecal = 0;
+    let arr = [];
+
+    cart.forEach((element) => {
+      arr.push(element.changeQut * element.data.product_sale_price);
+    });
+
+    arr.forEach((element) => {
+      subPricecal += element;
+    });
+
+    setSubPrice(subPricecal);
+  };
+
+  useEffect(() => {
+    let cartData = fetch_cart();
+    setCart(cartData);
+    subTotal();
+  }, []);
+
+  console.log(cart);
   return (
     <>
       <div className="billingDetail common-section">
@@ -10,42 +36,122 @@ const BillingDetail = () => {
             <h3>Billing detail</h3>
             <form action="/">
               <div className="name">
-                <label htmlFor="name">Name</label>
-                <input id="name" name="name" type="text" />
+                <label htmlFor="name">
+                  Name<span className="red">*</span>
+                </label>
+                <input id="name" name="name" type="text" required />
               </div>
               <div className="address">
-                <label htmlFor="address">Address</label>
-                <input id="address" name="address" type="text" />
+                <label htmlFor="address">
+                  Address<span className="red">*</span>
+                </label>
+                <input id="address" name="address" type="text" required />
               </div>
               <div className="phone">
-                <label htmlFor="phone">Phone</label>
-                <input id="phone" name="phone" type="phone" />
+                <label htmlFor="phone">
+                  Phone<span className="red">*</span>
+                </label>
+                <input id="phone" name="phone" type="phone" required />
               </div>
               <div className="email">
-                <label htmlFor="email">Email Address</label>
-                <input id="email" name="email" type="email" />
+                <label htmlFor="email">
+                  Email Address<span className="red">*</span>
+                </label>
+                <input id="email" name="email" type="email" required />
               </div>
-              
+
               {/* <button className="filled-button" type="submit">
                 Submit
               </button> */}
             </form>
           </div>
           <div className="payment">
-              <div className="yourOrder">
-                <h3>Your Order</h3>
+            <div className="yourOrder">
+              <h3>Your Order</h3>
+              <div className="listing">
                 <div className="detailpayment flex">
-                    <div className="product">
-                        <p><b>PRODUCT</b></p>
-                        {/* <p>prod_!</p> */}
-                    </div>
-                    <div className="subtotal">
-                        <p><b>SUBTOTAL</b></p>
-                        {/* <p>prod_!</p> */}
-                    </div>
+                  <div className="product">
+                    <p>
+                      <b>PRODUCT</b>
+                    </p>
+                  </div>
+                  <div className="subtotal">
+                    <p>
+                      <b>SUBTOTAL</b>
+                    </p>
+                  </div>
+                </div>
+                {cart &&
+                  cart.map((ele) => {
+                    return (
+                      <div className="detailpayment flex">
+                        <div className="product">
+                          <p>
+                            {ele.data.product_name} X {ele.changeQut}
+                          </p>
+                        </div>
+                        <div className="subtotal">
+                          <p>{ele.changeQut * ele.data.product_sale_price}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+
+                <div className="detailpayment flex">
+                  <div className="product">
+                    <p>
+                      <b>Subtotal</b>
+                    </p>
+                  </div>
+                  <div className="subtotal">
+                    <p>
+                      <b>Rs {subPrice}</b>
+                    </p>
+                  </div>
+                </div>
+                <div className="detailpayment flex">
+                  <div className="product">
+                    <p>
+                      <b>Total</b>
+                    </p>
+                  </div>
+                  <div className="subtotal">
+                    <p>
+                      <b>Rs {subPrice}</b>
+                    </p>
+                  </div>
                 </div>
               </div>
-
+            </div>
+            <div className="paymentMethod">
+              <form action="/">
+                <div className="direct flex align-center">
+                  <input
+                    name="paymentMethod"
+                    id="direct"
+                    type="radio"
+                    checked
+                  />
+                  <label htmlFor="direct">
+                    <p>Direct Bank Transfer</p>
+                  </label>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Doloribus, amet facere. Adipisci tenetur maiores porro
+                  repudiandae. Aperiam laudantium magni, voluptates ullam autem
+                  incidunt. Itaque officiis, facilis facere placeat molestiae
+                  ratione.
+                </p>
+                <div className="cash flex align-center">
+                  <input name="paymentMethod" id="cash" type="radio" />
+                  <label htmlFor="cash">
+                    <p>Cash on Delivery</p>
+                  </label>
+                </div>
+                <button className="filled-button">Place Order</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

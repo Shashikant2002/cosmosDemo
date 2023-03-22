@@ -21,7 +21,63 @@
 .billingDetail .detail form > button{
     margin-top: 20px;
 }
+.billingDetail .payment .yourOrder{
+    padding: 20px 40px;
+    background: #00000073;
+    border-radius: 5px;
+}
+.billingDetail .listing{
+    margin-top: 20px;
+    gap: 10px;
+}
 .billingDetail .detailpayment{
-.billingDetail .detailpayment} > div{
+    gap: 10px;
+}
+.billingDetail .detailpayment > div{
     width: 50%;
+    margin-top: 2px;
+}
+.billingDetail .listing > div{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.296);
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+.billingDetail .listing > div:last-child{
+    border-bottom: none;
+}
+.billingDetail .listing > div:first-child{
+    margin-top: 0;
+}
+.billingDetail .listing .product{
+    width: 70%;
+}
+.billingDetail .listing .subtotal{
+    width: 30%;
+}
+
+.billingDetail .paymentMethod input {
+    width: 30px;
+}
+.billingDetail .paymentMethod form > p{
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.billingDetail .paymentMethod{
+    margin-top: 20px;
+    padding: 20px 40px;
+    background: #00000073;
+    border-radius: 5px;
+}
+.billingDetail .paymentMethod .cash{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.221);
+}
+.billingDetail .paymentMethod form button{
+    width: 100%;
+}
+.billingDetail .detail form label .red{
+    color: rgb(133, 0, 0);
 }
