@@ -1,36 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { fetch_cart } from "../../utils/globalFunction";
 import "./billing.css";
+import { IoIosClose } from 'react-icons/io';
 
 const BillingDetail = () => {
   const [cart, setCart] = useState([]);
   const [subPrice, setSubPrice] = useState(0);
+
+  const setData = () => {
+    let cartData = fetch_cart();
+    setCart(cartData);
+  };
 
   const subTotal = async () => {
     let subPricecal = 0;
     let arr = [];
 
     let cartData = await fetch_cart();
-    setCart(cartData);
 
-    cart.forEach((element) => {
+    cartData.forEach((element) => {
       arr.push(element.changeQut * element.data.product_sale_price);
     });
 
     arr.forEach((element) => {
       subPricecal += element;
     });
-
+    
     setSubPrice(subPricecal);
   };
 
   useEffect(() => {
-    let cartData = fetch_cart();
-    setCart(cartData);
+    setData();
     subTotal();
   }, []);
 
-  console.log(cart, subPrice);
   return (
     <>
       <div className="billingDetail common-section">
@@ -89,8 +92,8 @@ const BillingDetail = () => {
                     return (
                       <div className="detailpayment flex">
                         <div className="product">
-                          <p>
-                            {ele.data.product_name} X {ele.changeQut}
+                          <p className="flex align-center">
+                            {ele.data.product_name} &nbsp; <IoIosClose /> &nbsp; {ele.changeQut}
                           </p>
                         </div>
                         <div className="subtotal">
