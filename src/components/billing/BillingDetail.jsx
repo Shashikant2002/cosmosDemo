@@ -12,6 +12,8 @@ const BillingDetail = () => {
     setCart(cartData);
   };
 
+  
+
   const subTotal = async () => {
     let subPricecal = 0;
     let arr = [];
