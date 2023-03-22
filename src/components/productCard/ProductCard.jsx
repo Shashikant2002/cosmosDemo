@@ -60,7 +60,7 @@ const ProductCard = ({ data }) => {
         </Link>
         <div className="mainContent">
           <Link to={"/"}>
-            <h4>{view} -</h4>
+            {/* <h4>{view} -</h4> */}
             <h5 title={product_name} className="title">
               {product_name.slice(0, 9)}
               {product_name.length > 9 ? "..." : ""}

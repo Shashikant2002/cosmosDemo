@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./cart.css";
 import CardCart from "./CardCart";
 import { fetch_cart } from "../../utils/globalFunction";
+import { Link } from "react-router-dom";
 
 const CartSection = () => {
   const [subPrice, setSubPrice] = useState();
@@ -89,7 +90,7 @@ const CartSection = () => {
                   <p>${subPrice}</p>
                 </div>
               </div>
-              <button className="filled-button">PROCEED TO CHECKOUT</button>
+              <Link to={"/checkout"} className="filled-button">PROCEED TO CHECKOUT</Link>
             </div>
           </div>
         </div>

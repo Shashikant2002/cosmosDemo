@@ -1,0 +1,27 @@
+.billingDetail{
+
+}
+.billingDetail .container > div{
+    width: 50%;
+    /* border: 1px solid red; */
+}
+.billingDetail .container{
+    gap: 50px;
+}
+.billingDetail .detail{
+    padding: 20px 0;
+}
+.billingDetail .detail form{
+    width: 100%;
+    margin-top: 20px;
+}
+.billingDetail .detail form > div{
+    margin-top: 10px;
+}
+.billingDetail .detail form > button{
+    margin-top: 20px;
+}
+.billingDetail .detailpayment{
+.billingDetail .detailpayment} > div{
+    width: 50%;
+}

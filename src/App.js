@@ -8,6 +8,7 @@ import Loading from "./components/loading/Loading";
 import About from "./pages/About";
 import Career from "./pages/Carrier";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
@@ -79,6 +80,14 @@ const App = () => {
                 element={
                   <>
                     <Career />
+                  </>
+                }
+              />
+              <Route
+                path="/checkout"
+                element={
+                  <>
+                    <Checkout />
                   </>
                 }
               />
