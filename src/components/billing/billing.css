@@ -3,6 +3,7 @@
 }
 .billingDetail .container{
     gap: 50px;
+    padding: 0 10px;
 }
 .billingDetail .detail{
     padding: 20px 0;
@@ -76,4 +77,28 @@
 }
 .billingDetail .detail form label .red{
     color: rgb(133, 0, 0);
+}
+
+
+@media (max-width: 770px) {
+    .billingDetail .container{
+        gap: 10px;
+    }
+}
+@media (max-width: 550px) {
+    .billingDetail .container{
+        gap: 0px;
+        flex-direction: column;
+    }
+    .billingDetail .container > div{
+        width: 100%;
+    }
+}
+@media (max-width: 426px) {
+    .billingDetail .payment .yourOrder{
+        padding: 20px 20px;
+    }
+    .billingDetail .paymentMethod {
+        padding: 20px 20px;
+    }
 }
