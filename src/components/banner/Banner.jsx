@@ -1,6 +1,7 @@
 import React from "react";
 import "./banner.css";
 import { BsChevronDown } from "react-icons/bs";
+import { Link } from "react-router-dom";
 // import axios from "axios";
 
 const Banner = () => {
@@ -30,7 +31,7 @@ const Banner = () => {
           <div className="content text-center">
             <h1>Contemporary Japanese Cuisine</h1>
             <div className="buttons flex justify-center">
-              <button className="filled-button">Order Now</button>
+              <Link to={"/produc"} className="filled-button">Order Now</Link>
               <button className="border-button">View All Location</button>
             </div>
           </div>
