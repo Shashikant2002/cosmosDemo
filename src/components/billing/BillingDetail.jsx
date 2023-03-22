@@ -24,6 +24,7 @@ const BillingDetail = () => {
 
   useEffect(() => {
     let cartData = fetch_cart();
+    console.log(cartData);
     setCart(cartData);
     subTotal();
   }, []);
