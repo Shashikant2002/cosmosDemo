@@ -24,10 +24,11 @@ const BillingDetail = () => {
   useEffect(() => {
     let cartData = fetch_cart();
     setCart(cartData);
+    console.log(cartData)
     subTotal();
   }, []);
 
-  console.log(cart);
+  console.log(cart, subPrice);
   return (
     <>
       <div className="billingDetail common-section">

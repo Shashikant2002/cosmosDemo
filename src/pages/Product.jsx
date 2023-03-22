@@ -10,18 +10,13 @@ import "./product.css";
 
 const Product = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
-  // const baseUrl = "http://localhost:5000";
-  let baseUrlNew =  `${process.env.REACT_APP_BASE_URL}api/all/products`
-  // console.log(baseUrlNew);
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState();
 
-
   const fetchBannerData = async () => {
-    setLoading(true);
     try {
-      const { data } = await axios.get(`${baseUrl}/api/all/products`); 
-      // const { data } = await axios.get(`http://localhost:5000/api/all/products`);
+      setLoading(true);
+      const { data } = await axios.get(`${baseUrl}/api/all/products`);
       setProduct(data);
       setLoading(false);
     } catch (err) {
@@ -29,13 +24,10 @@ const Product = () => {
       setLoading(false);
     }
   };
-  
 
   useEffect(() => {
     fetchBannerData();
   }, []);
-
-  // console.log(product);
 
   return (
     <>
@@ -52,7 +44,9 @@ const Product = () => {
             <div className="container flex">
               <div className="filters">
                 <h3>Categories</h3>
-                <Filters categoryForFilter = {product && product.categoryForFilter} />
+                <Filters
+                  categoryForFilter={product && product.categoryForFilter}
+                />
               </div>
               <div className="mainProduct">
                 <AllOroduct product={product} />
