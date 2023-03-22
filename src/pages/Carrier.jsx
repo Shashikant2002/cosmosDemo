@@ -26,7 +26,7 @@ const Career = () => {
         <>
           <InnerBanner
             bgImg={"/assets/img/about-banner.jpg"}
-            title={"About Us"}
+            title={"Carerr"}
           />
           <WhereItAllBegain
             title="A Sophisticated Interpretation Of Traditional Japanese Cuisine"
