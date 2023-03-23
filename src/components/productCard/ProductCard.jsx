@@ -7,9 +7,10 @@ import { fetch_cart } from "../../utils/globalFunction";
 const ProductCard = ({ data }) => {
   const [view, setView] = useState(false);
   const [counter, setCounter] = useState(0);
-  const allProduct = fetch_cart();
-
+  
   useEffect(() => {
+    const allProduct = fetch_cart();
+    console.log("allProduct => " + allProduct);
     allProduct &&
       allProduct.forEach((element) => {
         if (element.data._id === data._id) {

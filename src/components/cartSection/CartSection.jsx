@@ -1,22 +1,43 @@
 import React, { useEffect, useState } from "react";
 import "./cart.css";
 import CardCart from "./CardCart";
-import { fetch_cart } from "../../utils/globalFunction";
+import { fetch_cart, getCartTotal, remove_cart } from "../../utils/globalFunction";
 import { Link } from "react-router-dom";
 
 const CartSection = () => {
   const [subPrice, setSubPrice] = useState();
-  const [cartData, setCartData] = useState();
+  const [cartData, setCartData] = useState([]);
+  const [render, setRender] = useState(false);
+
+  
+  
+  useEffect(() => {
+    // setCartData(fetch_cart());
+    console.log(fetch_cart());
+    getCartTotal();
+    getAllCartPro()
+    
+    subTotal();
+  }, [render]);
+
+  const getAllCartPro = async () => {
+    let cartProduct = await fetch_cart();
+    if( cartProduct != null){
+      setCartData(cartProduct);
+    }
+  }
+
+  const handelRemoveCart = (ele) => {
+    remove_cart(ele);
+    setRender((prev) => !prev);
+  };
 
   const subTotal = async () => {
     let subPricecal = 0;
 
-    let productArray = await fetch_cart();
-    setCartData(productArray);
-
     let arr = [];
-
-    productArray.forEach((element) => {
+    console.log("cart Data" + cartData);
+    await cartData.forEach((element) => {
       arr.push(element.changeQut * element.data.product_sale_price);
     });
 
@@ -29,10 +50,6 @@ const CartSection = () => {
 
     setSubPrice(subPricecal);
   };
-
-  useEffect(() => {
-    subTotal();
-  }, []);
 
   return (
     <>
@@ -65,8 +82,15 @@ const CartSection = () => {
                 </div>
               </div>
               {cartData &&
-                cartData.map((ele, i) => {
-                  return <CardCart key={i} ele={ele} index={i} />;
+                cartData?.map((ele, i) => {
+                  return (
+                    <CardCart
+                      handelRemoveCart={handelRemoveCart}
+                      key={i}
+                      ele={ele}
+                      index={i}
+                    />
+                  );
                 })}
             </div>
             <div className="table flex justify-spacebetween updateCart">
@@ -90,7 +114,9 @@ const CartSection = () => {
                   <p>${subPrice}</p>
                 </div>
               </div>
-              <Link to={"/checkout"} className="filled-button">PROCEED TO CHECKOUT</Link>
+              <Link to={"/checkout"} className="filled-button">
+                PROCEED TO CHECKOUT
+              </Link>
             </div>
           </div>
         </div>

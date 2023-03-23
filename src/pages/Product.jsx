@@ -16,7 +16,6 @@ const Product = () => {
   const fetchBannerData = async () => {
     try {
       setLoading(true);
-      // const { data } = await axios.get(`${baseUrl}/api/all/products`);
       const { data } = await axios.get(`http://localhost:5000/api/all/products`);
       setProduct(data);
       setLoading(false);
@@ -40,13 +39,14 @@ const Product = () => {
             <title>Product</title>
           </Helmet>
           <InnerBanner bgImg="/assets/img/inner-banner.jpg" title="PRODUCT" />
-          <ProductCategory />
+          <ProductCategory categoryes={product && product} />
           <div className="productPage common-section">
             <div className="container flex">
               <div className="filters">
                 <h3>Categories</h3>
                 <Filters
                   categoryForFilter={product && product.categoryForFilter}
+                  setProduct = {setProduct}
                 />
               </div>
               <div className="mainProduct">

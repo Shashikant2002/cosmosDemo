@@ -5,27 +5,28 @@ import "react-multi-carousel/lib/styles.css";
 import Loading from "../loading/Loading";
 import "./productCategory.css";
 
-const ProductCategory = () => {
-  const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
-  const [loading, setLoading] = useState(false);
-  const [category, setCategory] = useState();
+const ProductCategory = ({ categoryes }) => {
+  // const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
+  // const [loading, setLoading] = useState(false);
+  // const [category, setCategory] = useState();
 
-  const fetchBannerData = async () => {
-    setLoading(true);
-    try {
-      // const { data } = await axios.get(`https://kozmo.onrender.com/api/all/products`);
-      const { data } = await axios.get(`${baseUrl}/api/all/products`);
-      setCategory(data);
-      setLoading(false);
-    } catch (err) {
-      console.log("Error " + err);
-      setLoading(false);
-    }
-  };
+  // const fetchBannerData = async () => {
+  //   setLoading(true);
+  //   try {
+  //     // const { data } = await axios.get(`https://kozmo.onrender.com/api/all/products`);
+  //     const { data } = await axios.get(`${baseUrl}/api/all/products`);
+  //     console.log(data);
+  //     setCategory(data);
+  //     setLoading(false);
+  //   } catch (err) {
+  //     console.log("Error " + err);
+  //     setLoading(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchBannerData();
-  }, []);
+  // useEffect(() => {
+  //   fetchBannerData();
+  // }, []);
 
   const responsive = {
     superLargeDesktop: {
@@ -48,28 +49,26 @@ const ProductCategory = () => {
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className="productCategory common-section">
-          <div className="container">
-            {category ? (
-              <Carousel infinite={true} responsive={responsive}>
-                {category &&
-                  category.categoryForFilter.map((ele, i) => {
-                    return (
-                      <div key={i} className="card">
-                        <p><b>{ele._id}</b></p>
-                      </div>
-                    );
-                  })}
-              </Carousel>
-            ) : (
-              ""
-            )}
-          </div>
+      <div className="productCategory common-section">
+        <div className="container">
+          {categoryes ? (
+            <Carousel infinite={true} responsive={responsive}>
+              {categoryes &&
+                categoryes.categoryForFilter.map((ele, i) => {
+                  return (
+                    <div key={i} className="card">
+                      <p>
+                        <b>{ele._id}</b>
+                      </p>
+                    </div>
+                  );
+                })}
+            </Carousel>
+          ) : (
+            ""
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 };

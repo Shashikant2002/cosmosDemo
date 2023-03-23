@@ -7,20 +7,28 @@ import {
 } from "../../utils/globalFunction";
 import Loading from "../loading/Loading";
 
-const CardCart = ({ ele }) => {
+const CardCart = ({ ele, handelRemoveCart }) => {
   const [qut, setQut] = useState(0);
   const [allProduct, setAllProduct] = useState();
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
 
+  // const [render, setRender] = useState(false);
+
   useEffect(() => {
     setQut(ele.changeQut);
   }, []);
 
+  // const handelRemoveCart = (ele) => {
+  //   remove_cart(ele);
+  //   setRender(prev => !prev)
+  // };
+
   const incQutCart = async () => {
     // setLoading(true);
-    let fetchData = fetch_cart();
+    let fetchData = await fetch_cart();
     // setAllProduct(fetchData);
+    console.log("card cart => "+fetchData)
 
     const filterData = fetchData.filter(
       (datamain) => datamain.data._id !== ele.data._id
@@ -70,7 +78,7 @@ const CardCart = ({ ele }) => {
               <p>
                 <MdClose
                   onClick={() => {
-                    remove_cart(ele);
+                    handelRemoveCart(ele);
                   }}
                 />
               </p>
