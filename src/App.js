@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Loading from "./components/loading/Loading";
+import { useGlobalContext } from "./context/context";
 import About from "./pages/About";
 import Career from "./pages/Carrier";
 import Cart from "./pages/Cart";
@@ -19,7 +20,13 @@ const App = () => {
     setLoading(false);
   }, 1000);
 
-  console.log(process.env.REACT_APP_BASE_URL)
+  const { totalQut } = useGlobalContext();
+
+  useEffect(() => {
+    totalQut();
+  }, []);
+
+  console.log(process.env.REACT_APP_BASE_URL);
 
   return (
     <>
