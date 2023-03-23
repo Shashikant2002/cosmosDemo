@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
+import { useGlobalContext } from "../../context/context";
 import {
   fetch_cart,
   remove_cart,
@@ -8,15 +9,19 @@ import {
 import Loading from "../loading/Loading";
 
 const CardCart = ({ ele, handelRemoveCart }) => {
-  const [qut, setQut] = useState(0);
+  const [qut, setQut] = useState(1);
   const [allProduct, setAllProduct] = useState();
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
+
+  const { updateSubTotal, totalQut } = useGlobalContext();
 
   // const [render, setRender] = useState(false);
 
   useEffect(() => {
     setQut(ele.changeQut);
+    updateSubTotal();
+    totalQut();
   }, []);
 
   // const handelRemoveCart = (ele) => {
@@ -28,7 +33,6 @@ const CardCart = ({ ele, handelRemoveCart }) => {
     // setLoading(true);
     let fetchData = await fetch_cart();
     // setAllProduct(fetchData);
-    console.log("card cart => "+fetchData)
 
     const filterData = fetchData.filter(
       (datamain) => datamain.data._id !== ele.data._id
@@ -41,6 +45,7 @@ const CardCart = ({ ele, handelRemoveCart }) => {
     updateCart(newData);
     setCounter(counter + 1);
     setQut(qut + 1);
+    updateSubTotal();
     setLoading(false);
   };
   const decQutCart = () => {
@@ -52,7 +57,6 @@ const CardCart = ({ ele, handelRemoveCart }) => {
       setLoading(false);
       return;
     }
-    setQut(qut - 1);
 
     const filterData = fetchData.filter(
       (datamain) => datamain.data._id !== ele.data._id
@@ -63,7 +67,9 @@ const CardCart = ({ ele, handelRemoveCart }) => {
     newData.push(thisEle);
 
     updateCart(newData);
+    setQut(qut - 1);
     setCounter(counter + 1);
+    updateSubTotal();
     setLoading(false);
   };
 
@@ -79,6 +85,8 @@ const CardCart = ({ ele, handelRemoveCart }) => {
                 <MdClose
                   onClick={() => {
                     handelRemoveCart(ele);
+                    totalQut();
+                    updateSubTotal();
                   }}
                 />
               </p>

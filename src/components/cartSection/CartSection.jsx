@@ -1,55 +1,57 @@
 import React, { useEffect, useState } from "react";
 import "./cart.css";
 import CardCart from "./CardCart";
-import { fetch_cart, getCartTotal, remove_cart } from "../../utils/globalFunction";
+import {
+  fetch_cart,
+  // getCartTotal,
+  remove_cart,
+} from "../../utils/globalFunction";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../../context/context";
 
 const CartSection = () => {
-  const [subPrice, setSubPrice] = useState();
+  // const [subPrice, setSubPrice] = useState();
   const [cartData, setCartData] = useState([]);
   const [render, setRender] = useState(false);
 
-  
-  
+  const { subPrice } = useGlobalContext();
+
   useEffect(() => {
-    // setCartData(fetch_cart());
-    console.log(fetch_cart());
-    getCartTotal();
-    getAllCartPro()
-    
-    subTotal();
+    getAllCartPro();
+
+    // subTotal();
   }, [render]);
 
   const getAllCartPro = async () => {
     let cartProduct = await fetch_cart();
-    if( cartProduct != null){
+    if (cartProduct != null) {
       setCartData(cartProduct);
     }
-  }
+  };
 
   const handelRemoveCart = (ele) => {
     remove_cart(ele);
     setRender((prev) => !prev);
   };
 
-  const subTotal = async () => {
-    let subPricecal = 0;
+  // const subTotal = async () => {
+  //   let subPricecal = 0;
 
-    let arr = [];
-    console.log("cart Data" + cartData);
-    await cartData.forEach((element) => {
-      arr.push(element.changeQut * element.data.product_sale_price);
-    });
+  //   let arr = [];
+  //   console.log("cart Data" + cartData);
+  //   await cartData.forEach((element) => {
+  //     arr.push(element.changeQut * element.data.product_sale_price);
+  //   });
 
-    console.log(arr);
-    arr.forEach((element) => {
-      subPricecal += element;
-    });
+  //   console.log(arr);
+  //   arr.forEach((element) => {
+  //     subPricecal += element;
+  //   });
 
-    console.log(subPricecal);
+  //   console.log(subPricecal);
 
-    setSubPrice(subPricecal);
-  };
+  //   setSubPrice(subPricecal);
+  // };
 
   return (
     <>

@@ -13,6 +13,11 @@ const Product = () => {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState();
 
+  const [render, setRender] = useState(false);
+  const reRender = () => {
+    setRender(!render);
+  };
+
   const fetchBannerData = async () => {
     try {
       setLoading(true);
@@ -27,7 +32,7 @@ const Product = () => {
 
   useEffect(() => {
     fetchBannerData();
-  }, []);
+  }, [render]);
 
   return (
     <>
@@ -50,7 +55,7 @@ const Product = () => {
                 />
               </div>
               <div className="mainProduct">
-                <AllOroduct product={product} />
+                <AllOroduct reRender={reRender} product={product} />
               </div>
             </div>
           </div>

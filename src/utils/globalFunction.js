@@ -43,21 +43,18 @@ export const updateCart = (data) => {
   }
 };
 
-
-// get cart total 
-export const getCartTotal =async()=>{
-  const cartProducts =  await fetch_cart();
-  console.log("Newresult=>",cartProducts)
-  if( cartProducts != null){
-    let total = 0;
-      if(cartProducts?.length > 0){
-        for(let i=0;i<cartProducts?.length;i++){
-          console.log("CART RPDUCTS",cartProducts[i]?.product_sale_price ,  "--",cartProducts[i]?.product_quantity)
-          total = total +(cartProducts[i]?.data?.product_sale_price * cartProducts[i]?.changeQut);
-          console.log("TOTAL++",total)
-  
-        }
-      }
-  }
- 
-}
+// get cart total
+// export const getCartTotal = async () => {
+//   const cartProducts = await fetch_cart();
+//   if (cartProducts != null) {
+//     let total = 0;
+//     if (cartProducts?.length > 0) {
+//       for (let i = 0; i < cartProducts?.length; i++) {
+//         total =
+//           total +
+//           cartProducts[i]?.data?.product_sale_price *
+//             cartProducts[i]?.changeQut;
+//       }
+//     }
+//   }
+// };

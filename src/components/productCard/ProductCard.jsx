@@ -3,31 +3,30 @@ import { Link } from "react-router-dom";
 import { addToCart } from "../../utils/globalFunction";
 import "./productCard.css";
 import { fetch_cart } from "../../utils/globalFunction";
+import { useGlobalContext } from "../../context/context";
 
-const ProductCard = ({ data }) => {
+const ProductCard = ({ data, reRender }) => {
   const [view, setView] = useState(false);
-  const [counter, setCounter] = useState(0);
+  const { totalQut } = useGlobalContext();
   
   useEffect(() => {
-    const allProduct = fetch_cart();
-    console.log("allProduct => " + allProduct);
-    allProduct &&
-      allProduct.forEach((element) => {
+    fetch_cart().forEach((element) => {
         if (element.data._id === data._id) {
           setView(true);
         }
       });
-  });
+    totalQut()
+  }, []);
   // console.log(view)
   const {
-    product_name,
+    product_name,                   
     product_images,
     // product_description,
     quantity = 0,
     // product_regular_price,
     product_sale_price,
   } = data;
-  const [changeQut, setChangeQut] = useState(0);
+  const [changeQut, setChangeQut] = useState(1);
 
   const increageQuantity = () => {
     // if (quantity <= changeQut) {
@@ -36,7 +35,7 @@ const ProductCard = ({ data }) => {
     setChangeQut(changeQut + 1);
   };
   const decreaseQuantity = () => {
-    if (changeQut <= 0) {
+    if (changeQut <= 1) {
       return;
     }
     setChangeQut(changeQut - 1);
@@ -107,7 +106,8 @@ const ProductCard = ({ data }) => {
                 className="filled-button"
                 onClick={() => {
                   addToCart({ data, changeQut });
-                  setCounter(counter + 1);
+                  totalQut();
+                  reRender();
                 }}
               >
                 Add to Cart
