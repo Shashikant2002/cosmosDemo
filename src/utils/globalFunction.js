@@ -15,7 +15,11 @@ export const addToCart = async (item) => {
 export const fetch_cart = () => {
   try {
     let productArray = JSON.parse(localStorage.getItem("cartPro"));
-    return productArray;
+    if (productArray) {
+      return productArray;
+    } else {
+      return [];
+    }
   } catch (err) {
     console.log("Error: " + err);
   }

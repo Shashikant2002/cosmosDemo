@@ -3,14 +3,12 @@ import { MdClose } from "react-icons/md";
 import { useGlobalContext } from "../../context/context";
 import {
   fetch_cart,
-  remove_cart,
   updateCart,
 } from "../../utils/globalFunction";
 import Loading from "../loading/Loading";
 
 const CardCart = ({ ele, handelRemoveCart }) => {
   const [qut, setQut] = useState(1);
-  const [allProduct, setAllProduct] = useState();
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
 
@@ -52,7 +50,7 @@ const CardCart = ({ ele, handelRemoveCart }) => {
     // setLoading(true);
     let fetchData = fetch_cart();
     // setAllProduct(fetchData);
-    if (qut <= 0) {
+    if (qut <= 1) {
       setCounter(counter + 1);
       setLoading(false);
       return;

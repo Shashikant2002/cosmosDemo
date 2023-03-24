@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ProductCard from "../productCard/ProductCard";
 import "./allProduct.css";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 
 const AllOroduct = ({ product, reRender }) => {
   const [page, setpage] = useState(1);
-
 
   const pageSelect = (page) => {
     setpage(page);

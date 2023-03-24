@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import CartSection from "../components/cartSection/CartSection";
 import InnerBanner from "../components/innerBanner/InnerBanner";
 import Loading from "../components/loading/Loading";
+import LoginSignForm from "../components/loginSign/LoginSignForm";
 
-const Cart = () => {
+const LoginSign = () => {
   const [loading, setLoading] = useState(false);
   const showLoading = () => {
     setLoading(true);
@@ -23,12 +23,15 @@ const Cart = () => {
       ) : (
         <>
           {" "}
-          <InnerBanner bgImg={"/assets/img/about-1.jpg"} title={"Cart"} />
-          <CartSection />
+          <InnerBanner
+            bgImg={"/assets/img/about-1.jpg"}
+            title={"Login Here"}
+          />
+          <LoginSignForm />
         </>
       )}
     </>
   );
 };
 
-export default Cart;
+export default LoginSign;

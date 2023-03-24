@@ -1,8 +1,6 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Loading from "../loading/Loading";
 import "./productCategory.css";
 
 const ProductCategory = ({ categoryes }) => {

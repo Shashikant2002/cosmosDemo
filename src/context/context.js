@@ -1,13 +1,15 @@
+import axios from "axios";
 import React, { useContext, useReducer } from "react";
 import { fetch_cart } from "../utils/globalFunction";
-import { reducer } from "./reducers";
+import { priceReducer, productReducer } from "./reducers";
 
 const AppContext = React.createContext();
 
 const initialState = 0;
 
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(priceReducer, initialState);
+  const [productState, productDispatch] = useReducer(productReducer, []);
 
   const updateSubTotal = async () => {
     let cartData = fetch_cart();
@@ -28,9 +30,58 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const fetchProduct = async () => {
+    try {
+      // const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      const url = `http://localhost:5000/api/all/products`;
+      const prodcut = await axios.get(url);
+
+      // console.log("Product from context => ", prodcut.data);
+
+      return productDispatch({
+        type: "FETCH_ALL_PRODUCT",
+        payload: prodcut.data,
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
+  const filterByCategory = async (filter) => {
+    try {
+      // const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      const url = `http://localhost:5000/api/all/products`;
+      let prodcut = await axios.get(url);
+      console.log(filter);
+      let resData;
+
+      filter.forEach((element) => {
+        resData = prodcut.data.allProducts.filter(
+          (ele) => element === ele.product_category
+        );
+      });
+      console.log(resData);
+
+      // prodcut.data.allProducts = resData;
+      // console.log(resData, prodcut);
+
+      // return productDispatch({
+      //   type: "FILTERED_PRODUCT",
+      //   payload: prodcut.data,
+      // });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
   const totalQut = async () => {
     let cartData = await fetch_cart();
-    let qut = cartData.length;
+    let qut;
+    if (cartData) {
+      qut = cartData.length;
+    } else {
+      qut = 0;
+    }
 
     return dispatch({
       type: "TOTAL_QUT",
@@ -39,7 +90,16 @@ const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ ...state, updateSubTotal, totalQut }}>
+    <AppContext.Provider
+      value={{
+        ...state,
+        ...productState,
+        updateSubTotal,
+        totalQut,
+        fetchProduct,
+        filterByCategory,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

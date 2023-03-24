@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import CartSection from "../components/cartSection/CartSection";
 import InnerBanner from "../components/innerBanner/InnerBanner";
 import Loading from "../components/loading/Loading";
+import Register from "../components/loginSign/Register";
 
-const Cart = () => {
+const LoginSign = () => {
   const [loading, setLoading] = useState(false);
+
   const showLoading = () => {
     setLoading(true);
     setTimeout(() => {
@@ -22,13 +23,15 @@ const Cart = () => {
         <Loading />
       ) : (
         <>
-          {" "}
-          <InnerBanner bgImg={"/assets/img/about-1.jpg"} title={"Cart"} />
-          <CartSection />
+          <InnerBanner
+            bgImg={"/assets/img/about-1.jpg"}
+            title={"Register Here"}
+          />
+          <Register />
         </>
       )}
     </>
   );
 };
 
-export default Cart;
+export default LoginSign;

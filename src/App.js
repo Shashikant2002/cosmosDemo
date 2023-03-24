@@ -12,21 +12,21 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
+import LoginSign from "./pages/LoginSign";
+import Register from "./pages/Register";
 import Product from "./pages/Product";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-  setTimeout(() => {
-    setLoading(false);
-  }, 1000);
-
-  const { totalQut } = useGlobalContext();
+  const [loading, setLoading] = useState(true);;
+  const { totalQut, fetchProduct } = useGlobalContext();
 
   useEffect(() => {
+    setLoading(true);
     totalQut();
+    fetchProduct();
+    setLoading(false);
+    // filterByCategory("veg rice")
   }, []);
-
-  console.log(process.env.REACT_APP_BASE_URL);
 
   return (
     <>
@@ -95,6 +95,24 @@ const App = () => {
                 element={
                   <>
                     <Checkout />
+                  </>
+                }
+              />
+              <Route
+                exact={true}
+                path="/loginSign"
+                element={
+                  <>
+                    <LoginSign />
+                  </>
+                }
+              />
+              <Route
+                exact={true}
+                path="/register"
+                element={
+                  <>
+                    <Register />
                   </>
                 }
               />

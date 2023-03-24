@@ -9,7 +9,7 @@ const Contact = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 100);
   };
 
   useEffect(() => {

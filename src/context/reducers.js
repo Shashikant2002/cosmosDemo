@@ -1,4 +1,4 @@
-export const reducer = (state, action) => {
+export const priceReducer = (state, action) => {
   switch (action.type) {
     case "SUB_PRICE":
       return {
@@ -10,6 +10,25 @@ export const reducer = (state, action) => {
       return {
         ...state,
         totalQuantity: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const productReducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_ALL_PRODUCT":
+      return {
+        ...state,
+        allProduct: action.payload,
+      };
+
+    case "FILTERED_PRODUCT":
+      return {
+        ...state,
+        allProduct: action.payload,
       };
 
     default:

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { useGlobalContext } from "../../context/context";
 import "./filters.css";
 
 const Filters = ({ categoryForFilter, setProduct }) => {
+  const { filterByCategory } = useGlobalContext();
+  let allCatFil = [];
+
   const changeProduct = (product) => {
-    setProduct([{}, {}])
-  }
+    allCatFil.push(product);
+    filterByCategory(allCatFil);
+  };
   return (
     <>
       <div className="categories">
@@ -18,7 +23,10 @@ const Filters = ({ categoryForFilter, setProduct }) => {
                   ) : (
                     <label key={ele._id} className="box flex align-center">
                       <p>{ele._id}</p>
-                      <input onChange={() => changeProduct(ele._id)} type="checkbox" />
+                      <input
+                        onChange={() => changeProduct(ele._id)}
+                        type="checkbox"
+                      />
                       <span className="mark"></span>
                     </label>
                   )}

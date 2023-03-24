@@ -92,7 +92,7 @@ const BillingDetail = () => {
                 {cart &&
                   cart.map((ele) => {
                     return (
-                      <div className="detailpayment flex">
+                      <div key={ele.data._id} className="detailpayment flex">
                         <div className="product">
                           <p className="flex align-center">
                             {ele.data.product_name} &nbsp; <IoIosClose /> &nbsp; {ele.changeQut}

@@ -1,0 +1,32 @@
+.loginSign{
+    padding-bottom: 0;
+}
+
+.loginSign .form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.loginSign .form h4 {
+  margin-bottom: 20px;
+}
+.loginSign .form .red {
+  color: rgb(138, 2, 2);
+}
+.loginSign .form .filled-button {
+  margin-top: 20px;
+  float: right;
+  width: 100%;
+}
+.loginSign .form p {
+  margin-top: 40px;
+}
+.loginSign .form p span a p {
+  color: var(--orange);
+}
+.loginSign .form > div {
+  margin-top: 10px;
+}
+.loginSign .form > div:first-child {
+  margin-top: 0;
+}

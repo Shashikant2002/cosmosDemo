@@ -22,7 +22,6 @@ const ProductCard = ({ data, reRender }) => {
     product_name,                   
     product_images,
     // product_description,
-    quantity = 0,
     // product_regular_price,
     product_sale_price,
   } = data;
