@@ -19,7 +19,9 @@
   border: 1px solid var(--orange);
   padding: 5px 10px;
 }
-.productPage.common-section,
-.allProducts.common-section {
+.productPage.common-section {
   padding-bottom: 0;
+}
+.allProducts.common-section {
+  padding: 0 0;
 }

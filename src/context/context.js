@@ -32,8 +32,8 @@ const AppProvider = ({ children }) => {
 
   const fetchProduct = async () => {
     try {
-      const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
-      // const url = `http://localhost:5000/api/all/products`;
+      // const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      const url = `http://localhost:5000/api/all/products`;
       const prodcut = await axios.get(url);
 
       // console.log("Product from context => ", prodcut.data);
@@ -49,21 +49,21 @@ const AppProvider = ({ children }) => {
 
   const filterByCategory = async (filter) => {
     try {
-      const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
-      // const url = `http://localhost:5000/api/all/products`;
+      // const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      const url = `http://localhost:5000/api/all/products`;
       let prodcut = await axios.get(url);
-      console.log(filter);
       let resData;
 
-      filter.forEach((element) => {
-        resData = prodcut.data.allProducts.filter(
-          (ele) => element === ele.product_category
-        );
+      filter.forEach((element) => {        
+        resData = prodcut.data.allProducts.filter((ele) => {          
+          // console.log( "hel ",element, ele.product_category)
+          return element === ele.product_category;
+
+        });
       });
-      console.log(resData);
 
       // prodcut.data.allProducts = resData;
-      // console.log(resData, prodcut);
+      console.log(resData);
 
       // return productDispatch({
       //   type: "FILTERED_PRODUCT",

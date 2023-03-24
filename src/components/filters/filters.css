@@ -8,13 +8,14 @@
 
 .categories .box p{
   text-transform: uppercase;
+  margin-top: 5px;
 }
 .categories .box .mark {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
   background-color: var(--white);
   right: 10%;
 }

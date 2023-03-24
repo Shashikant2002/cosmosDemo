@@ -31,7 +31,7 @@ const Banner = () => {
           <div className="content text-center">
             <h1>Contemporary Japanese Cuisine</h1>
             <div className="buttons flex justify-center">
-              <Link to={"/produc"} className="filled-button">Order Now</Link>
+              <Link to={"/product"} className="filled-button">Order Now</Link>
               <button className="border-button">View All Location</button>
             </div>
           </div>

@@ -4,10 +4,10 @@ import "./filters.css";
 
 const Filters = ({ categoryForFilter, setProduct }) => {
   const { filterByCategory } = useGlobalContext();
-  let allCatFil = [];
+  let allCatFil = ["veg thali"];
 
   const changeProduct = (product) => {
-    allCatFil.push(product);
+    // allCatFil.push(product);
     filterByCategory(allCatFil);
   };
   return (

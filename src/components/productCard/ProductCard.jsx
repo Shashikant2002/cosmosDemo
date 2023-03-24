@@ -8,18 +8,23 @@ import { useGlobalContext } from "../../context/context";
 const ProductCard = ({ data, reRender }) => {
   const [view, setView] = useState(false);
   const { totalQut } = useGlobalContext();
-  
+  const [render, setRender] = useState(false);
+
+  const reRendert = () => {
+    setRender(!render);
+  };
+
   useEffect(() => {
     fetch_cart().forEach((element) => {
-        if (element.data._id === data._id) {
-          setView(true);
-        }
-      });
-    totalQut()
-  }, []);
+      if (element.data._id === data._id) {
+        setView(true);
+      }
+    });
+    totalQut();
+  }, [render]);
   // console.log(view)
   const {
-    product_name,                   
+    product_name,
     product_images,
     // product_description,
     // product_regular_price,
@@ -106,6 +111,7 @@ const ProductCard = ({ data, reRender }) => {
                 onClick={() => {
                   addToCart({ data, changeQut });
                   totalQut();
+                  reRendert();
                   reRender();
                 }}
               >
