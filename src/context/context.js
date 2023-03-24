@@ -32,8 +32,8 @@ const AppProvider = ({ children }) => {
 
   const fetchProduct = async () => {
     try {
-      // const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
-      const url = `http://localhost:5000/api/all/products`;
+      const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      // const url = `http://localhost:5000/api/all/products`;
       const prodcut = await axios.get(url);
 
       // console.log("Product from context => ", prodcut.data);
@@ -49,26 +49,26 @@ const AppProvider = ({ children }) => {
 
   const filterByCategory = async (filter) => {
     try {
-      // const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
-      const url = `http://localhost:5000/api/all/products`;
+      const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      // const url = `http://localhost:5000/api/all/products`;
       let prodcut = await axios.get(url);
       let resData;
 
       filter.forEach((element) => {        
         resData = prodcut.data.allProducts.filter((ele) => {          
-          // console.log( "hel ",element, ele.product_category)
           return element === ele.product_category;
 
         });
       });
 
-      // prodcut.data.allProducts = resData;
-      console.log(resData);
+      prodcut.data.allProducts = resData;
+      console.log(prodcut.data);
 
-      // return productDispatch({
-      //   type: "FILTERED_PRODUCT",
-      //   payload: prodcut.data,
-      // });
+
+      return productDispatch({
+        type: "FILTERED_PRODUCT",
+        payload: prodcut.data,
+      });
     } catch (err) {
       console.log("Error: ", err);
     }

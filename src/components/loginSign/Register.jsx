@@ -31,6 +31,20 @@ const Register = () => {
             </span>
           </p>
         </form>
+
+        <form action="/" className="form">
+          {/* <h4>Login Now</h4> */}
+          <div className="phone">
+            <label for="phone">
+              Enter Your OTP Here<span className="red">*</span>
+            </label>
+            <input id="phone" name="phone" type="phone" required="true" />
+          </div>
+
+          <button className="filled-button">Verify OTP</button>
+
+          {/* <p>If you are not Registered <span><Link to={"/register"}><p>Register Now</p></Link></span></p> */}
+        </form>
       </div>
     </div>
   );

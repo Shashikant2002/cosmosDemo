@@ -25,7 +25,6 @@ const App = () => {
     totalQut();
     fetchProduct();
     setLoading(false);
-    // filterByCategory("veg rice")
   }, []);
 
   return (

@@ -79,6 +79,10 @@
   width: 70%;
 }
 
+.cartSec .noProduct .filled-button{
+  width: auto;
+}
+
 .cartSec .filled-button {
   margin-top: 20px;
   width: 100%;
