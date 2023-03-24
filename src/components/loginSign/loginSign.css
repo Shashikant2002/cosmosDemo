@@ -1,5 +1,8 @@
 .loginSign{
-    padding-bottom: 0;
+  padding-bottom: 0;
+}
+.loginSign .container{
+  padding: 0 20px;
 }
 
 .loginSign .form {

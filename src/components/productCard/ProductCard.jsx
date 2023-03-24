@@ -112,7 +112,6 @@ const ProductCard = ({ data, reRender }) => {
                   addToCart({ data, changeQut });
                   totalQut();
                   reRendert();
-                  reRender();
                 }}
               >
                 Add to Cart
