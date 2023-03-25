@@ -10,6 +10,9 @@
   max-width: 500px;
   margin: 0 auto;
 }
+.loginSign .form .PhoneInput{
+  margin-top: 20px;
+}
 .loginSign .form h4 {
   margin-bottom: 20px;
 }

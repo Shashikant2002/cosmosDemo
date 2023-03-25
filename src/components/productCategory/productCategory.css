@@ -4,11 +4,17 @@
 .productCategory .card {
   text-align: center;
   padding: 20px 10px;
-  background: #ffffff56;
+  background: #ffffff0a;
   height: 100%;
+}
+.productCategory .card .catImage{
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
 }
 .productCategory .card p {
   text-transform: uppercase;
+  margin-top: 10px;
 }
 .productCategory .react-multi-carousel-track li {
   padding: 0 10px;

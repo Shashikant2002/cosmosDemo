@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { useGlobalContext } from "../../context/context";
 import "./filters.css";
 
-const Filters = ({ categoryForFilter, setProduct }) => {
+const Filters = ({ categoryForFilter }) => {
   const { filterByCategory } = useGlobalContext();
   let allCatFil = ["veg thali"];
 
   const changeProduct = (product) => {
-    // allCatFil.push(product);
     filterByCategory(allCatFil);
   };
   return (

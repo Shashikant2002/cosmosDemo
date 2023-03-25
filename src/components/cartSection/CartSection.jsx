@@ -88,11 +88,11 @@ const CartSection = () => {
                       );
                     })}
                 </div>
-                <div className="table flex justify-spacebetween updateCart">
+                {/* <div className="table flex justify-spacebetween updateCart">
                   <div className="heading">
                     <button className="filled-button">UPDATE CART</button>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="cartTotal flex">
