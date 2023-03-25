@@ -3,7 +3,6 @@ import "./cart.css";
 import CardCart from "./CardCart";
 import {
   fetch_cart,
-  // getCartTotal,
   remove_cart,
 } from "../../utils/globalFunction";
 import { Link } from "react-router-dom";
