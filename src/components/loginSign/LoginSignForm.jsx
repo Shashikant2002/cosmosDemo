@@ -12,6 +12,16 @@ const LoginSignForm = () => {
     setShowFormOTP(true);
   };
 
+  const setValueNumber = (e) => {
+    if (e.length >= 10) {
+      return;
+    } else {
+      setValue(e);
+    }
+  };
+
+  console.log("Number: ", value);
+
   return (
     <>
       <div className="loginSign common-section">
@@ -26,14 +36,17 @@ const LoginSignForm = () => {
                 {/* <input id="phone" name="phone" type="phone" required="true" /> */}
                 <PhoneInput
                   placeholder="Enter phone number"
-                  defaultCountry="India"
+                  defaultCountry="IN"
                   value={value}
-                  onChange={setValue}
+                  onChange={setValueNumber}
                   flags={"india"}
+                  limitMaxLength={true}
                 />
               </div>
 
-              <button onClick={submitForm} className="filled-button">Login Now</button>
+              <button onClick={submitForm} className="filled-button">
+                Login Now
+              </button>
 
               <p>
                 If you are not Registered{" "}

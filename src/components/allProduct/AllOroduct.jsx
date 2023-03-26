@@ -11,7 +11,7 @@ const AllOroduct = ({ product, reRender }) => {
   };
 
   const nextPage = () => {
-    if (page >= Math.ceil(product.allProducts.length / 6)) {
+    if (page >= Math.ceil(product.allProducts.length / 12)) {
       return;
     }
     setpage(page + 1);
@@ -28,7 +28,7 @@ const AllOroduct = ({ product, reRender }) => {
     <>
       <div className="allProducts common-section flex flexWrap justify-spacebetween">
         {product &&
-          product.allProducts.slice(page * 9 - 9, page * 9).map((ele, i) => {
+          product.allProducts.slice(page * 12 - 12, page * 12).map((ele, i) => {
             return <ProductCard reRender={reRender} key={i} data={ele} />;
           })}
         {product && product.allProducts.length >= 6 && (
@@ -40,7 +40,7 @@ const AllOroduct = ({ product, reRender }) => {
                 <AiOutlineDoubleLeft />
               </button>
             )}
-            {[...Array(Math.ceil(product.allProducts.length / 9))].map(
+            {[...Array(Math.ceil(product.allProducts.length / 12))].map(
               (_, i) => {
                 return (
                   <button
@@ -55,7 +55,7 @@ const AllOroduct = ({ product, reRender }) => {
                 );
               }
             )}
-            {page === Math.ceil(product.allProducts.length / 9) ? (
+            {page === Math.ceil(product.allProducts.length / 12) ? (
               ""
             ) : (
               <button onClick={nextPage} className="filled-button activePage">
