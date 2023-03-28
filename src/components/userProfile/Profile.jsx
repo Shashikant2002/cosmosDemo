@@ -56,9 +56,10 @@ const Profile = () => {
 
         <div className="container flex">
           <div className="userDetail">
-            <figure>
+            {/* <figure>
               <img src="assets/img/profile.webp" alt="" />
-            </figure>
+            </figure> */}
+            <h2>User Detail</h2>
             <div className="user">
               <h4 className="flex">
                 <span>Name:-</span> <p>Shashikant</p>

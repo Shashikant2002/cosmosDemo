@@ -20,7 +20,7 @@
   margin-top: 10px;
 }
 .profile .userDetail .user h4 span {
-  color: var(--orange);
+  /* color: var(--orange); */
   width: 100%;
   max-width: 80px;
 }
