@@ -5,7 +5,7 @@ import Filters from "../components/filters/Filters";
 import InnerBanner from "../components/innerBanner/InnerBanner";
 import ProductCategory from "../components/productCategory/ProductCategory";
 import { useGlobalContext } from "../context/context";
-import "./product.css";
+import "./pageCss/product.css";
 
 const Product = () => {
   const [render, setRender] = useState(false);

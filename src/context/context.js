@@ -32,8 +32,8 @@ const AppProvider = ({ children }) => {
 
   const fetchProduct = async () => {
     try {
-      const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
-      // const url = `http://localhost:5000/api/all/products`;
+      // const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      const url = `http://localhost:5000/api/all/products`;
       const prodcut = await axios.get(url);
 
       console.log("Product from context => ", prodcut.data);
@@ -49,8 +49,8 @@ const AppProvider = ({ children }) => {
 
   const filterByCategory = async (filter) => {
     try {
-      const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
-      // const url = `http://localhost:5000/api/all/products`;
+      // const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      const url = `http://localhost:5000/api/all/products`;
       let prodcut = await axios.get(url);
       let resData;
 

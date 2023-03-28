@@ -1,0 +1,111 @@
+.profile {
+  padding-bottom: 0;
+}
+
+.profile .container {
+  gap: 20px;
+  padding: 0 20px;
+}
+.profile .container > div {
+  width: 50%;
+  /* border: 1px solid red; */
+}
+
+.profile .userDetail figure {
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+.profile .userDetail .user h4 {
+  margin-top: 10px;
+}
+.profile .userDetail .user h4 span {
+  color: var(--orange);
+  width: 100%;
+  max-width: 80px;
+}
+.profile .userDetail .filled-button {
+  margin-top: 30px;
+}
+.profile .rewards {
+  padding: 20px;
+}
+.profile .rewards .mainContent {
+  border-radius: 10px;
+  background: #57405d47;
+  height: 100%;
+  padding: 20px;
+}
+.profile .rewards .border-button {
+  margin-top: 20px;
+}
+
+.profile .updateProfilePopup {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000000c9;
+  z-index: 999999999999999;
+  display: none;
+}
+.profile .updateProfilePopup .form {
+  background: var(--darkGray);
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  position: relative;
+}
+.profile .updateProfilePopup form > div {
+  margin-top: 10px;
+}
+.profile .updateProfilePopup form button {
+  margin-top: 20px;
+}
+.profile .updateProfilePopup .form .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.profile .updateProfilePopupShow {
+  display: flex;
+}
+.profile .updateProfilePopupShow .form {
+  animation: animate 0.2s linear;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 770px) {
+  .profile .container {
+    gap: 5px;
+    padding: 0 20px;
+  }
+}
+@media (max-width: 550px) {
+  .profile .updateProfilePopup {
+    padding: 0 10px;
+  }
+  .profile .container {
+    gap: 20px;
+    padding: 0 10px;
+    flex-direction: column;
+  }
+  .profile .container > div {
+    width: 100%;
+  }
+  .profile .rewards {
+    padding: 0px;
+  }
+}

@@ -15,6 +15,7 @@ import Home from "./pages/Home";
 import LoginSign from "./pages/LoginSign";
 import Register from "./pages/Register";
 import Product from "./pages/Product";
+import UserProfile from "./pages/UserProfile";
 
 const App = () => {
   const [loading, setLoading] = useState(true);;
@@ -112,6 +113,15 @@ const App = () => {
                 element={
                   <>
                     <Register />
+                  </>
+                }
+              />
+              <Route
+                exact={true}
+                path="/profile"
+                element={
+                  <>
+                    <UserProfile />
                   </>
                 }
               />

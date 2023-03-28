@@ -17,11 +17,11 @@ const LoginSignup = ({ togleMenu }) => {
               <BiLogInCircle />
             </Link>
           </li>
-          {/* <li>
-            <a title="Sign Up" href="/" onClick={togleMenu}>
+          <li>
+            <Link title="Sign Up" to="/profile" onClick={togleMenu}>
               <MdSupervisorAccount />
-            </a>
-          </li> */}
+            </Link>
+          </li>
           <li className="cart_number">
             <p className="cartCircle">{totalQuantity}</p>
             <Link title="Cart" to="/cart" onClick={togleMenu}>
