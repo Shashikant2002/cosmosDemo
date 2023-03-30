@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import ProductCard from "../productCard/ProductCard";
 import "./allProduct.css";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
+import { useGlobalContext } from "../../context/context";
 
 const AllOroduct = ({ product, reRender }) => {
   const [page, setpage] = useState(1);
+  const [searchText, setSearchText] = useState("");
+
+  const { searchProduct } = useGlobalContext();
 
   const pageSelect = (page) => {
     setpage(page);
@@ -24,8 +28,28 @@ const AllOroduct = ({ product, reRender }) => {
     setpage(page - 1);
   };
 
+  const searchHandeler = (e) => {
+    e.preventDefault();
+    console.log(searchText);
+    searchProduct(searchText);
+  };
+
   return (
     <>
+      <div className="searchProduct">
+        <form
+          onSubmit={searchHandeler}
+          action="/"
+          className="flex align-center"
+        >
+          <input
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            type="text"
+          />
+          <button className="filled-button">Search</button>
+        </form>
+      </div>
       <div className="allProducts common-section flex flexWrap justify-spacebetween">
         {product &&
           product.allProducts.slice(page * 12 - 12, page * 12).map((ele, i) => {

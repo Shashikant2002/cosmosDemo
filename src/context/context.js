@@ -36,11 +36,33 @@ const AppProvider = ({ children }) => {
       // const url = `http://localhost:5000/api/all/products`;
       const prodcut = await axios.get(url);
 
-      console.log("Product from context => ", prodcut.data);
-
       return productDispatch({
         type: "FETCH_ALL_PRODUCT",
         payload: prodcut.data,
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
+  const searchProduct = async (searchText) => {
+    try {
+      if (searchText === "") {
+        return fetchProduct();
+      }
+      const url = `${process.env.REACT_APP_BASE_URL}/api/search/in/products/?search=${searchText}`;
+      // const url = `http://localhost:5000//api/search/in/products/?search=${searchText}`;
+      const searchPro = await axios.get(url);
+
+      // console.log("Product from context => ", searchPro.data, productState.allProduct.allProducts);
+
+      productState.allProduct.allProducts = searchPro.data;
+
+      console.log(productState);
+
+      return productDispatch({
+        type: "FETCH_ALL_SEARCH_PRODUCT",
+        payload: productState.allProduct,
       });
     } catch (err) {
       console.log("Error: ", err);
@@ -54,16 +76,14 @@ const AppProvider = ({ children }) => {
       let prodcut = await axios.get(url);
       let resData;
 
-      filter.forEach((element) => {        
-        resData = prodcut.data.allProducts.filter((ele) => {          
+      filter.forEach((element) => {
+        resData = prodcut.data.allProducts.filter((ele) => {
           return element === ele.product_category;
-
         });
       });
 
       prodcut.data.allProducts = resData;
       console.log(prodcut.data);
-
 
       return productDispatch({
         type: "FILTERED_PRODUCT",
@@ -98,6 +118,7 @@ const AppProvider = ({ children }) => {
         totalQut,
         fetchProduct,
         filterByCategory,
+        searchProduct,
       }}
     >
       {children}

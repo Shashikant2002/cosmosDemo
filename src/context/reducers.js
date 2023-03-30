@@ -19,12 +19,8 @@ export const priceReducer = (state, action) => {
 
 export const productReducer = (state, action) => {
   switch (action.type) {
+    case "FETCH_ALL_SEARCH_PRODUCT":
     case "FETCH_ALL_PRODUCT":
-      return {
-        ...state,
-        allProduct: action.payload,
-      };
-
     case "FILTERED_PRODUCT":
       return {
         ...state,
