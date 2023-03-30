@@ -1,7 +1,11 @@
 import axios from "axios";
 import React, { useContext, useReducer } from "react";
 import { fetch_cart } from "../utils/globalFunction";
-import { priceReducer, productReducer } from "./reducers";
+import {
+  priceReducer,
+  productReducer,
+  categoryProductReducer,
+} from "./reducers";
 
 const AppContext = React.createContext();
 
@@ -10,6 +14,7 @@ const initialState = 0;
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(priceReducer, initialState);
   const [productState, productDispatch] = useReducer(productReducer, []);
+  const [productByCate, productByCateDispatch] = useReducer(categoryProductReducer, []);
 
   const updateSubTotal = async () => {
     let cartData = fetch_cart();
@@ -58,7 +63,7 @@ const AppProvider = ({ children }) => {
 
       productState.allProduct.allProducts = searchPro.data;
 
-      console.log(productState);
+      // console.log(productState);
 
       return productDispatch({
         type: "FETCH_ALL_SEARCH_PRODUCT",
@@ -71,22 +76,13 @@ const AppProvider = ({ children }) => {
 
   const filterByCategory = async (filter) => {
     try {
-      const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      const url = `${process.env.REACT_APP_BASE_URL}/api/filter/products/?by_category=${filter}`;
       // const url = `http://localhost:5000/api/all/products`;
       let prodcut = await axios.get(url);
-      let resData;
+      // console.log(prodcut);
 
-      filter.forEach((element) => {
-        resData = prodcut.data.allProducts.filter((ele) => {
-          return element === ele.product_category;
-        });
-      });
-
-      prodcut.data.allProducts = resData;
-      console.log(prodcut.data);
-
-      return productDispatch({
-        type: "FILTERED_PRODUCT",
+      return productByCateDispatch({
+        type: "FILTER_BY_CATEGORY",
         payload: prodcut.data,
       });
     } catch (err) {
@@ -114,6 +110,7 @@ const AppProvider = ({ children }) => {
       value={{
         ...state,
         ...productState,
+        ...productByCate,
         updateSubTotal,
         totalQut,
         fetchProduct,

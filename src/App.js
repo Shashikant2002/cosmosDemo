@@ -16,6 +16,7 @@ import LoginSign from "./pages/LoginSign";
 import Register from "./pages/Register";
 import Product from "./pages/Product";
 import UserProfile from "./pages/UserProfile";
+import CategoryInner from "./pages/CategoryInner";
 
 const App = () => {
   const [loading, setLoading] = useState(true);;
@@ -122,6 +123,15 @@ const App = () => {
                 element={
                   <>
                     <UserProfile />
+                  </>
+                }
+              />
+              <Route
+                exact={true}
+                path="/category/:categoryText"
+                element={
+                  <>
+                    <CategoryInner />
                   </>
                 }
               />

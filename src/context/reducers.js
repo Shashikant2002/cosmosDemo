@@ -31,3 +31,16 @@ export const productReducer = (state, action) => {
       return state;
   }
 };
+
+export const categoryProductReducer = (state, action) => {
+  switch (action.type) {
+    case "FILTER_BY_CATEGORY":
+      return {
+        ...state,
+        allCategoryProduct: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
