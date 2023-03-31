@@ -1,29 +1,44 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useGlobalContext } from "../../context/context";
 import "./filters.css";
 
 const Filters = ({ categoryForFilter }) => {
   const { filterByCategory } = useGlobalContext();
   let allCatFil = ["veg thali"];
+  let fiterText = [];
+  const [filterContent, setFilterContent] =  useState(fiterText);
 
-  const changeProduct = (product) => {
-    filterByCategory(allCatFil);
+  const changeProduct = (e, product) => {
+    // filterByCategory(allCatFil);
+    console.log(e.target)
   };
+
+  useEffect(() => {
+    categoryForFilter && categoryForFilter.forEach((ele) => {
+      fiterText.push(ele._id);
+    })
+    fiterText.sort();
+    setFilterContent(fiterText)
+  }, [categoryForFilter]);
+
+  
+
   return (
     <>
       <div className="categories">
         <ul>
-          {categoryForFilter &&
-            categoryForFilter.map((ele, i) => {
+          {filterContent &&
+            filterContent.map((ele, i) => {
               return (
                 <li key={i}>
-                  {ele._id === "" ? (
+                  {ele === "" ? (
                     ""
                   ) : (
                     <label key={ele._id} className="box flex align-center">
-                      <p>{ele._id}</p>
+                      <p>{ele}</p>
                       <input
-                        onChange={() => changeProduct(ele._id)}
+                        onChange={(e) => changeProduct(e, ele._id)}
                         type="checkbox"
                       />
                       <span className="mark"></span>
