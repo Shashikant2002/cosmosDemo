@@ -9,12 +9,13 @@ import {
 
 const AppContext = React.createContext();
 
-const initialState = 0;
-
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(priceReducer, initialState);
+  const [state, dispatch] = useReducer(priceReducer, 0);
   const [productState, productDispatch] = useReducer(productReducer, []);
-  const [productByCate, productByCateDispatch] = useReducer(categoryProductReducer, []);
+  const [productByCate, productByCateDispatch] = useReducer(
+    categoryProductReducer,
+    []
+  );
 
   const updateSubTotal = async () => {
     let cartData = fetch_cart();
@@ -58,6 +59,8 @@ const AppProvider = ({ children }) => {
       const url = `${process.env.REACT_APP_BASE_URL}/api/search/in/products/?search=${searchText}`;
       // const url = `http://localhost:5000//api/search/in/products/?search=${searchText}`;
       const searchPro = await axios.get(url);
+
+      console.log(url)
 
       // console.log("Product from context => ", searchPro.data, productState.allProduct.allProducts);
 

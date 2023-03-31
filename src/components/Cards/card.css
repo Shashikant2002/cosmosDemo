@@ -1,52 +1,81 @@
 .menu-card {
-    width: 33.3333%;
-    /* border: 1px solid red; */
-    position: relative;
+  width: 33.3333%;
+  /* border: 1px solid red; */
+  position: relative;
 }
 
 .menu-card .content {
-    position: absolute;
-    background: var(--darkGray);
-    top: 0;
-    width: 100%;
-    left: 0;
-    height: 100%;
-    padding: 30px;
-    opacity: 0;
-    transition: .3s;
+  position: absolute;
+  background: var(--darkGray);
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 100%;
+  padding: 30px;
+  opacity: 0;
+  transition: 0.3s;
 }
 
 .menu-card:hover .content {
-    opacity: 1;
-    cursor: pointer;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .menu-card .content h3 {
-    margin-top: 10px;
-    text-transform: uppercase;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
 
 .menu-card .content p {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .menu-card button {
-    margin-top: 20px;
-    display: inline-block;
+  margin-top: 20px;
+  display: inline-block;
 }
 
 .menu-card .border-button::after {
-    background: var(--orange);
+  background: var(--orange);
 }
 
+.locationCard {
+    width: 32%;
+    /* border: 1px solid red; */
+    background: #57405d2f;
+    padding: 30px 30px;
+}
+.locationCard h3{
+    margin-top: 10px;
+}
+
+.locationCard .container{
+    padding: 0 20px;
+}
+
+.locationCard figure {
+  overflow: hidden;
+  /* border-radius: 50%; */
+}
+.locationCard a {
+  margin-top: 10px;
+}
 
 @media (max-width: 1025px) {
-    .menu-card {
-        width: 50%;
-    }
+  .menu-card {
+    width: 50%;
+  }
+  .locationCard {
+    width: 45%;
+  }
 }
 @media (max-width: 550px) {
-    .menu-card {
-        width: 100%;
-    }
+  .menu-card {
+    width: 100%;
+  }
+  .locationCard {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+  }
 }
