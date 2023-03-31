@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
-import BillingDetail from "../components/billing/BillingDetail";
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import BuilkBooking from "../components/builkBooking/BuilkBooking";
 import InnerBanner from "../components/innerBanner/InnerBanner";
 import Loading from "../components/loading/Loading";
 
-const Checkout = () => {
+const BuilkBookingPage = () => {
   const [loading, setLoading] = useState(false);
   const showLoading = () => {
     setLoading(true);
@@ -22,12 +24,15 @@ const Checkout = () => {
         <Loading />
       ) : (
         <>
-          <InnerBanner bgImg={"/assets/img/about-1.jpg"} title={"Check Out"} />
-          <BillingDetail />
+          <InnerBanner
+            bgImg={"/assets/img/inner-banner.jpg"}
+            title={"Builk Booking"}
+          />
+          <BuilkBooking />
         </>
       )}
     </>
   );
 };
 
-export default Checkout;
+export default BuilkBookingPage;

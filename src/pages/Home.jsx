@@ -15,7 +15,7 @@ const Home = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 500);
   };
 
   useEffect(() => {

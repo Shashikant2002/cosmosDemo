@@ -66,7 +66,7 @@
     width: 100%;
     max-width: 400px;
     right: -100%;
-    top: 385px;
+    top: 90vh;
     padding-left: 50px;
     transition: 0.5s;
   }

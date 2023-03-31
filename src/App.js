@@ -17,6 +17,7 @@ import Register from "./pages/Register";
 import Product from "./pages/Product";
 import UserProfile from "./pages/UserProfile";
 import CategoryInner from "./pages/CategoryInner";
+import BuilkBookingPage from "./pages/BuilkBookingPage";
 
 const App = () => {
   const [loading, setLoading] = useState(true);;
@@ -105,6 +106,15 @@ const App = () => {
                 element={
                   <>
                     <LoginSign />
+                  </>
+                }
+              />
+              <Route
+                exact={true}
+                path="/builk_booking"
+                element={
+                  <>
+                    <BuilkBookingPage />
                   </>
                 }
               />
