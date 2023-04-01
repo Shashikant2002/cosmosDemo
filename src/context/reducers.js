@@ -44,3 +44,16 @@ export const categoryProductReducer = (state, action) => {
       return state;
   }
 };
+
+export const filterMultiCategoryProduct = (state, action) => {
+  switch (action.type) {
+    case "FILTER_BY_MULTI_CATEGORY":
+      return {
+        ...state,
+        multiCategoryPro: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};

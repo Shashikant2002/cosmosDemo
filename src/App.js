@@ -22,6 +22,8 @@ import BuilkBookingPage from "./pages/BuilkBookingPage";
 const App = () => {
   const [loading, setLoading] = useState(true);;
   const { totalQut, fetchProduct } = useGlobalContext();
+  
+  // console.log(process.env.REACT_APP_BASE_URL);
 
   useEffect(() => {
     setLoading(true);

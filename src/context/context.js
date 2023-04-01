@@ -5,6 +5,7 @@ import {
   priceReducer,
   productReducer,
   categoryProductReducer,
+  filterMultiCategoryProduct,
 } from "./reducers";
 
 const AppContext = React.createContext();
@@ -14,6 +15,10 @@ const AppProvider = ({ children }) => {
   const [productState, productDispatch] = useReducer(productReducer, []);
   const [productByCate, productByCateDispatch] = useReducer(
     categoryProductReducer,
+    []
+  );
+  const [filterMultiCategory, filterMultiCategoryDispatch] = useReducer(
+    filterMultiCategoryProduct,
     []
   );
 
@@ -42,6 +47,8 @@ const AppProvider = ({ children }) => {
       // const url = `http://localhost:5000/api/all/products`;
       const prodcut = await axios.get(url);
 
+      // console.log(prodcut.data.allProducts[0]);
+
       return productDispatch({
         type: "FETCH_ALL_PRODUCT",
         payload: prodcut.data,
@@ -60,7 +67,7 @@ const AppProvider = ({ children }) => {
       // const url = `http://localhost:5000//api/search/in/products/?search=${searchText}`;
       const searchPro = await axios.get(url);
 
-      console.log(url)
+      // console.log(url);
 
       // console.log("Product from context => ", searchPro.data, productState.allProduct.allProducts);
 
@@ -93,6 +100,29 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const filterByMultiCategory = async (filter) => {
+    try {
+      const url = `${process.env.REACT_APP_BASE_URL}/api/filter/products/multi_category`;
+
+      const config = {
+        header: { "Content-Type": "application/json" },
+      };
+      const prodcut = await axios.post(url, { category: filter }, config);
+      // console.log(prodcut);
+      // console.log(productState.allProduct.allProducts);
+
+      productState.allProduct.allProducts = prodcut.data.allProducts;
+
+
+      return filterMultiCategoryDispatch({
+        type: "FILTER_BY_MULTI_CATEGORY",
+        payload: productState,
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
   const totalQut = async () => {
     let cartData = await fetch_cart();
     let qut;
@@ -114,11 +144,13 @@ const AppProvider = ({ children }) => {
         ...state,
         ...productState,
         ...productByCate,
+        ...filterMultiCategory,
         updateSubTotal,
         totalQut,
         fetchProduct,
         filterByCategory,
         searchProduct,
+        filterByMultiCategory,
       }}
     >
       {children}
