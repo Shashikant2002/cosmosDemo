@@ -8,7 +8,6 @@ import OurMenues from "../components/menues/OurMenues";
 // For Change Title
 import { Helmet } from "react-helmet";
 import Loading from "../components/loading/Loading";
-import Locations from "../components/ourLocations/Locations";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -34,7 +33,6 @@ const Home = () => {
           </Helmet>
           <Banner />
           <About />
-          <Locations />
           <OurMenues />
           <Dinying />
           <Regervation />

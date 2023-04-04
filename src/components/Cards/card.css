@@ -40,23 +40,26 @@
 }
 
 .locationCard {
-    width: 32%;
-    /* border: 1px solid red; */
-    background: #57405d2f;
-    padding: 30px 30px;
-}
-.locationCard h3{
-    margin-top: 10px;
+  width: 32%;
+  /* border: 1px solid red; */
+  background: #57405d2f;
+  padding: 30px 30px;
 }
 
-.locationCard .container{
-    padding: 0 20px;
+.locationCard h4 {
+  /* text-transform: uppercase; */
+  margin-top: 10px;
+}
+
+.locationCard .container {
+  padding: 0 20px;
 }
 
 .locationCard figure {
   overflow: hidden;
   /* border-radius: 50%; */
 }
+
 .locationCard a {
   margin-top: 10px;
 }
@@ -65,14 +68,17 @@
   .menu-card {
     width: 50%;
   }
+
   .locationCard {
     width: 45%;
   }
 }
+
 @media (max-width: 550px) {
   .menu-card {
     width: 100%;
   }
+
   .locationCard {
     width: 100%;
     max-width: 300px;

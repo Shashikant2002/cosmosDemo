@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { useGlobalContext } from "../../context/context";
-import {
-  fetch_cart,
-  updateCart,
-} from "../../utils/globalFunction";
+import { fetch_cart, updateCart } from "../../utils/globalFunction";
 import Loading from "../loading/Loading";
 
 const CardCart = ({ ele, handelRemoveCart }) => {
@@ -93,6 +90,13 @@ const CardCart = ({ ele, handelRemoveCart }) => {
               <figure>
                 <img src={ele.data.product_images[0].image_url} alt="" />
               </figure>
+            </div>
+            <div className="body">
+              {ele.data.product_reword_point ? (
+                <p>{ele.data.product_reword_point}</p>
+              ) : (
+                <p>-</p>
+              )}
             </div>
             <div className="body">
               <p>{ele.data.product_name}</p>

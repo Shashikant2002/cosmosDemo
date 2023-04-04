@@ -18,6 +18,7 @@ import Product from "./pages/Product";
 import UserProfile from "./pages/UserProfile";
 import CategoryInner from "./pages/CategoryInner";
 import BuilkBookingPage from "./pages/BuilkBookingPage";
+import LocationsPage from "./pages/Locations";
 
 const App = () => {
   const [loading, setLoading] = useState(true);;
@@ -144,6 +145,16 @@ const App = () => {
                 element={
                   <>
                     <CategoryInner />
+                  </>
+                }
+              />
+
+              <Route
+                exact={true}
+                path="location"
+                element={
+                  <>
+                    <LocationsPage />
                   </>
                 }
               />

@@ -4,6 +4,7 @@ import { addToCart } from "../../utils/globalFunction";
 import "./productCard.css";
 import { fetch_cart } from "../../utils/globalFunction";
 import { useGlobalContext } from "../../context/context";
+import { FaMoneyBillWave } from "react-icons/fa";
 
 const ProductCard = ({ data, reRender }) => {
   const [view, setView] = useState(false);
@@ -29,6 +30,7 @@ const ProductCard = ({ data, reRender }) => {
     // product_description,
     // product_regular_price,
     product_sale_price,
+    product_reword_point,
   } = data;
   const [changeQut, setChangeQut] = useState(1);
 
@@ -76,11 +78,18 @@ const ProductCard = ({ data, reRender }) => {
               : "Description Not Found"}
           </p> */}
           <p className="quantityPrice flex justify-spacebetween">
-            {/* <span>Qt. {quantity}</span> */}
             <span>
               ₹{/* <strike>{product_regular_price}</strike> */}
               {product_sale_price}
             </span>
+            {product_reword_point ? (
+              <span className="flex align-center">
+                <FaMoneyBillWave /> &nbsp;{" "}
+                {product_reword_point && product_reword_point}
+              </span>
+            ) : (
+              ""
+            )}
           </p>
           <div className="addInCart justify-spacebetween">
             <div className="incDec  flex">

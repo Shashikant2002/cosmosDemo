@@ -1,6 +1,7 @@
 .ourLocation{
     width: 100%;
     float: left;
+    padding-bottom: 0;
 }
 .ourLocation .cards{
     gap: 10px;

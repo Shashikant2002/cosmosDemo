@@ -5,14 +5,12 @@ import "./locations.css";
 const Locations = () => {
   return (
     <>
-      <section className="ourLocation">
+      <section className="ourLocation common-section">
         <div className="container">
           <div className="cards flex flex-wrap justify-center">
-            <LocationCard />
-            <LocationCard />
-            <LocationCard />
-            <LocationCard />
-            <LocationCard />
+            <LocationCard title={"Kozmo Café Zamrudpur"} />
+            <LocationCard title={"Kozmo Café Bani Square Gurgaon"} />
+            <LocationCard title={"Kozmo Café Niti Bagh"} />
           </div>
         </div>
       </section>

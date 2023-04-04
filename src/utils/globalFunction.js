@@ -6,6 +6,7 @@ export const addToCart = async (item) => {
       products = productArray;
     }
     products.push(item);
+    // console.log(products);
     localStorage.setItem("cartPro", JSON.stringify(products));
   } catch (err) {
     console.log("Error: " + err);

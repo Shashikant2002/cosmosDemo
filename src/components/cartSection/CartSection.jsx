@@ -35,7 +35,7 @@ const CartSection = () => {
   };
 
 
-  console.log(totalQuantity == 0)
+  // console.log(totalQuantity == 0)
   return (
     <>
       <div className="cartSec common-section">
@@ -54,6 +54,7 @@ const CartSection = () => {
                   <div className="table flex justify-spacebetween">
                     <div className="heading">-</div>
                     <div className="heading">-</div>
+                    <div className="heading"><p><b>POINT</b></p></div>
                     <div className="heading">
                       <p>
                         <b>PRODUCT</b>
