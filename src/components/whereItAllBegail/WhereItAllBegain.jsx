@@ -9,8 +9,8 @@ const WhereItAllBegain = ({imgPos, subTitle, title, para_1, para_2, img_1, img_2
             <div style={{order: `${imgPos !== "right" ? 2 : 1}`}} className="content">
                     <h5 className='right-line'>{subTitle}</h5>
                     <h2>{title}</h2>
-                    <p className='spacetop'>{para_1}</p>
-                    <p className='spacetop'>{para_2}</p>
+                    <p style={{ whiteSpace: "pre-line" }} className='spacetop'>{para_1}</p>
+                    <p style={{ whiteSpace: "pre-line" }} className='spacetop'>{para_2}</p>
                 </div>
                 <div style={{order: `${imgPos !== "right" ? 1 : 2}`}} className="image">
                     <div>

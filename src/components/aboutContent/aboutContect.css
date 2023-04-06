@@ -12,6 +12,10 @@
 .aboutUsContent .content {
   width: 40%;
 }
+.aboutUsContent .content p ul li {
+  list-style: circle;
+  margin-left: 13px;
+}
 .aboutUsContent .content h2 {
   width: 100%;
   max-width: 390px;
@@ -63,10 +67,6 @@
 }
 
 @media (max-width: 769px) {
-  .aboutUsContent .container {
-    gap: 20px;
-    flex-direction: column;
-  }
   .aboutUsContent .right-line::after {
     right: -30%;
   }
@@ -78,4 +78,13 @@
     width: 100%;
     max-width: 300px;
   }
+}
+@media (max-width: 551px) {
+  .aboutUsContent .container {
+    gap: 20px;
+    flex-direction: column;
+  }
+  .aboutUsContent .right-line::after {
+    right: -70px;
+}
 }

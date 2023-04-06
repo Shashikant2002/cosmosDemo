@@ -27,8 +27,10 @@ const Product = () => {
 
   useEffect(() => {
     // console.log(render);
+    setLoading(true);
     fetchProduct();
     showLoading();
+    setLoading(false);
   }, [render]);
 
   return (
