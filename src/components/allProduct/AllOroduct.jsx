@@ -34,6 +34,7 @@ const AllOroduct = ({ product, reRender }) => {
     searchProduct(searchText);
   };
 
+
   return (
     <>
       <div className="searchProduct">
@@ -51,42 +52,57 @@ const AllOroduct = ({ product, reRender }) => {
         </form>
       </div>
       <div className="allProducts common-section flex flexWrap justify-spacebetween">
-        {product &&
+        {product && product.allProducts.length > 0 ? (
           product.allProducts.slice(page * 12 - 12, page * 12).map((ele, i) => {
             return <ProductCard reRender={reRender} key={i} data={ele} />;
-          })}
-        {product && product.allProducts.length >= 6 && (
-          <div className="pagenationProduct flex justify-center">
-            {page === 1 ? (
-              ""
-            ) : (
-              <button onClick={prePage} className="filled-button activePage">
-                <AiOutlineDoubleLeft />
-              </button>
-            )}
-            {[...Array(Math.ceil(product.allProducts.length / 12))].map(
-              (_, i) => {
-                return (
+          })
+        ) : (
+          <p> Product Not Found </p>
+        )}
+        {product && product.allProducts.length <= 0 ? (
+          ""
+        ) : (
+          <>
+            {product && product.allProducts.length >= 6 && (
+              <div className="pagenationProduct flex justify-center">
+                {page === 1 ? (
+                  ""
+                ) : (
                   <button
-                    onClick={() => pageSelect(i + 1)}
-                    key={i}
-                    className={`filled-button ${
-                      page === i + 1 ? "activePage" : ""
-                    }`}
+                    onClick={prePage}
+                    className="filled-button activePage"
                   >
-                    {i + 1}
+                    <AiOutlineDoubleLeft />
                   </button>
-                );
-              }
+                )}
+                {[...Array(Math.ceil(product.allProducts.length / 12))].map(
+                  (_, i) => {
+                    return (
+                      <button
+                        onClick={() => pageSelect(i + 1)}
+                        key={i}
+                        className={`filled-button ${
+                          page === i + 1 ? "activePage" : ""
+                        }`}
+                      >
+                        {i + 1}
+                      </button>
+                    );
+                  }
+                )}
+                {page === Math.ceil(product.allProducts.length / 12) ? (
+                  ""
+                ) : (
+                  <button
+                    onClick={nextPage}
+                    className="filled-button activePage"
+                  >
+                    <AiOutlineDoubleRight />
+                  </button>
+                )}
+              </div>
             )}
-            {page === Math.ceil(product.allProducts.length / 12) ? (
-              ""
-            ) : (
-              <button onClick={nextPage} className="filled-button activePage">
-                <AiOutlineDoubleRight />
-              </button>
-            )}
-          </div>
+          </>
         )}
       </div>
     </>
