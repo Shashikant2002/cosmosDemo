@@ -18,7 +18,7 @@
 .productCategory .card p {
   text-transform: uppercase;
   margin-top: 10px;
-  max-width: 160px;
+  max-width: 240px;
   margin: 10px auto 0 auto;
 }
 .productCategory .react-multi-carousel-track li {

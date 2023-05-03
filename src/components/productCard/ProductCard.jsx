@@ -27,13 +27,13 @@ const ProductCard = ({ data, reRender }) => {
   const {
     product_name,
     product_images,
-    // product_description,
-    // product_regular_price,
+    product_description,
+    product_regular_price,
     product_sale_price,
     product_reword_point,
   } = data;
   const [changeQut, setChangeQut] = useState(1);
-
+  console.log(data);
   const increageQuantity = () => {
     // if (quantity <= changeQut) {
     //   return;
@@ -53,34 +53,35 @@ const ProductCard = ({ data, reRender }) => {
     <>
       <div className="productCardMain flex align-center">
         {/* <Link to={"/"}> */}
-          <figure className="thumb flex align-center">
-            <img
-              src={
-                product_images[0].image_url
-                  ? product_images[0].image_url
-                  : "assets/img/fakefood.png"
-              }
-              alt=""
-            />
-          </figure>
+        <figure className="thumb flex align-center">
+          <img
+            src={
+              product_images[0].image_url
+                ? product_images[0].image_url
+                : "assets/img/fakefood.png"
+            }
+            alt=""
+          />
+        </figure>
         {/* </Link> */}
         <div className="mainContent">
           {/* <Link to={"/"}> */}
-            {/* <h4>{view} -</h4> */}
-            <h5 title={product_name} className="title">
-              {product_name.slice(0, 17)}
-              {product_name.length > 17 ? "..." : ""}
-            </h5>
+          {/* <h4>{view} -</h4> */}
+          <h5 title={product_name} className="title">
+            {product_name.slice(0, 25)}
+            {product_name.length > 25 ? "..." : ""}
+          </h5>
           {/* </Link> */}
-          {/* <p>
+          <p>
             {product_description
               ? product_description
-              : "Description Not Found"}
-          </p> */}
+              : "...Description Not Filled. Lorem ipsum dolor sit amet consectetur adipisicing elit."}
+          </p>
+
           <p className="quantityPrice flex justify-spacebetween">
             <span>
-              ₹{/* <strike>{product_regular_price}</strike> */}
-              {product_sale_price}
+              <strike>₹{product_regular_price}</strike>&nbsp;
+              ₹{product_sale_price}
             </span>
             {product_reword_point ? (
               <span className="flex align-center">
