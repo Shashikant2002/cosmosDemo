@@ -52,7 +52,7 @@ const ProductCard = ({ data, reRender }) => {
   return (
     <>
       <div className="productCardMain flex align-center">
-        <Link to={"/"}>
+        {/* <Link to={"/"}> */}
           <figure className="thumb flex align-center">
             <img
               src={
@@ -63,15 +63,15 @@ const ProductCard = ({ data, reRender }) => {
               alt=""
             />
           </figure>
-        </Link>
+        {/* </Link> */}
         <div className="mainContent">
-          <Link to={"/"}>
+          {/* <Link to={"/"}> */}
             {/* <h4>{view} -</h4> */}
             <h5 title={product_name} className="title">
-              {product_name.slice(0, 9)}
-              {product_name.length > 9 ? "..." : ""}
+              {product_name.slice(0, 17)}
+              {product_name.length > 17 ? "..." : ""}
             </h5>
-          </Link>
+          {/* </Link> */}
           {/* <p>
             {product_description
               ? product_description

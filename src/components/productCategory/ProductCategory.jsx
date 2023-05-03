@@ -33,7 +33,7 @@ const ProductCategory = ({ categoryes }) => {
               {categoryes &&
                 categoryes.categoryForFilter.map((ele, i) => {
                   return (
-                    <Link to={`/category/${ele._id}`} key={i} className="card ">
+                    <Link to={`/category/${ele._id}`} key={i} className="card flex flex-column justify-center align-center">
                       <figure className="catImage">
                         <img
                           src="https://firebasestorage.googleapis.com/v0/b/kozmo-cloud.appspot.com/o/kozmocloud%2Fproducts%2F234568s%2FSun%2C%2005%20Mar%202023%2013%3A12%3A01%20GMT--197987b7ebcd1ee08f8c25ea4e77e20f1634731334%20(1).webp?alt=media&token=f8d0c7cb-ca0b-4943-888b-639116b3f7b1"

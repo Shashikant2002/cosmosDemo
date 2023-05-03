@@ -13,10 +13,13 @@
   width: 100%;
   max-width: 150px;
   margin: 0 auto;
+
 }
 .productCategory .card p {
   text-transform: uppercase;
   margin-top: 10px;
+  max-width: 160px;
+  margin: 10px auto 0 auto;
 }
 .productCategory .react-multi-carousel-track li {
   padding: 0 10px;

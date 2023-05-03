@@ -1,12 +1,13 @@
 .productCardMain {
   width: 100%;
   max-width: 32%;
-  height: 160px;
+  /* height: 160px; */
   border-radius: 10px;
   padding: 15px 15px;
   box-shadow: rgba(255, 255, 255, 0.045) 0px 0px 2px 2px;
   align-self: center;
   gap: 10px;
+  flex-direction: column;
 }
 .productCardMain figure{
     width: 100%;
@@ -27,7 +28,7 @@
     overflow: hidden;
 }
 .productCardMain .mainContent{
-    width: 50%;
+    width: 100%;
 }
 .productCardMain .addInCart {
     width: 100%;
@@ -54,12 +55,11 @@
     color: var(--white);
 }
 .productCardMain .filled-button{
-    /* padding: 1px 5px; */
     padding: 3px 8px;
 }
 
 
-@media (max-width: 1025px) {
+/* @media (max-width: 1025px) {
     .productCardMain{
         flex-direction: column;
         height: 300px;
@@ -72,10 +72,10 @@
     .productCardMain .mainContent{
         width: 100%;
     }
-}
+} */
 
 
-@media (max-width: 850px) {
+/* @media (max-width: 850px) {
     .productCardMain{
         flex-direction: column;
         height: 300px;
@@ -91,13 +91,23 @@
     .productPage .mainProduct{
         width: 65%;
     }
-}
+} */
 
+@media (max-width: 768px) {
+    .productCardMain{
+        width: 100%;
+        max-width: 48%;
+    }
+}
 @media (max-width: 550px) {
     .productCardMain{
-        flex-direction: row;
+        width: 100%;
+        max-width: 48%;
+    }
+}
+@media (max-width: 425px) {
+    .productCardMain{
         width: 100%;
         max-width: 100%;
-        height: 130px;
     }
 }

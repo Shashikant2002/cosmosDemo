@@ -4,6 +4,7 @@
 .categories .box input {
   visibility: hidden;
   cursor: pointer;
+  width: 10px;
 }
 
 .categories .box p{
