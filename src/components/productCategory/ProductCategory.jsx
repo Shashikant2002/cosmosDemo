@@ -33,9 +33,10 @@ const ProductCategory = ({ categoryes }) => {
               {categoryes &&
                 // categoryes.categoryForFilter.map((ele, i) => {
                 categoryes?.all_category_for_filter.map((ele, i) => {
+                  console.log(ele);
                   return (
                     <Link
-                      to={`/category/${ele._id}`}
+                      to={`/category/${ele.main_category_name}`}
                       key={i}
                       className="card flex flex-column justify-center align-center"
                     >

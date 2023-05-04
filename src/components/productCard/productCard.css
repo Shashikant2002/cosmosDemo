@@ -55,43 +55,8 @@
     color: var(--white);
 }
 .productCardMain .filled-button{
-    padding: 3px 8px;
+    padding: 6px 16px;
 }
-
-
-/* @media (max-width: 1025px) {
-    .productCardMain{
-        flex-direction: column;
-        height: 300px;
-        max-width: 32%;
-        height: 270px;
-    }
-    .productCardMain > a{
-        width: 100%;
-    }
-    .productCardMain .mainContent{
-        width: 100%;
-    }
-} */
-
-
-/* @media (max-width: 850px) {
-    .productCardMain{
-        flex-direction: column;
-        height: 300px;
-        max-width: 48%;
-        height: 270px;
-    }
-    .productCardMain > a{
-        width: 100%;
-    }
-    .productCardMain .mainContent{
-        width: 100%;
-    }
-    .productPage .mainProduct{
-        width: 65%;
-    }
-} */
 
 @media (max-width: 768px) {
     .productCardMain{
