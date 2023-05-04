@@ -102,12 +102,6 @@
 @media (max-width: 550px) {
     .productCardMain{
         width: 100%;
-        max-width: 48%;
-    }
-}
-@media (max-width: 425px) {
-    .productCardMain{
-        width: 100%;
         max-width: 100%;
     }
 }
