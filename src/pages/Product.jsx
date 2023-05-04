@@ -33,13 +33,13 @@ const Product = () => {
     setLoading(false);
   }, [render]);
 
-  // console.log(allProduct);
+  console.log(allProduct);
 
   return (
     <>
       {loading ? (
         <Loading />
-      ) : (
+      ) : allProduct? (
         <>
           <Helmet>
             <title>Product</title>
@@ -60,6 +60,8 @@ const Product = () => {
             </div>
           </div>
         </>
+      ) : (
+        ""
       )}
     </>
   );

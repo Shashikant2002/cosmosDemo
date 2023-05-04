@@ -43,11 +43,11 @@ const AppProvider = ({ children }) => {
 
   const fetchProduct = async () => {
     try {
-      const url = `${process.env.REACT_APP_BASE_URL}/api/all/products`;
+      const url = `${process.env.REACT_APP_BASE_URL}api/all/products`;
       // const url = `http://localhost:5000/api/all/products`;
       const prodcut = await axios.get(url);
 
-      // console.log(prodcut.data.allProducts[0]);
+      console.log(prodcut);
 
       return productDispatch({
         type: "FETCH_ALL_PRODUCT",

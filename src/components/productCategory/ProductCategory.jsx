@@ -23,7 +23,7 @@ const ProductCategory = ({ categoryes }) => {
       items: 1,
     },
   };
-  console.log(categoryes?.all_category_for_filter);
+  // console.log(categoryes?.all_category_for_filter);
   return (
     <>
       <div className="productCategory common-section">
