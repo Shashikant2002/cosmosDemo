@@ -52,7 +52,7 @@ const AllOroduct = ({ product, reRender }) => {
         </form>
       </div>
       <div className="allProducts common-section flex flexWrap justify-spacebetween">
-        {product && product.allProducts.length > 0 ? (
+        {product && product?.allProducts?.length > 0 ? (
           product.allProducts.slice(page * 12 - 12, page * 12).map((ele, i) => {
             return <ProductCard reRender={reRender} key={i} data={ele} />;
           })

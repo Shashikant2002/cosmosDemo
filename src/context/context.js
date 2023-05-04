@@ -63,7 +63,7 @@ const AppProvider = ({ children }) => {
       if (searchText === "") {
         return fetchProduct();
       }
-      const url = `${process.env.REACT_APP_BASE_URL}/api/search/in/products/?search=${searchText}`;
+      const url = `${process.env.REACT_APP_BASE_URL}api/search/in/products/?search=${searchText}`;
       // const url = `http://localhost:5000//api/search/in/products/?search=${searchText}`;
       const searchPro = await axios.get(url);
 
@@ -73,7 +73,7 @@ const AppProvider = ({ children }) => {
 
       productState.allProduct.allProducts = searchPro.data;
 
-      // console.log(productState);
+      console.log(productState);
 
       return productDispatch({
         type: "FETCH_ALL_SEARCH_PRODUCT",
@@ -86,7 +86,7 @@ const AppProvider = ({ children }) => {
 
   const filterByCategory = async (filter) => {
     try {
-      const url = `${process.env.REACT_APP_BASE_URL}/api/filter/products/?by_category=${filter}`;
+      const url = `${process.env.REACT_APP_BASE_URL}api/filter/products/?by_category=${filter}`;
       // const url = `http://localhost:5000/api/all/products`;
       let prodcut = await axios.get(url);
       // console.log(prodcut);
@@ -102,7 +102,7 @@ const AppProvider = ({ children }) => {
 
   const filterByMultiCategory = async (filter) => {
     try {
-      const url = `${process.env.REACT_APP_BASE_URL}/api/filter/products/multi_category`;
+      const url = `${process.env.REACT_APP_BASE_URL}api/filter/products/multi_category`;
 
       const config = {
         header: { "Content-Type": "application/json" },
