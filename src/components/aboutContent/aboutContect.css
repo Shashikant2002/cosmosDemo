@@ -7,10 +7,10 @@
   padding: 0 20px;
 }
 .aboutUsContent .image {
-  width: 60%;
+  width: 40%;
 }
 .aboutUsContent .content {
-  width: 40%;
+  width: 60%;
 }
 .aboutUsContent .content p ul li {
   list-style: circle;
@@ -72,11 +72,11 @@
   }
   .aboutUsContent .image {
     width: 100%;
-    max-width: 300px;
+    max-width: 100%;
   }
   .aboutUsContent .content {
     width: 100%;
-    max-width: 300px;
+    max-width: 100%;
   }
 }
 @media (max-width: 551px) {
