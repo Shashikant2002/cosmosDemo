@@ -33,6 +33,8 @@ const Product = () => {
     setLoading(false);
   }, [render]);
 
+  // console.log(allProduct);
+
   return (
     <>
       {loading ? (
