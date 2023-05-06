@@ -11,7 +11,7 @@ import "./pageCss/product.css";
 const Product = () => {
   const [render, setRender] = useState(false);
   const { fetchProduct, allProduct } = useGlobalContext();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const showLoading = () => {
     setLoading(true);
@@ -25,12 +25,15 @@ const Product = () => {
     setRender(!render);
   };
 
+  const fetchPro = async () => {
+    await setLoading(true);
+    await fetchProduct();
+    await showLoading();
+    await setLoading(false);
+  };
+
   useEffect(() => {
-    // console.log(render);
-    setLoading(true);
-    fetchProduct();
-    showLoading();
-    setLoading(false);
+    fetchPro();
   }, [render]);
 
   console.log(allProduct);
@@ -39,7 +42,7 @@ const Product = () => {
     <>
       {loading ? (
         <Loading />
-      ) : allProduct? (
+      ) : allProduct ? (
         <>
           <Helmet>
             <title>Product</title>

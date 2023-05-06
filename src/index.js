@@ -10,3 +10,5 @@ root.render(
     <App />
   </AppProvider>
 );
+
+console.log = () => {}

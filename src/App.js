@@ -21,16 +21,19 @@ import BuilkBookingPage from "./pages/BuilkBookingPage";
 import LocationsPage from "./pages/Locations";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);;
+  const [loading, setLoading] = useState(true);
   const { totalQut, fetchProduct } = useGlobalContext();
-  
+
   console.log(process.env.REACT_APP_BASE_URL);
+  const fetchPro = async () => {
+    await setLoading(true);
+    await totalQut();
+    await fetchProduct();
+    await setLoading(false);
+  };
 
   useEffect(() => {
-    setLoading(true);
-    totalQut();
-    fetchProduct();
-    setLoading(false);
+    fetchPro();
   }, []);
 
   return (

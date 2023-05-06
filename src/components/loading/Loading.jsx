@@ -9,7 +9,7 @@ const Loading = () => {
     <>
       <div className="loading flex justify-center align-center">
         <ClipLoader
-          color={"#e45707"}
+          color={"#57405d"}
           size={150}
         />
       </div>
