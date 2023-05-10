@@ -6,6 +6,8 @@ import {
   productReducer,
   categoryProductReducer,
   filterMultiCategoryProduct,
+  registerUserHReducer,
+  loginUserHReducer
 } from "./reducers";
 
 const AppContext = React.createContext();
@@ -21,6 +23,9 @@ const AppProvider = ({ children }) => {
     filterMultiCategoryProduct,
     []
   );
+
+  const [register, registerDispatch] = useReducer(registerUserHReducer);
+  const [login, loginDispatch] = useReducer(loginUserHReducer);
 
   const updateSubTotal = async () => {
     let cartData = fetch_cart();
@@ -113,7 +118,6 @@ const AppProvider = ({ children }) => {
 
       productState.allProduct.allProducts = prodcut.data.allProducts;
 
-
       return filterMultiCategoryDispatch({
         type: "FILTER_BY_MULTI_CATEGORY",
         payload: productState,
@@ -138,6 +142,44 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const registerUser = async (username, phoneNumber) => {
+    try {
+      const url = `${process.env.REACT_APP_BASE_URL}api/user/register`;
+      const userCreate = await axios.post(
+        url,
+        { username: username, phone_number: phoneNumber },
+        { withCredentials: true }
+      );
+
+      return registerDispatch({
+        type: "REGISTER_USER_H",
+        payload: userCreate.data,
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
+  const loginByNumber = async (phoneNumber) => {
+    try {
+      const url = `${process.env.REACT_APP_BASE_URL}api/user/login_by_number`;
+      const login = await axios.post(
+        url,
+        { phone_number: phoneNumber },
+        { withCredentials: true }
+      );
+
+      console.log(login)
+      
+      return loginDispatch({
+        type: "lOGIN_BY_PHONE",
+        payload: login.data,
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -145,12 +187,16 @@ const AppProvider = ({ children }) => {
         ...productState,
         ...productByCate,
         ...filterMultiCategory,
+        ...register,
+        ...login,
         updateSubTotal,
         totalQut,
         fetchProduct,
         filterByCategory,
         searchProduct,
         filterByMultiCategory,
+        registerUser,
+        loginByNumber
       }}
     >
       {children}

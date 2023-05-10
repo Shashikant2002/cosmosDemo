@@ -57,3 +57,39 @@ export const filterMultiCategoryProduct = (state, action) => {
       return state;
   }
 };
+
+export const registerUserHReducer = (state, action) => {
+  switch (action.type) {
+    case "REGISTER_USER_H":
+      return {
+        ...state,
+        user: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const loginUserHReducer = (state = { authorization: false }, action) => {
+  switch (action.type) {
+    case "lOGIN_BY_PHONE":
+      console.log("Data", action?.payload?.token)
+      if (action?.payload?.token) {
+        return {
+          ...state,
+          login: action.payload,
+          authorization: true,
+        };
+      } else {
+        return {
+          ...state,
+          login: action.payload,
+          authorization: false,
+        };
+      }
+
+    default:
+      return state;
+  }
+};

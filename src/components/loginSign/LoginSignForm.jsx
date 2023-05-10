@@ -3,26 +3,38 @@ import "./loginSign.css";
 import { Link } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+import { useGlobalContext } from "../../context/context";
+import Loading from "../loading/Loading";
 
 const LoginSignForm = () => {
   const [value, setValue] = useState();
   const [showFormOTP, setShowFormOTP] = useState(false);
+  const [loading, setLoading] = useState();
 
-  const submitForm = () => {
-    setShowFormOTP(true);
-  };
+  const { loginByNumber, login } = useGlobalContext();
 
-  const setValueNumber = (e) => {
-    if (e.length >= 10) {
-      return;
+  const submitForm = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    if (value.length < 10) {
+      setLoading(false);
+      return console.log("Number is Invalid");
     } else {
-      setValue(e);
+      loginByNumber(value);
+      // setShowFormOTP(true);
+      setLoading(false);
     }
   };
 
-  console.log("Number: ", value);
+  const setValueNumber = (e) => {
+    setValue(e);
+  };
 
-  return (
+  console.log(useGlobalContext());
+
+  return loading ? (
+    <Loading />
+  ) : (
     <>
       <div className="loginSign common-section">
         <div className="container">

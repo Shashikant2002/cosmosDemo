@@ -29,7 +29,7 @@ const Banner = () => {
       <section id="banner" className="banner">
         <div className="container">
           <div className="content text-center">
-            <h1>Contemporary Japanese Cuisine</h1>
+            <h1>VIRTUAL GRUB HUB !!</h1>
             <div className="buttons flex justify-center">
               <Link to={"/product"} className="filled-button">Order Now</Link>
               <button className="border-button">View All Location</button>
