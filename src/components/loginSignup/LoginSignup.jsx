@@ -6,22 +6,25 @@ import { useGlobalContext } from "../../context/context";
 import "./loginSignup.css";
 
 const LoginSignup = ({ togleMenu }) => {
-  const { totalQuantity } = useGlobalContext();
+  const { totalQuantity, authorization } = useGlobalContext();
 
   return (
     <>
       <div className="login-signup flex  align-center">
         <ul className="flex  align-center">
-          <li>
-            <Link title="Login Signup" to="/loginSign" onClick={togleMenu}>
-              <BiLogInCircle />
-            </Link>
-          </li>
-          <li>
-            <Link title="Sign Up" to="/profile" onClick={togleMenu}>
-              <MdSupervisorAccount />
-            </Link>
-          </li>
+          {authorization ? (
+            <li>
+              <Link title="Sign Up" to="/profile" onClick={togleMenu}>
+                <MdSupervisorAccount />
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link title="Login Signup" to="/loginSign" onClick={togleMenu}>
+                <BiLogInCircle />
+              </Link>
+            </li>
+          )}
           <li className="cart_number">
             <p className="cartCircle">{totalQuantity}</p>
             <Link title="Cart" to="/cart" onClick={togleMenu}>

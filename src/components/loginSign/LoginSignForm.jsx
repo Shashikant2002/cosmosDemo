@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./loginSign.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useGlobalContext } from "../../context/context";
@@ -9,26 +9,38 @@ import Loading from "../loading/Loading";
 const LoginSignForm = () => {
   const [value, setValue] = useState();
   const [showFormOTP, setShowFormOTP] = useState(false);
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
 
-  const { loginByNumber, login } = useGlobalContext();
+  const navigate = useNavigate();
+
+  const { loginByNumber, authorization } = useGlobalContext();
+
+  const submitForm_ = async () => {
+    if (value.length < 10) {
+      return console.log("Number is Invalid");
+    } else {
+      await loginByNumber(value);
+      // setShowFormOTP(true);
+    }
+  };
 
   const submitForm = (e) => {
     e.preventDefault();
     setLoading(true);
-    if (value.length < 10) {
-      setLoading(false);
-      return console.log("Number is Invalid");
-    } else {
-      loginByNumber(value);
-      // setShowFormOTP(true);
-      setLoading(false);
-    }
+    submitForm_();
+    // setLoading(false);
   };
 
   const setValueNumber = (e) => {
     setValue(e);
   };
+
+  useEffect(() => {
+    if (authorization) {
+      navigate("/profile");
+    }
+  }, [authorization]);
+
 
   console.log(useGlobalContext());
 
@@ -42,7 +54,7 @@ const LoginSignForm = () => {
             <form action="/" className="form">
               {/* <h4>Login Now</h4> */}
               <div className="phone">
-                <label for="phone">
+                <label htmlFor="phone">
                   Phone<span className="red">*</span>
                 </label>
                 {/* <input id="phone" name="phone" type="phone" required="true" /> */}
@@ -52,7 +64,6 @@ const LoginSignForm = () => {
                   value={value}
                   onChange={setValueNumber}
                   flags={"india"}
-                  limitMaxLength={true}
                 />
               </div>
 
