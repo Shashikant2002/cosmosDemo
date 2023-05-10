@@ -25,7 +25,8 @@ const About = () => {
       ) : (
         <>
           <InnerBanner
-            bgImg={"/assets/img/about-banner.jpg"}
+            // bgImg={"/assets/img/about-banner.jpg"}
+            bgImg={"/assets/img/banner_image.webp"}
             title={"About Us"}
           />
           <WhereItAllBegain
@@ -80,7 +81,8 @@ const About = () => {
             img_1="assets/img/aboutbg.jpg"
             img_2="assets/img/chefAbout.jpg"
           />
-          <ImageChef image={"assets/img/imagechef.png"} />
+          {/* <ImageChef image={"assets/img/imagechef.png"} /> */}
+          <ImageChef image={"assets/img/team picture-min.jpg"} />
           <AboutContent
             buttonLink={{ butName: "VIEW MENUES", path: "/" }}
             subTitle="INDIAN"
@@ -117,7 +119,7 @@ const About = () => {
             imageFr="assets/img/chop.jpg"
           />
 
-          <AboutContent
+          {/* <AboutContent
             buttonLink={{ butName: "VIEW MENUES", path: "/" }}
             subTitle="Operating"
             title="Operating Philosophy "
@@ -134,7 +136,7 @@ const About = () => {
             imgPos={"right"}
             imageBg="assets/img/chef-1.jpg"
             imageFr="assets/img/chop.jpg"
-          />
+          /> */}
         </>
       )}
     </>

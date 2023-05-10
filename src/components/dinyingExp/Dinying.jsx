@@ -17,7 +17,7 @@ const Dinying = () => {
               Sustainable. Reliable For Every Delivery And Match your Wallet
             </p>
             <button className="border-button">
-              <a href="/">Book Your Dining</a>
+              <a href="/contact">Book Your Dining</a>
             </button>
 
             <figure>

@@ -23,7 +23,8 @@ const Contact = () => {
       ) : (
         <>
           <InnerBanner
-            bgImg={"/assets/img/inner-banner.jpg"}
+            // bgImg={"/assets/img/inner-banner.jpg"}
+            bgImg={"/assets/img/banner_image.webp"}
             title={"Contact Us"}
           />
           <ContactUsSection />

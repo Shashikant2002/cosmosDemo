@@ -20,14 +20,14 @@ const ContactUsSection = () => {
             </div>
             <p className="flex bookingEmail">
               Reserve by email: &nbsp;
-              <a href="mailto: booking@patiotime.com">
-                <p>info@patiotime.com</p>
+              <a href="mailto: hello@kozmo-cloud.com">
+                <p>Hello@kozmo-cloud.com</p>
               </a>
             </p>
             <p className="flex telNum">
               Tel: &nbsp;{" "}
               <a href="tel: +39390551234567">
-                <p>+39 055 1234567</p>
+                <p>+91-9810288099</p>
               </a>
             </p>
             <div className="openingHour">
@@ -38,9 +38,9 @@ const ContactUsSection = () => {
               <p>Fri - Sun: 10:00am - 02:00am</p>
             </div>
 
-            <Link className="border-button" to="/">
+            {/* <Link className="border-button" to="/">
               MAKE A RESERVATION
-            </Link>
+            </Link> */}
           </div>
 
           <div className="form">

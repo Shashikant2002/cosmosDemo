@@ -6,6 +6,7 @@ const InnerBanner = ({ bgImg, title }) => {
     <>
       <div
         className="innerBanner"
+        
         style={{
           background: `linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(${bgImg})`,
           backgroundSize: "cover",

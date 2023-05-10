@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import LoginSignup from "../loginSignup/LoginSignup";
 import Nav from "../nav/Nav";
+import { Link } from "react-router-dom";
 import "./header-main.css";
 import { FaBars } from "react-icons/fa";
 
@@ -32,7 +33,9 @@ const Header = () => {
     <>
       <header ref={header} className="header-main">
         <div className="container flex justify-spacebetween">
-          <figure className="logo"> <img src="assets/img/logo.png" alt="" /> </figure>
+          <figure className="logo">
+          <Link to={"/"} > <img src="assets/img/logo.png" alt="" /></Link>
+             </figure>
           <Nav togleMenu={togleMenu} />
           <LoginSignup togleMenu={togleMenu} />
           <span className="barNavOpen flex align-center" onClick={togleMenu}>

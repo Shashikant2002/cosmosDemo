@@ -35,13 +35,13 @@ const AboutContent = ({
                 para_2
               )}
             </p>
-            {butName ? (
+            {/* {butName ? (
               <Link className="border-button" to={path}>
                 {butName}
               </Link>
             ) : (
               ""
-            )}
+            )} */}
           </div>
           <div
             style={{ order: `${imgPos === "right" ? 1 : 2}` }}
