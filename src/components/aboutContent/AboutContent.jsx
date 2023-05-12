@@ -12,7 +12,7 @@ const AboutContent = ({
   imageBg,
   imageFr,
 }) => {
-  const { butName, path } = buttonLink;
+  // const { butName, path } = buttonLink;
   return (
     <>
       <div className="aboutUsContent common-section">
