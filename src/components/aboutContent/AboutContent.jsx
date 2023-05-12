@@ -27,8 +27,8 @@ const AboutContent = ({
             <p style={{ whiteSpace: "pre-line" }} className="spacetop">
               {typeof para_2 === "object" ? (
                 <ul>
-                  {para_2.map((ele) => {
-                    return <li>{ele}</li>;
+                  {para_2.map((ele, i) => {
+                    return <li key={i}>{ele}</li>;
                   })}
                 </ul>
               ) : (
@@ -48,7 +48,7 @@ const AboutContent = ({
             className="image"
           >
             <div>
-              <img src={imageBg} alt="" />
+              {/* <img src={imageBg} alt="" /> */}
               <img className="absImage" src={imageFr} alt="" />
             </div>
           </div>

@@ -12,14 +12,15 @@ const BuilkBooking = () => {
             <h2>Bulk Booking</h2>
             <div className="info">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                perspiciatis eum magnam quisquam, vel ipsum nisi corrupti
-                voluptatum laboriosam dicta non dolore assumenda in iste
-                mollitia, natus explicabo optio eius? Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Consequatur libero voluptates
-                voluptas impedit architecto ratione nemo tempore, sed, molestias
-                sunt, vel inventore dolorum consequuntur illo nisi odio quia
-                reiciendis a!
+                Planning a special event or hosting a large gathering? Take the
+                stress out of catering with our convenient bulk booking service.
+                From corporate functions to social celebrations, our cloud
+                kitchen offers a seamless and delicious catering experience for
+                any occasion. Enjoy our diverse menu, exceptional quality, and
+                hassle-free delivery, ensuring that your guests are treated to a
+                memorable dining experience. Contact us now to discuss your bulk
+                booking needs and let us handle the culinary details while you
+                focus on creating unforgettable moments.
               </p>
             </div>
           </div>
@@ -45,7 +46,7 @@ const BuilkBooking = () => {
                   <input id="email" name="email" type="date" />
                 </div>
               </div>
-              
+
               <div className="message">
                 <label htmlFor="message">Your Message</label>
                 <textarea id="message" name="subject" type="text" />

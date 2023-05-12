@@ -50,7 +50,7 @@ const Product = () => {
           <InnerBanner bgImg="/assets/img/inner-banner.jpg" title="PRODUCT" />
           <ProductCategory categoryes={allProduct && allProduct} />
           <div className="productPage common-section">
-            <div className="container flex">
+            <div className="container product_page_flex">
               <div className="filters">
                 <h3>Categories</h3>
                 <Filters

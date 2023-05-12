@@ -26,7 +26,7 @@ const ContactUsSection = () => {
             </p>
             <p className="flex telNum">
               Tel: &nbsp;{" "}
-              <a href="tel: +39390551234567">
+              <a href="tel: +919810288099">
                 <p>+91-9810288099</p>
               </a>
             </p>

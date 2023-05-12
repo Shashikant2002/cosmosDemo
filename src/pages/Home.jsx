@@ -19,7 +19,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    showLoading();
+    // showLoading();
   }, []);
 
   return (

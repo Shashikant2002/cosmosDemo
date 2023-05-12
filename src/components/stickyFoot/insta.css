@@ -1,0 +1,11 @@
+.instaStick img{
+    width: 100%;
+}
+.instaStick{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999999999999;
+}

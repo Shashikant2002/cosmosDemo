@@ -27,7 +27,7 @@ const BuilkBookingPage = () => {
           <InnerBanner
             // bgImg={"/assets/img/inner-banner.jpg"}
             bgImg={"/assets/img/banner_image.webp"}
-            title={"Builk Booking"}
+            title={"Bulk Booking"}
           />
           <BuilkBooking />
         </>

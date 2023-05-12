@@ -35,8 +35,8 @@ const About = () => {
             imgPos={"left"}
             para_1="Kozmo by Nua Café is an organisation specialised in the development of good quality food/meals that you can experience sitting at home/office."
             // para_2="A distinctive, well-preserved and comfortable space, high- quality products, authentic cuisine, food and drinks are done flawlessly."
-            img_2="assets/img/about-2.jpg"
-            img_1="assets/img/dining-1.jpg"
+            img_2="assets/img/Kozmo focus is to give best food to our client & to create delicacy.webp"
+            // img_1="assets/img/Kozmo focus is to give best food to our client & to create delicacy/back.webp"
           />
 
           <AboutContent
@@ -44,18 +44,18 @@ const About = () => {
             subTitle="Objective"
             title="Our Objective"
             para_1={`It is to establish superior kitchen in best of locations that can offer high quality food in friendly environment at affordable price that represent excellent value for money. 
-            Total customer satisfaction is ourt aim.`}
+            Total customer satisfaction is our aim.`}
             para_2={[
               `At the same time any development must contribute to the comoverable profitability of the company`,
               `To achieve these objectives, staff is trained at high level. Ingredients are sources from best locations.`,
               `Similar standards are also to ensure customer satisfactions with in our subsidiary companies.`,
             ]}
             imgPos={"left"}
-            imageBg="assets/img/chef-1.jpg"
-            imageFr="assets/img/chop.jpg"
+            // imageBg="assets/img/Our Objective.webp"
+            imageFr="assets/img/Our Objective.webp"
           />
 
-          <WhereItAllBegain
+          {/* <WhereItAllBegain
             title="Neena Khanna
             Samresh Khanna
             Yatin Malhotra"
@@ -70,16 +70,16 @@ const About = () => {
               `}
             img_1="assets/img/aboutbg.jpg"
             img_2="assets/img/chefAbout.jpg"
-          />
+          /> */}
           <WhereItAllBegain
             title="Target Market "
             subTitle="market"
-            imgPos={"right"}
+            imgPos={"left"}
             para_1="Our target Market is corporates/people’s who really wants good food experience at home in good price proposition."
             para_2="Family/Working class/Bday/Corporates parties/Kitties/Hi-Tea/Solution to your day-to-day food."
             // para_2="We present delicious and enticing dishes with high-quality ingredients. There is no set protocol for ordering from the menu."
-            img_1="assets/img/aboutbg.jpg"
-            img_2="assets/img/chefAbout.jpg"
+            // img_1="assets/img/Target Market.webp"
+            img_2="assets/img/Target Market.webp"
           />
           {/* <ImageChef image={"assets/img/imagechef.png"} /> */}
           <ImageChef image={"assets/img/team picture-min.jpg"} />
@@ -98,8 +98,8 @@ const About = () => {
               `Best service at your doorstep.`,
             ]}
             imgPos={"left"}
-            imageBg="assets/img/chef-1.jpg"
-            imageFr="assets/img/chop.jpg"
+            imageBg="assets/img/Giving Kitchen Experience of years at an affordable prices.webp" 
+            imageFr="assets/img/Giving Kitchen Experience of years at an affordable prices.webp"
           />
           <AboutContent
             buttonLink={{ butName: "VIEW MENUES", path: "/" }}
@@ -115,8 +115,8 @@ const About = () => {
               `Mediterranean`,
             ]}
             imgPos={"right"}
-            imageBg="assets/img/chef-1.jpg"
-            imageFr="assets/img/chop.jpg"
+            // imageBg="assets/img/Business Model.webp"
+            imageFr="assets/img/Business Model.webp"
           />
 
           {/* <AboutContent

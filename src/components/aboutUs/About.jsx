@@ -5,12 +5,12 @@ const About = () => {
     return (
         <>
             <section id='about' className="about common-section">
-                <div className="container flex">
+                <div className="container flex alignItemFlexEnd">
                     <div className="content">
                         <h5 className='right-line'>About Us</h5>
-                        <h2>Variety For Ever Taste Every Mood</h2>
+                        <h2>Variety For Every Taste & Every Mood</h2>
                         <figure className='image'>
-                            <img src="assets/img/about-1.webp" alt="" />
+                            <img src="assets/img/Three paper Chicken about.webp" alt="" />
                         </figure>
                     </div>
                     <div className="img">

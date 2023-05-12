@@ -11,16 +11,20 @@ const LoginSignForm = () => {
   const [showFormOTP, setShowFormOTP] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [otp, setOtp] = useState("");
+
   const navigate = useNavigate();
 
   const { loginByNumber, authorization } = useGlobalContext();
 
   const submitForm_ = async () => {
     if (value.length < 10) {
+      setLoading(false);
       return console.log("Number is Invalid");
     } else {
       await loginByNumber(value);
-      // setShowFormOTP(true);
+      setShowFormOTP(true);
+      setLoading(false);
     }
   };
 
@@ -35,14 +39,17 @@ const LoginSignForm = () => {
     setValue(e);
   };
 
+  const setOTPHandelser = (e) => {
+    setOtp(e.target.value);
+  };
+
   useEffect(() => {
     if (authorization) {
       navigate("/profile");
     }
   }, [authorization]);
 
-
-  console.log(useGlobalContext());
+  console.log(otp);
 
   return loading ? (
     <Loading />
@@ -84,10 +91,17 @@ const LoginSignForm = () => {
             <form action="/" className="form">
               {/* <h4>Login Now</h4> */}
               <div className="phone">
-                <label for="phone">
+                <label htmlFor="phone">
                   Enter Your OTP Here<span className="red">*</span>
                 </label>
-                <input id="phone" name="phone" type="phone" required="true" />
+                <input
+                  onChange={setOTPHandelser}
+                  value={otp}
+                  id="phone"
+                  name="phone"
+                  type="phone"
+                  required={true}
+                />
               </div>
 
               <button className="filled-button">Verify OTP</button>

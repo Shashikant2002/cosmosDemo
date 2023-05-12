@@ -32,7 +32,7 @@ const Banner = () => {
             <h1>VIRTUAL GRUB HUB !!</h1>
             <div className="buttons flex justify-center">
               <Link to={"/product"} className="filled-button">Order Now</Link>
-              <Link to={"/location"} className="border-button">View All Location</Link>
+              {/* <Link to={"/location"} className="border-button">View All Location</Link> */}
               {/* <button className="border-button">View All Location</button> */}
             </div>
           </div>

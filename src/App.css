@@ -36,6 +36,11 @@ figure img {
 
 .flex {
   display: flex;
+  /* align-items: flex-end; */
+}
+
+.alignItemFlexEnd{
+  align-items: flex-end;
 }
 
 .justify-spacebetween {
@@ -92,10 +97,11 @@ p {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.741);
   font-family: var(--jost);
+  text-transform: none;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   color: var(--white);
   text-transform: uppercase;
 }
@@ -147,7 +153,7 @@ label {
   font-size: 1rem;
   cursor: pointer;
 }
-
+.product_page_flex{display: flex;gap: 10px;}
 .r-l-line,
 .right-line {
   position: relative;
@@ -160,7 +166,7 @@ label {
   width: 100px;
   height: 1px;
   top: 55%;
-  left: -110%;
+  left: -155%;
   background: var(--orange);
 }
 

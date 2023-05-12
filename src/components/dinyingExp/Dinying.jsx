@@ -5,19 +5,19 @@ const Dinying = () => {
   return (
     <>
       <div className="dinying common-section">
-        <div className="container flex">
+        <div className="container flex alignItemFlexEnd">
           <figure className="image">
             <img src="assets/img/dining-1.webp" alt="" />
           </figure>
           <div className="content">
-            <h5 className="right-line">Experince Our Dining</h5>
-            <h2>Perfect Dining Experience</h2>
+            <h5 className="right-line">Experience our Delivery</h5>
+            <h2>Perfect Delivery Experience</h2>
             <p>
-              We Make Delivered Food Faster, More Delicious, And More
-              Sustainable. Reliable For Every Delivery And Match your Wallet
+            We make delicious food fast with sustainable packaging and swift delivery. 
+            We Reliably deliver tasty food which matches your wallet
             </p>
             <button className="border-button">
-              <a href="/contact">Book Your Dining</a>
+              <a href="/contact">Order Now</a>
             </button>
 
             <figure>

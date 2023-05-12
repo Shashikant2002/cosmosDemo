@@ -19,17 +19,18 @@ import UserProfile from "./pages/UserProfile";
 import CategoryInner from "./pages/CategoryInner";
 import BuilkBookingPage from "./pages/BuilkBookingPage";
 import LocationsPage from "./pages/Locations";
+import InstaSticky from "./components/stickyFoot/InstaSticky";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const { totalQut, fetchProduct } = useGlobalContext();
 
   console.log(process.env.REACT_APP_BASE_URL);
   const fetchPro = async () => {
-    await setLoading(true);
+    // await setLoading(true);
     await totalQut();
-    await fetchProduct();
-    await setLoading(false);
+    // await fetchProduct();
+    // await setLoading(false);
   };
 
   useEffect(() => {
@@ -46,6 +47,7 @@ const App = () => {
         <>
           <BrowserRouter>
             <Header />
+            <InstaSticky />
             <Routes>
               <Route
                 path="/"

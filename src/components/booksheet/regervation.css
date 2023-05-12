@@ -1,6 +1,6 @@
 .regervation {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../../../public/assets/img/book.jpg);
+    url("../../../public/assets/img/online reservation.webp");
   background-size: cover;
   background-position: center;
   padding: 200px 0;
@@ -18,6 +18,9 @@
 
 .regervation h2 {
   margin-top: 10px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
 }
 .regervation p {
   max-width: 700px;
