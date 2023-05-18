@@ -80,7 +80,7 @@ const ProductCard = ({ data, reRender }) => {
 
           <p className="quantityPrice flex justify-spacebetween">
             <span>
-              <strike>₹{product_regular_price}</strike>&nbsp;
+              {/* <strike>₹{product_regular_price}</strike>&nbsp; */}
               ₹{product_sale_price}
             </span>
             {product_reword_point ? (

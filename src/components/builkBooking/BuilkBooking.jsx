@@ -22,6 +22,7 @@ const BuilkBooking = () => {
                 booking needs and let us handle the culinary details while you
                 focus on creating unforgettable moments.
               </p>
+              <p>Mail: <a href="mailto: Hello@kozmo-cloud.com">Hello@kozmo-cloud.com</a></p>
             </div>
           </div>
           <div className="form">

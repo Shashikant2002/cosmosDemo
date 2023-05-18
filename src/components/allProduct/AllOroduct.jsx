@@ -34,7 +34,6 @@ const AllOroduct = ({ product, reRender }) => {
     searchProduct(searchText);
   };
 
-
   return (
     <>
       <div className="searchProduct">
@@ -69,7 +68,10 @@ const AllOroduct = ({ product, reRender }) => {
                   ""
                 ) : (
                   <button
-                    onClick={prePage}
+                    onClick={() => {
+                      prePage();
+                      window.scrollTo(0, 0);
+                    }}
                     className="filled-button activePage"
                   >
                     <AiOutlineDoubleLeft />
@@ -79,7 +81,10 @@ const AllOroduct = ({ product, reRender }) => {
                   (_, i) => {
                     return (
                       <button
-                        onClick={() => pageSelect(i + 1)}
+                        onClick={() => {
+                          pageSelect(i + 1);
+                          window.scrollTo(0, 0);
+                        }}
                         key={i}
                         className={`filled-button ${
                           page === i + 1 ? "activePage" : ""
@@ -94,7 +99,10 @@ const AllOroduct = ({ product, reRender }) => {
                   ""
                 ) : (
                   <button
-                    onClick={nextPage}
+                    onClick={() => {
+                      nextPage();
+                      window.scrollTo(0, 0);
+                    }}
                     className="filled-button activePage"
                   >
                     <AiOutlineDoubleRight />

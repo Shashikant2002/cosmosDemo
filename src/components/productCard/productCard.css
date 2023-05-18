@@ -21,11 +21,15 @@
 }
 .productCardMain .title{
     text-transform: uppercase;
+    margin-bottom: 5px;
 }
 .productCardMain > a{
     width: 50%;
     height: 100%;
     overflow: hidden;
+}
+.productCardMain .mainContent .quantityPrice{
+    margin-top: 10px;
 }
 .productCardMain .mainContent{
     width: 100%;

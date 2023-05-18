@@ -7,7 +7,6 @@ import {
   categoryProductReducer,
   filterMultiCategoryProduct,
   registerUserHReducer,
-  loginUserHReducer
 } from "./reducers";
 
 const AppContext = React.createContext();
@@ -25,7 +24,8 @@ const AppProvider = ({ children }) => {
   );
 
   const [register, registerDispatch] = useReducer(registerUserHReducer);
-  const [login, loginDispatch] = useReducer(loginUserHReducer);
+  const [verifyRegUser, verifyRegUserDispatch] = useReducer(registerUserHReducer);
+  const [login, loginDispatch] = useReducer(registerUserHReducer);
 
   const updateSubTotal = async () => {
     let cartData = fetch_cart();
@@ -160,6 +160,24 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const verifyRegUSer = async (otp) => {
+    try {
+      const url = `${process.env.REACT_APP_BASE_URL}api/user/register_verify`;
+      const userCreate = await axios.post(
+        url,
+        { otp },
+        { withCredentials: true }
+      );
+
+      return verifyRegUserDispatch({
+        type: "VERIFY_REG_USER",
+        payload: userCreate,
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
   const loginByNumber = async (phoneNumber) => {
     try {
       const url = `${process.env.REACT_APP_BASE_URL}api/user/login_by_number`;
@@ -169,10 +187,30 @@ const AppProvider = ({ children }) => {
         { withCredentials: true }
       );
 
-      console.log(login)
-      
+      console.log(login);
+
       return loginDispatch({
         type: "lOGIN_BY_PHONE",
+        payload: login.data,
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
+  const verifyLoginByNumber = async (otp) => {
+    try {
+      const url = `${process.env.REACT_APP_BASE_URL}api/user/verify_login`;
+      const login = await axios.post(
+        url,
+        { otp: otp },
+        { withCredentials: true }
+      );
+
+      console.log(login);
+
+      return loginDispatch({
+        type: "VERIFY_LOGIN_USER",
         payload: login.data,
       });
     } catch (err) {
@@ -189,6 +227,7 @@ const AppProvider = ({ children }) => {
         ...filterMultiCategory,
         ...register,
         ...login,
+        ...verifyRegUser,
         updateSubTotal,
         totalQut,
         fetchProduct,
@@ -196,7 +235,9 @@ const AppProvider = ({ children }) => {
         searchProduct,
         filterByMultiCategory,
         registerUser,
-        loginByNumber
+        loginByNumber,
+        verifyRegUSer,
+        verifyLoginByNumber
       }}
     >
       {children}

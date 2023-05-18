@@ -11,9 +11,9 @@ const ContactUsSection = () => {
             <h5 className="right-line">General Inquiries</h5>
             <h2>Contact Us</h2>
             <div className="info">
-              <p>
+              {/* <p>
                 For general Inquiries please kindly complete the form, or email:
-              </p>
+              </p> */}
               <a href="mailto: info@patiotime.com">
                 <p>info@patiotime.com</p>
               </a>

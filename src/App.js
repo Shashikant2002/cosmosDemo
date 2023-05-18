@@ -20,6 +20,8 @@ import CategoryInner from "./pages/CategoryInner";
 import BuilkBookingPage from "./pages/BuilkBookingPage";
 import LocationsPage from "./pages/Locations";
 import InstaSticky from "./components/stickyFoot/InstaSticky";
+import RegVerify from "./components/loginSign/RegVerify";
+import LoginVerify from "./components/loginSign/LoginVerify";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -158,10 +160,28 @@ const App = () => {
 
               <Route
                 exact={true}
-                path="location"
+                path="/location"
                 element={
                   <>
                     <LocationsPage />
+                  </>
+                }
+              />
+              <Route
+                exact={true}
+                path="register_verify"
+                element={
+                  <>
+                    <RegVerify />
+                  </>
+                }
+              />
+              <Route
+                exact={true}
+                path="login_verify"
+                element={
+                  <>
+                    <LoginVerify />
                   </>
                 }
               />

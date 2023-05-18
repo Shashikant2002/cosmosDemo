@@ -58,7 +58,10 @@ export const filterMultiCategoryProduct = (state, action) => {
   }
 };
 
-export const registerUserHReducer = (state, action) => {
+export const registerUserHReducer = (
+  state = { authorization: false },
+  action
+) => {
   switch (action.type) {
     case "REGISTER_USER_H":
       return {
@@ -66,15 +69,8 @@ export const registerUserHReducer = (state, action) => {
         user: action.payload,
       };
 
-    default:
-      return state;
-  }
-};
-
-export const loginUserHReducer = (state = { authorization: false }, action) => {
-  switch (action.type) {
     case "lOGIN_BY_PHONE":
-      console.log("Data", action?.payload?.token)
+      console.log("Data", action?.payload?.token);
       if (action?.payload?.token) {
         return {
           ...state,
@@ -84,7 +80,41 @@ export const loginUserHReducer = (state = { authorization: false }, action) => {
       } else {
         return {
           ...state,
-          login: action.payload,
+          user: action.payload,
+          authorization: false,
+        };
+      }
+
+    case "VERIFY_REG_USER":
+      console.log(action?.payload.data);
+      if (action?.payload?.data.success) {
+        console.log(state.authorization);
+        return {
+          ...state,
+          user: action.payload,
+          authorization: true,
+        };
+      } else {
+        return {
+          ...state,
+          user: action.payload,
+          authorization: false,
+        };
+      }
+
+    case "VERIFY_LOGIN_USER":
+      console.log(action?.payload.data);
+      if (action?.payload?.data.success) {
+        console.log(state.authorization);
+        return {
+          ...state,
+          user: action.payload,
+          authorization: true,
+        };
+      } else {
+        return {
+          ...state,
+          user: action.payload,
           authorization: false,
         };
       }
