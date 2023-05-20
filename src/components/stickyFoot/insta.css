@@ -1,11 +1,18 @@
 .instaStick img{
     width: 100%;
 }
+.instaStick .filled-button{
+    margin-right: 10px;
+    padding: 3px 10px;
+}
+.instaStick .insta{
+    width: 40px;
+    height: 40px;
+}
 .instaStick{
     position: fixed;
-    width: 60px;
-    height: 60px;
     bottom: 20px;
     right: 20px;
     z-index: 99999999999999;
+    /* border: 1px solid red; */
 }
