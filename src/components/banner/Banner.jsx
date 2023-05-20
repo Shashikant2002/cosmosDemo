@@ -32,17 +32,14 @@ const Banner = () => {
             centerMode={false}
             centerSlidePercentage="0"
             infiniteLoop={true}
-            interval={1000}
-            swipeable = {true}
+            interval={4000}
+            // swipeable = {true}
           >
             <div className="itemBannerCrowsel">
               <img src={"assets/img/banner_image.webp"} alt="Banner Image" />
             </div>
             <div className="itemBannerCrowsel">
-              <img src={"assets/img/banner_image.webp"} alt="Banner Image" />
-            </div>
-            <div className="itemBannerCrowsel">
-              <img src={"assets/img/banner_image.webp"} alt="Banner Image" />
+              <img src={"assets/img/update_1/banner 2.jpg"} alt="Banner Image" />
             </div>
           </Carousel>
         </div>
