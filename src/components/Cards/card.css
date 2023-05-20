@@ -6,7 +6,8 @@
 
 .menu-card .content {
   position: absolute;
-  background: var(--darkGray);
+  /* background: var(--darkGray); */
+  background: #000000d1;
   top: 0;
   width: 100%;
   left: 0;

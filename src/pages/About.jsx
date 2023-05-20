@@ -35,7 +35,7 @@ const About = () => {
             imgPos={"left"}
             para_1="Kozmo by Nua Café is an organisation specialised in the development of good quality food/meals that you can experience sitting at home/office."
             // para_2="A distinctive, well-preserved and comfortable space, high- quality products, authentic cuisine, food and drinks are done flawlessly."
-            img_2="assets/img/Kozmo focus is to give best food to our client & to create delicacy.webp"
+            img_2="assets/img/Kozmo focus is to give best food to our client & to create delicacy updated.webp"
             // img_1="assets/img/Kozmo focus is to give best food to our client & to create delicacy/back.webp"
           />
 
@@ -52,7 +52,7 @@ const About = () => {
             ]}
             imgPos={"left"}
             // imageBg="assets/img/Our Objective.webp"
-            imageFr="assets/img/Our Objective.webp"
+            imageFr="assets/img/Our Objective updated.webp"
           />
 
           {/* <WhereItAllBegain
@@ -79,7 +79,7 @@ const About = () => {
             para_2="Family/Working class/Bday/Corporates parties/Kitties/Hi-Tea/Solution to your day-to-day food."
             // para_2="We present delicious and enticing dishes with high-quality ingredients. There is no set protocol for ordering from the menu."
             // img_1="assets/img/Target Market.webp"
-            img_2="assets/img/Target Market.webp"
+            img_2="assets/img/Target Market updated.webp"
           />
           {/* <ImageChef image={"assets/img/imagechef.png"} /> */}
           <ImageChef image={"assets/img/team picture-min.jpg"} />
@@ -98,8 +98,8 @@ const About = () => {
               `Best service at your doorstep.`,
             ]}
             imgPos={"left"}
-            imageBg="assets/img/Giving Kitchen Experience of years at an affordable prices.webp" 
-            imageFr="assets/img/Giving Kitchen Experience of years at an affordable prices.webp"
+            imageBg="assets/img/Giving Kitchen Experience of years at an affordable prices updated.webp" 
+            imageFr="assets/img/Giving Kitchen Experience of years at an affordable prices updated.webp"
           />
           <AboutContent
             buttonLink={{ butName: "VIEW MENUES", path: "/" }}
@@ -116,7 +116,7 @@ const About = () => {
             ]}
             imgPos={"right"}
             // imageBg="assets/img/Business Model.webp"
-            imageFr="assets/img/Business Model.webp"
+            imageFr="assets/img/Business Model updated.webp"
           />
 
           {/* <AboutContent

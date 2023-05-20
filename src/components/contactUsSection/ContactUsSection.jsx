@@ -10,14 +10,14 @@ const ContactUsSection = () => {
           <div className="content">
             <h5 className="right-line">General Inquiries</h5>
             <h2>Contact Us</h2>
-            <div className="info">
-              {/* <p>
+            {/* <div className="info">
+              <p>
                 For general Inquiries please kindly complete the form, or email:
-              </p> */}
+              </p>
               <a href="mailto: info@patiotime.com">
                 <p>info@patiotime.com</p>
               </a>
-            </div>
+            </div> */}
             <p className="flex bookingEmail">
               Reserve by email: &nbsp;
               <a href="mailto: hello@kozmo-cloud.com">
