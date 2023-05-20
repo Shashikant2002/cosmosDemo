@@ -10,7 +10,7 @@ const About = () => {
                         <h5 className='right-line'>About Us</h5>
                         <h2>Variety For Every Taste & Every Mood</h2>
                         <figure className='image'>
-                            <img src="assets/img/Three paper Chicken about.webp" alt="" />
+                            <img src="assets/img/about us image.webp" alt="" />
                         </figure>
                     </div>
                     <div className="img">

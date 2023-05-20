@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="container ">
                 <figure className='logo'>
                     {/* <img src="assets/img/logo.png" alt="" /> */}
-                    <img src="assets/img/logo-colored.png" alt="" />
+                    <img src="assets/img/kozmo logo.png" alt="" />
                 </figure>
                 <p className='text-center'>Elevating your dining experience with delectable flavors delivered straight to you. Indulge in culinary perfection today!</p>
                 {/* <Socal /> */}

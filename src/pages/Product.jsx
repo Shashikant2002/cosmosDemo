@@ -47,7 +47,7 @@ const Product = () => {
           <Helmet>
             <title>Product</title>
           </Helmet>
-          <InnerBanner bgImg="/assets/img/inner-banner.jpg" title="PRODUCT" />
+          <InnerBanner bgImg="assets/img/banner_image.webp" title="PRODUCT" />
           <ProductCategory categoryes={allProduct && allProduct} />
           <div className="productPage common-section">
             <div className="container product_page_flex">

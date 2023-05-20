@@ -1,11 +1,33 @@
 .banner{
-    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(../../../public/assets/img/banner_image.webp);
-    padding: 230px 0;
+    /* background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(../../../public/assets/img/banner_image.webp); */
+    /* padding: 230px 0; */
     width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+}
+.banner .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 600px;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+}
+.banner .itemBannerCrowsel img{
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+}
+.banner .carousel-status,
+.banner .control-dots,
+.banner .control-arrow,
+.banner .thumbs-wrapper{
+    display: none;
+}
+.banner .itemBannerCrowsel{
 }
 
 .banner h1{
@@ -15,7 +37,7 @@
 }
 
 .banner .buttons{
-    margin-top: 50px;
+    margin-top: 40px;
     gap: 30px;
 }
 

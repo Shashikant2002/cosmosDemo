@@ -1,9 +1,55 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./builkBooking.css";
+import Loading from "../loading/Loading";
+import emailjs from "@emailjs/browser";
 
 const BuilkBooking = () => {
-  return (
+  const [loading, setLoading] = useState(false);
+  const bulkForm = useRef();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [location, setLocation] = useState("");
+  const [bookingDate, setBookingDate] = useState("");
+  const [message, setMessage] = useState("");
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    console.log(bulkForm.current);
+
+    await emailjs
+      .sendForm(
+        process.env.REACT_APP_YOUR_SERVICE_ID,
+        process.env.REACT_APP_YOUR_TEMPLATE_ID_FOR_BUILK,
+        bulkForm.current,
+        process.env.REACT_APP_YOUR_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          alert("Thanks for Message");
+          setName("");
+          setEmail("");
+          setLocation("");
+          setBookingDate("");
+          setMessage("");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
+  const formSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    await sendEmail(e);
+    setLoading(false);
+  };
+
+  return loading ? (
+    <Loading />
+  ) : (
     <>
       <section className="builkBooking common-section">
         <div className="container flex">
@@ -22,11 +68,16 @@ const BuilkBooking = () => {
                 booking needs and let us handle the culinary details while you
                 focus on creating unforgettable moments.
               </p>
-              <p>Mail: <a href="mailto: Hello@kozmo-cloud.com">Hello@kozmo-cloud.com</a></p>
+              <p>
+                Mail:{" "}
+                <a href="mailto: Hello@kozmo-cloud.com">
+                  Hello@kozmo-cloud.com
+                </a>
+              </p>
             </div>
           </div>
           <div className="form">
-            <form action="/">
+            <form ref={bulkForm} onSubmit={formSubmit} action="/">
               <div className="rowMain flex">
                 <div className="name">
                   <label htmlFor="name">Your Name</label>
@@ -40,17 +91,17 @@ const BuilkBooking = () => {
               <div className="rowMain flex">
                 <div className="name">
                   <label htmlFor="name">Location</label>
-                  <input id="name" name="name" type="text" />
+                  <input id="name" name="location" type="text" />
                 </div>
                 <div className="email">
                   <label htmlFor="email">Booking Date</label>
-                  <input id="email" name="email" type="date" />
+                  <input id="email" name="date" type="date" />
                 </div>
               </div>
 
               <div className="message">
                 <label htmlFor="message">Your Message</label>
-                <textarea id="message" name="subject" type="text" />
+                <textarea id="message" name="message" type="text" />
               </div>
               <button className="filled-button" type="submit">
                 Submit
