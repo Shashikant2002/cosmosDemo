@@ -32,7 +32,7 @@ const LoginVerify = () => {
     <Loading />
   ) : (
     <>
-      <InnerBanner bgImg={"/assets/img/about-1.jpg"} title={"Register Here"} />
+      <InnerBanner bgImg={"/assets/img/about-1.jpg"} title={"Verify Your Login"} />
       <div
         style={{ marginTop: "50px", padding: "0 20px" }}
         className="loginSign"
