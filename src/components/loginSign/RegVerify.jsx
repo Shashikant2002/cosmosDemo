@@ -26,7 +26,8 @@ const RegVerify = () => {
 
 useEffect(() => {
   if(authorization === true){
-    navigate("/profile")
+    // navigate("/profile")
+    window.location.href = `${window.location.origin}/profile`
   }
 })
 

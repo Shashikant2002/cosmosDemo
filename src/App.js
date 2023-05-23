@@ -41,6 +41,7 @@ const App = () => {
   }, []);
 
   console.log(useGlobalContext());
+  console.log(window.location);
   
 
   return (
