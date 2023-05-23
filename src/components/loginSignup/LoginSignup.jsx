@@ -20,8 +20,9 @@ const LoginSignup = ({ togleMenu }) => {
             </li>
           ) : (
             <li>
-              <Link title="Login Signup" to="/loginSign" onClick={togleMenu}>
-                <BiLogInCircle />
+              <Link className="aligin-center flex" title="Login Signup" to="/loginSign" onClick={togleMenu}>
+                {/* <BiLogInCircle /> */}
+                <button className="filled-button">Login</button>
               </Link>
             </li>
           )}

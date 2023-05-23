@@ -103,8 +103,8 @@ export const registerUserHReducer = (
       }
 
     case "VERIFY_LOGIN_USER":
-      console.log(action?.payload.data);
-      if (action?.payload?.data.success) {
+      console.log(action?.payload?.success);
+      if (action?.payload?.success) {
         console.log(state.authorization);
         return {
           ...state,
@@ -116,6 +116,16 @@ export const registerUserHReducer = (
           ...state,
           user: action.payload,
           authorization: false,
+        };
+      }
+
+    case "FETCH_LOGIN_DATA":
+      console.log(action?.payload);
+      if (action?.payload?.success) {
+        return {
+          ...state,
+          user: action.payload.user,
+          authorization: true,
         };
       }
 

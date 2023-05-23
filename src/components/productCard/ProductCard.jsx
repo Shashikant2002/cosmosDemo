@@ -5,6 +5,7 @@ import "./productCard.css";
 import { fetch_cart } from "../../utils/globalFunction";
 import { useGlobalContext } from "../../context/context";
 import { FaMoneyBillWave } from "react-icons/fa";
+// import { MdAddShoppingCart } from "react-icons/md";
 
 const ProductCard = ({ data, reRender }) => {
   const [view, setView] = useState(false);
@@ -92,7 +93,7 @@ const ProductCard = ({ data, reRender }) => {
               ""
             )}
           </p>
-          {/* <div className="addInCart justify-spacebetween">
+          <div className="addInCart justify-spacebetween">
             <div className="incDec  flex">
               <button onClick={decreaseQuantity}>-</button>
               <input
@@ -103,12 +104,12 @@ const ProductCard = ({ data, reRender }) => {
               />
               <button onClick={increageQuantity}>+</button>
             </div>
-            <button
+            {/* <button
               style={{ pointerEvents: changeQut >= 1 ? "inherit" : "none" }}
               className="filled-button"
             >
               <MdAddShoppingCart />
-            </button>
+            </button> */}
             {view && view ? (
               <>
                 <Link to={"/cart"} className="filled-button">
@@ -127,7 +128,7 @@ const ProductCard = ({ data, reRender }) => {
                 Add to Cart
               </button>
             )}
-          </div> */}
+          </div>
         </div>
       </div>
     </>

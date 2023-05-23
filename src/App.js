@@ -25,7 +25,7 @@ import LoginVerify from "./components/loginSign/LoginVerify";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
-  const { totalQut, fetchProduct } = useGlobalContext();
+  const { totalQut, fetchProduct, fetchLoginUser } = useGlobalContext();
 
   console.log(process.env.REACT_APP_BASE_URL);
   const fetchPro = async () => {
@@ -37,8 +37,10 @@ const App = () => {
 
   useEffect(() => {
     fetchPro();
+    fetchLoginUser();
   }, []);
 
+  console.log(useGlobalContext());
   
 
   return (

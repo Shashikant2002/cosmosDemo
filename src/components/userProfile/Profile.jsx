@@ -1,15 +1,32 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./profile.css";
 import { MdClose } from "react-icons/md";
+import axios from "axios";
+import { useGlobalContext } from "../../context/context";
 
-const Profile = () => {
+const Profile = ({ user }) => {
   const updateProfilePopup = useRef();
+  const { fetchLoginUser } = useGlobalContext();
 
   const updateProfile = () => {
     updateProfilePopup.current.classList.toggle("updateProfilePopupShow");
   };
 
+  const logoutProfile = async () => {
+    try {
+      const url = `${process.env.REACT_APP_BASE_URL}api/user/logout`;
+      const res = await axios.post(url, { withCredentials: true });
+      console.log(res);
+      window.location.href = window.location.href;
+    } catch (ele) {
+      console.log(ele);
+    }
+  };
+
+  useEffect(() => {
+    fetchLoginUser();
+  }, []);
   return (
     <>
       <div className="profile common-section">
@@ -62,30 +79,38 @@ const Profile = () => {
             <h2>User Detail</h2>
             <div className="user">
               <h4 className="flex">
-                <span>Name:-</span> <p>Shashikant</p>
+                <span>Name:-</span> <p>{user?.username}</p>
               </h4>
-              <h4 className="flex">
+              {/* <h4 className="flex">
                 {" "}
                 <span>Address:-</span>{" "}
                 <p>
                   E-2/972-C, Street No. 19, Pusta-4, Sonia Vihar Delhi - 110094
                 </p>
-              </h4>
+              </h4> */}
               <h4 className="flex">
-                <span>Phone: -</span> <p>0000000000</p>
+                <span>Phone: -</span> <p>{user?.phone_number}</p>
               </h4>
-              <h4 className="flex">
+              {/* <h4 className="flex">
                 <span>Email:-</span> <p>shashikant384443@gmail.com</p>
-              </h4>
+              </h4> */}
             </div>
             <button onClick={updateProfile} className="filled-button">
               Edit Profile
+            </button>
+
+            <button
+              style={{ marginLeft: "10px" }}
+              onClick={logoutProfile}
+              className="filled-button"
+            >
+              Logout Profile
             </button>
           </div>
           <div className="rewards">
             <div className="mainContent flex align-center justify-center flex-column">
               <h3>Rewards Points</h3>
-              <h2>200</h2>
+              <h2>{user?.rewords_points}</h2>
               <p className="text-center">
                 You can use this Rewards When you have more then <b>1000</b>{" "}
                 Rewards Points.

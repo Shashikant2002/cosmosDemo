@@ -24,7 +24,8 @@ const AppProvider = ({ children }) => {
   );
 
   const [register, registerDispatch] = useReducer(registerUserHReducer);
-  const [verifyRegUser, verifyRegUserDispatch] = useReducer(registerUserHReducer);
+  const [verifyRegUser, verifyRegUserDispatch] =
+    useReducer(registerUserHReducer);
   const [login, loginDispatch] = useReducer(registerUserHReducer);
 
   const updateSubTotal = async () => {
@@ -218,6 +219,23 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const fetchLoginUser = async () => {
+    try {
+      // console.log("User Data => ");
+      const url = `${process.env.REACT_APP_BASE_URL}api/user/loginUserData`;
+      const loginUser = await axios.get(url, {withCredentials: true});
+      
+      // console.log("User Data => ", loginUser);
+
+      return loginDispatch({
+        type: "FETCH_LOGIN_DATA",
+        payload: loginUser.data,
+      });
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -237,7 +255,8 @@ const AppProvider = ({ children }) => {
         registerUser,
         loginByNumber,
         verifyRegUSer,
-        verifyLoginByNumber
+        verifyLoginByNumber,
+        fetchLoginUser,
       }}
     >
       {children}

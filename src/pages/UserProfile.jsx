@@ -6,7 +6,7 @@ import { useGlobalContext } from "../context/context";
 
 const UserProfile = () => {
   const navigate = useNavigate();
-  const { authorization } = useGlobalContext();
+  const { authorization, user } = useGlobalContext();
 
   useEffect(() => {
     if (!authorization) {
@@ -17,7 +17,7 @@ const UserProfile = () => {
   return (
     <>
       <InnerBanner bgImg={"/assets/img/about-banner.jpg"} title={"Profile"} />
-      <Profile />
+      <Profile user = {user} />
     </>
   );
 };

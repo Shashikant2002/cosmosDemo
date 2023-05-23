@@ -15,13 +15,18 @@ const LoginSignForm = () => {
   const { loginByNumber, authorization } = useGlobalContext();
 
   const submitForm_ = async () => {
-    if (value.length < 10) {
-      setLoading(false);
-      return console.log("Number is Invalid");
+    if (value) {
+      if (value.length < 10) {
+        setLoading(false);
+        return console.log("Number is Invalid");
+      } else {
+        await loginByNumber(value);
+        navigate("/login_verify");
+        setLoading(false);
+      }
     } else {
-      await loginByNumber(value);
-      navigate("/login_verify");
       setLoading(false);
+      return console.log("Please Fill the Required field");
     }
   };
 
