@@ -35,9 +35,9 @@ const Banner = () => {
             interval={4000}
             // swipeable = {true}
           >
-            <div className="itemBannerCrowsel">
+            {/* <div className="itemBannerCrowsel">
               <img src={"assets/img/banner_image.webp"} alt="Banner Image" />
-            </div>
+            </div> */}
             <div className="itemBannerCrowsel">
               <img src={"assets/img/update_1/banner 2.jpg"} alt="Banner Image" />
             </div>
