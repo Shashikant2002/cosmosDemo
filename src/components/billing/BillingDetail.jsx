@@ -45,19 +45,55 @@ const BillingDetail = () => {
     setSubPrice(subPricecal);
   };
 
+  const url = `${process.env.REACT_APP_BASE_URL}api/user/payment_add_reword`;
+
   const makePayment = async (arr_product) => {
     try {
       setLoading(true);
-      const url = `${process.env.REACT_APP_BASE_URL}api/user/payment_add_reword`;
       const res = await axios.post(
         url,
         { productId: arr_product },
         { withCredentials: true }
       );
-      console.log(res);
-      alert(
-        `User Name ${res.data.user.username} \nSuccess: ${res.data.success} \nTotal Price ${res.data.totalPrice} \nTotal Rewards Added ${res.data.totatRewards} \nUser id ${res.data.user._id},\nTotal rewards ${res.data.user.rewords_points}`
+      const keyRes = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}api/paymentKey/rezor`
       );
+
+      console.log(
+        keyRes.data.key,
+        res.data,
+        `${process.env.REACT_APP_BASE_URL}api/user/paymentVerifyRezor`
+      );
+      if (res?.data?.success === true) {
+        const options = {
+          key: keyRes.data.keyRes,
+          amount: res.data.order.amount,
+          currency: "INR",
+          name: "Kozmo",
+          description: "Komo Food Payment",
+          image: "assets/img/kozmo logo.png",
+          order_id: res.data.order.id,
+          callback_url: `${process.env.REACT_APP_BASE_URL}api/user/paymentVerifyRezor`,
+          prefill: {
+            name: res.data.user.username,
+            contact: res.data.user.phone_number,
+          },
+          notes: {
+            address: res.data.user.phone_number,
+          },
+          theme: {
+            color: "#0e0d09",
+          },
+        };
+
+        const razor = await new window.Razorpay(options);
+        const rees = await razor.open();
+        console.log(rees);
+      }
+
+      // alert(
+      //   `User Name ${res.data.user.username} \nSuccess: ${res.data.success} \nTotal Price ${res.data.totalPrice} \nTotal Rewards Added ${res.data.totatRewards} \nUser id ${res.data.user._id},\nTotal rewards ${res.data.user.rewords_points}`
+      // );
       setLoading(false);
     } catch (ele) {
       console.log(ele);

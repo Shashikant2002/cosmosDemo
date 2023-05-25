@@ -26,7 +26,6 @@ const LoginVerify = () => {
     }
   });
 
-  console.log();
 
   return loading ? (
     <Loading />

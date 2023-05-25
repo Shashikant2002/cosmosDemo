@@ -120,7 +120,7 @@ export const registerUserHReducer = (
       }
 
     case "FETCH_LOGIN_DATA":
-      console.log(action?.payload);
+      // console.log(action?.payload);
       if (action?.payload?.success) {
         return {
           ...state,
@@ -128,6 +128,7 @@ export const registerUserHReducer = (
           authorization: true,
         };
       }
+      break;
 
     default:
       return state;

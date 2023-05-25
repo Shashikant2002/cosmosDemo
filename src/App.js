@@ -40,8 +40,8 @@ const App = () => {
     fetchLoginUser();
   }, []);
 
-  console.log(useGlobalContext());
-  console.log(window.location);
+  // console.log(useGlobalContext());
+  // console.log(window.location);
   
 
   return (

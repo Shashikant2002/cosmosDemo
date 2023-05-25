@@ -1,13 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./profile.css";
 import { MdClose } from "react-icons/md";
 import axios from "axios";
 import { useGlobalContext } from "../../context/context";
+import Loading from "../loading/Loading.jsx";
 
 const Profile = ({ user }) => {
   const updateProfilePopup = useRef();
   const { fetchLoginUser } = useGlobalContext();
+
+  const [loading, setLoading] = useState(false);
 
   const updateProfile = () => {
     updateProfilePopup.current.classList.toggle("updateProfilePopupShow");
@@ -15,19 +18,24 @@ const Profile = ({ user }) => {
 
   const logoutProfile = async () => {
     try {
+      setLoading(true);
       const url = `${process.env.REACT_APP_BASE_URL}api/user/logout`;
       const res = await axios.post(url, { withCredentials: true });
       console.log(res);
-      window.location.href = window.location.href;
+      setLoading(false);
+      // window.location.href = window.location.href;
     } catch (ele) {
       console.log(ele);
+      setLoading(false)
     }
   };
 
   useEffect(() => {
     fetchLoginUser();
   }, []);
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <>
       <div className="profile common-section">
         <div
