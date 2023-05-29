@@ -4,6 +4,7 @@ import "./billing.css";
 import { IoIosClose } from "react-icons/io";
 import axios from "axios";
 import Loading from "../loading/Loading";
+import { useGlobalContext } from "../../context/context";
 
 const BillingDetail = () => {
   const [cart, setCart] = useState([]);
@@ -15,6 +16,8 @@ const BillingDetail = () => {
   const [phone, setphone] = useState("");
   const [email, setemail] = useState("");
 
+  const { authorization } = useGlobalContext();
+
   const checkValidateForm = () => {
     if (!name || !address || !phone || !email) {
       return false;
@@ -23,10 +26,11 @@ const BillingDetail = () => {
     }
   };
 
+  let cartData = fetch_cart();
   const setData = () => {
-    let cartData = fetch_cart();
     setCart(cartData);
   };
+  console.log(cartData);
 
   const subTotal = async () => {
     let subPricecal = 0;
@@ -50,6 +54,8 @@ const BillingDetail = () => {
   const makePayment = async (arr_product) => {
     try {
       setLoading(true);
+      let cartData = await fetch_cart();
+
       const res = await axios.post(
         url,
         { productId: arr_product },
@@ -59,11 +65,11 @@ const BillingDetail = () => {
         `${process.env.REACT_APP_BASE_URL}api/paymentKey/rezor`
       );
 
-      console.log(
-        keyRes.data.key,
-        res.data,
-        `${process.env.REACT_APP_BASE_URL}api/user/paymentVerifyRezor`
-      );
+      // console.log(
+      //   keyRes.data.key,
+      //   res.data,
+      //   `${process.env.REACT_APP_BASE_URL}api/user/paymentVerifyRezor`
+      // );
       if (res?.data?.success === true) {
         const options = {
           key: keyRes.data.keyRes,
@@ -73,7 +79,29 @@ const BillingDetail = () => {
           description: "Komo Food Payment",
           image: "assets/img/kozmo logo.png",
           order_id: res.data.order.id,
-          callback_url: `${process.env.REACT_APP_BASE_URL}api/user/paymentVerifyRezor`,
+          handler: async (rezerPayData) => {
+            // console.log("rezerpay", rezerPayData);
+            const {
+              razorpay_order_id,
+              razorpay_payment_id,
+              razorpay_signature,
+            } = rezerPayData;
+            const url = `${process.env.REACT_APP_BASE_URL}api/user/paymentVerifyRezor`;
+            const res = await axios.post(
+              url,
+              {
+                razorpay_order_id,
+                razorpay_payment_id,
+                razorpay_signature,
+                cartData,
+              },
+              { withCredentials: true }
+            );
+            console.log(res);
+            if (res?.data?.success === true) {
+              alert(`Payment Successful ${res?.data?.pay_id}`);
+            }
+          },
           prefill: {
             name: res.data.user.username,
             contact: res.data.user.phone_number,
@@ -87,8 +115,9 @@ const BillingDetail = () => {
         };
 
         const razor = await new window.Razorpay(options);
-        const rees = await razor.open();
-        console.log(rees);
+        await razor.open();
+
+        // console.log(rees);
       }
 
       // alert(
@@ -104,7 +133,10 @@ const BillingDetail = () => {
   const fetuchAllCatProduct = (e) => {
     e.preventDefault();
     console.log(checkValidateForm());
-    if (!checkValidateForm()) {
+
+    if (!authorization) {
+      return alert("Please Login And Try again !!");
+    } else if (!checkValidateForm()) {
       alert("Please Fill all the Required Fields");
     } else {
       let cartData = fetch_cart();

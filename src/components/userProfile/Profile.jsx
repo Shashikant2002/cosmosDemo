@@ -20,10 +20,10 @@ const Profile = ({ user }) => {
     try {
       setLoading(true);
       const url = `${process.env.REACT_APP_BASE_URL}api/user/logout`;
-      const res = await axios.post(url, { withCredentials: true });
+      const res = await axios.post(url, {}, { withCredentials: true });
       console.log(res);
       setLoading(false);
-      // window.location.href = window.location.href;
+      window.location.href = window.location.href;
     } catch (ele) {
       console.log(ele);
       setLoading(false)
