@@ -42,7 +42,7 @@ const Register = () => {
     if (user?.success === true) {
       navigate("/register_verify");
     }
-  }, [user?.success]);
+  }, [user?.success, user]);
 
   console.log("Register Data =>", user);
 

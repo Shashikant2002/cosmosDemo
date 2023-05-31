@@ -6,6 +6,7 @@ import axios from "axios";
 import Loading from "../loading/Loading";
 import { useGlobalContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 const BillingDetail = ({ setRender, render }) => {
   const [cart, setCart] = useState([]);
@@ -18,6 +19,10 @@ const BillingDetail = ({ setRender, render }) => {
   const [phone, setphone] = useState("");
 
   const navigate = useNavigate();
+
+  const rewordsSub = useRef();
+
+  const [rewordCheck, setRewordsCheck] = useState(false);
 
   const { authorization, fetchLoginUser, user } = useGlobalContext();
 
@@ -108,7 +113,7 @@ const BillingDetail = ({ setRender, render }) => {
               });
             });
 
-            console.log("orderData =>",orderData);
+            console.log("orderData =>", orderData);
             const res = await axios.post(
               url,
               {
@@ -179,7 +184,12 @@ const BillingDetail = ({ setRender, render }) => {
     console.log(cart);
   }, []);
 
-  console.log(user);
+  console.log(user, rewordCheck);
+
+  const inputCheckRewords = () => {
+    setRewordsCheck(!rewordCheck);
+  };
+
 
   return loading ? (
     <Loading />
@@ -307,14 +317,23 @@ const BillingDetail = ({ setRender, render }) => {
                   </div>
                 </div>
                 <div className="detailpayment flex">
+                  <p>If You Have 200 Rewords Points You Can Use It</p>
+                  <input
+                    onChange={inputCheckRewords}
+                    ref={rewordsSub}
+                    type="checkbox"
+                    // disabled={user?.rewords_points > 200 ? true : true}
+                  />
+                </div>
+                <div className="detailpayment flex">
                   <div className="product">
                     <p>
-                      <b>Total</b>
+                      <b>Your Rewords</b>
                     </p>
                   </div>
                   <div className="subtotal">
                     <p>
-                      <b>Rs {subPrice}</b>
+                      <b>Rs {user?.rewords_points}</b>
                     </p>
                   </div>
                 </div>

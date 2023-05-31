@@ -22,7 +22,7 @@ const LoginSignForm = () => {
       } else {
         await loginByNumber(value);
 
-        navigate("/login_verify");
+        // navigate("/login_verify");
         setLoading(false);
       }
     } else {
