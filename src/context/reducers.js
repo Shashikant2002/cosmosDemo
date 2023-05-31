@@ -70,7 +70,7 @@ export const registerUserHReducer = (
       };
 
     case "lOGIN_BY_PHONE":
-      console.log("Data", action?.payload?.token);
+      // console.log("Data", action?.payload?.token);
       if (action?.payload?.token) {
         return {
           ...state,

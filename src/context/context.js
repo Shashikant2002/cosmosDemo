@@ -190,7 +190,7 @@ const AppProvider = ({ children }) => {
         { withCredentials: true }
       );
 
-      console.log(login);
+      // console.log(login);
 
       return loginDispatch({
         type: "lOGIN_BY_PHONE",

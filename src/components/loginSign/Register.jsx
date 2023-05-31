@@ -30,7 +30,7 @@ const Register = () => {
 
     if (!name.length > 3 || !mobile.length > 13) {
       setLoading(false);
-      console.log("Please enter name or Phone number");
+      alert("Please enter name or Phone number");
     } else {
       await registerUser(name, mobile);
       console.log("done", user);

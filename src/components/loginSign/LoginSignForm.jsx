@@ -21,12 +21,7 @@ const LoginSignForm = () => {
         return console.log("Number is Invalid");
       } else {
         await loginByNumber(value);
-        if (!(user?._id)) {
-          setLoading(false);
-          
-          return false;
-        }
-        console.log(user);
+
         navigate("/login_verify");
         setLoading(false);
       }
@@ -48,10 +43,13 @@ const LoginSignForm = () => {
   };
 
   useEffect(() => {
+    if (user?.success === true) {
+      navigate("/login_verify");
+    }
     if (authorization) {
       navigate("/profile");
     }
-  }, [authorization]);
+  }, [authorization, user?.success]);
 
   // console.log(otp);
   console.log(useGlobalContext());
