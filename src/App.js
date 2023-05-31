@@ -27,6 +27,8 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const { totalQut, fetchProduct, fetchLoginUser } = useGlobalContext();
 
+  const [render, setRender] = useState(false);
+
   console.log(process.env.REACT_APP_BASE_URL);
   const fetchPro = async () => {
     // await setLoading(true);
@@ -38,7 +40,7 @@ const App = () => {
   useEffect(() => {
     fetchPro();
     fetchLoginUser();
-  }, []);
+  }, [render]);
 
   // console.log(useGlobalContext());
   // console.log(window.location);
@@ -111,7 +113,7 @@ const App = () => {
                 path="/checkout"
                 element={
                   <>
-                    <Checkout />
+                    <Checkout setRender =  {setRender} render = {render} />
                   </>
                 }
               />

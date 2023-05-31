@@ -12,7 +12,7 @@ const LoginSignForm = () => {
 
   const navigate = useNavigate();
 
-  const { loginByNumber, authorization } = useGlobalContext();
+  const { loginByNumber, authorization, user } = useGlobalContext();
 
   const submitForm_ = async () => {
     if (value) {
@@ -21,6 +21,12 @@ const LoginSignForm = () => {
         return console.log("Number is Invalid");
       } else {
         await loginByNumber(value);
+        if (!(user?._id)) {
+          setLoading(false);
+          
+          return false;
+        }
+        console.log(user);
         navigate("/login_verify");
         setLoading(false);
       }

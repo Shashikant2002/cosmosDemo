@@ -152,6 +152,8 @@ const AppProvider = ({ children }) => {
         { withCredentials: true }
       );
 
+      console.log("userCreate => ",userCreate);
+
       return registerDispatch({
         type: "REGISTER_USER_H",
         payload: userCreate.data,

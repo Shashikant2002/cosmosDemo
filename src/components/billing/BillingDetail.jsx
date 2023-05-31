@@ -5,18 +5,21 @@ import { IoIosClose } from "react-icons/io";
 import axios from "axios";
 import Loading from "../loading/Loading";
 import { useGlobalContext } from "../../context/context";
+import { useNavigate } from "react-router-dom";
 
-const BillingDetail = () => {
+const BillingDetail = ({ setRender, render }) => {
   const [cart, setCart] = useState([]);
   const [subPrice, setSubPrice] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  const [name, setName] = useState("");
-  const [address, setaddress] = useState("");
-  const [phone, setphone] = useState("");
   const [email, setemail] = useState("");
+  const [address, setaddress] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setphone] = useState("");
 
-  const { authorization } = useGlobalContext();
+  const navigate = useNavigate();
+
+  const { authorization, fetchLoginUser, user } = useGlobalContext();
 
   const checkValidateForm = () => {
     if (!name || !address || !phone || !email) {
@@ -27,6 +30,7 @@ const BillingDetail = () => {
   };
 
   let cartData = fetch_cart();
+  console.log(cart);
   const setData = () => {
     setCart(cartData);
   };
@@ -87,19 +91,42 @@ const BillingDetail = () => {
               razorpay_signature,
             } = rezerPayData;
             const url = `${process.env.REACT_APP_BASE_URL}api/user/paymentVerifyRezor`;
+
+            const orderData = [];
+            cartData.map((ele) => {
+              orderData.push({
+                product_id: ele.data.product_id,
+                product_code: ele.data.product_code,
+                product_name: ele.data.product_name,
+                product_main_category: ele.data.product_main_category,
+                product_category: ele.data.product_category,
+                product_subcategory: ele.data.product_subcategory,
+                product_variant: ele.data.product_variant,
+                product_quantity: ele.changeQut,
+                product_reword_point: ele.data.product_reword_point,
+                product_images: ele.data.product_images,
+              });
+            });
+
+            console.log("orderData =>",orderData);
             const res = await axios.post(
               url,
               {
                 razorpay_order_id,
                 razorpay_payment_id,
                 razorpay_signature,
-                cartData,
+                cartData: orderData,
+                email,
+                address,
               },
               { withCredentials: true }
             );
             console.log(res);
             if (res?.data?.success === true) {
-              alert(`Payment Successful ${res?.data?.pay_id}`);
+              window.localStorage.removeItem("cartPro");
+              navigate("/profile");
+              setRender(!render);
+              // alert(`Payment Successful ${res?.data?.pay_id}`);
             }
           },
           prefill: {
@@ -148,7 +175,11 @@ const BillingDetail = () => {
   useEffect(() => {
     setData();
     subTotal();
+    fetchLoginUser();
+    console.log(cart);
   }, []);
+
+  console.log(user);
 
   return loading ? (
     <Loading />
@@ -194,7 +225,8 @@ const BillingDetail = () => {
                   value={phone}
                   id="phone"
                   name="phone"
-                  type="phone"
+                  type="number"
+                  max={12}
                   required
                 />
               </div>
@@ -254,6 +286,18 @@ const BillingDetail = () => {
                   <div className="product">
                     <p>
                       <b>Subtotal</b>
+                    </p>
+                  </div>
+                  <div className="subtotal">
+                    <p>
+                      <b>Rs {subPrice}</b>
+                    </p>
+                  </div>
+                </div>
+                <div className="detailpayment flex">
+                  <div className="product">
+                    <p>
+                      <b>Total</b>
                     </p>
                   </div>
                   <div className="subtotal">

@@ -3,7 +3,7 @@ import BillingDetail from "../components/billing/BillingDetail";
 import InnerBanner from "../components/innerBanner/InnerBanner";
 import Loading from "../components/loading/Loading";
 
-const Checkout = () => {
+const Checkout = ({setRender, render}) => {
   const [loading, setLoading] = useState(false);
   const showLoading = () => {
     setLoading(true);
@@ -23,7 +23,7 @@ const Checkout = () => {
       ) : (
         <>
           <InnerBanner bgImg={"/assets/img/about-1.jpg"} title={"Check Out"} />
-          <BillingDetail />
+          <BillingDetail setRender = {setRender} render={render} />
         </>
       )}
     </>
