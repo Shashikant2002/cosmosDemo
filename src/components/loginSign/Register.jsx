@@ -43,7 +43,7 @@ const Register = () => {
         theme: "dark",
       });
       return;
-    } else if (!name.length > 3 || !mobile.length > 13) {
+    } else if (!(name.length > 3) || !(mobile.length > 10)) {
       setLoading(false);
       toast.warn("Please enter name or Phone number !!", {
         position: "bottom-center",
@@ -64,9 +64,20 @@ const Register = () => {
   };
 
   useEffect(() => {
-    // toast("Wow so easy!");
+    // window.location.reload();
     if (user?.success === true) {
       navigate("/register_verify");
+    }else{
+      toast.error(user?.message, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   }, [user?.success, user]);
 

@@ -64,7 +64,17 @@ export const registerUserHReducer = (
 ) => {
   switch (action.type) {
     case "REGISTER_USER_H":
-      console.log(action.payload);
+      console.log(!action?.payload?.sccess);
+      
+      if (!action?.payload?.sccess) {
+
+        setTimeout(() => {
+          return {
+            ...state,
+            user: null,
+          };
+        }, 5000);
+      }
       return {
         ...state,
         user: action.payload,
@@ -88,7 +98,7 @@ export const registerUserHReducer = (
 
     case "VERIFY_REG_USER":
       console.log(action?.payload.data);
-      if (action?.payload?.data.success) {
+      if (action?.payload?.data?.success) {
         console.log(state.authorization);
         return {
           ...state,
