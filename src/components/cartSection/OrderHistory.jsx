@@ -12,7 +12,7 @@ const OrderHistory = () => {
   const [cartData, setCartData] = useState([]);
   const [render, setRender] = useState(false);
 
-  const [orders, setOrders] = useState([])
+  const [orders, setOrders] = useState([]);
 
   const { subPrice, totalQut, totalQuantity } = useGlobalContext();
 
@@ -22,7 +22,7 @@ const OrderHistory = () => {
       console.log(url);
       const orders = await axios.get(url, { withCredentials: true });
       console.log(orders);
-      setOrders(orders?.data?.allOrders)
+      setOrders(orders?.data?.allOrders);
     } catch (error) {
       console.log(error);
     }
@@ -67,8 +67,17 @@ const OrderHistory = () => {
               <div className="cartMatter">
                 <div className="productCartmain">
                   <div className="table flex justify-spacebetween">
-                    <div className="heading"><p><b>ORDER ID</b></p></div>
-                    <div className="heading"><p><b>IMAGE</b></p></div>
+                    <div className="heading">
+                      <p>
+                        <b>ORDER ID</b>
+                      </p>
+                    </div>
+                    {/* <div className="heading"><p><b>IMAGE</b></p></div> */}
+                    <div className="heading">
+                      <p>
+                        <b>PAYMENT ID</b>
+                      </p>
+                    </div>
                     <div className="heading">
                       <p>
                         <b>STATUS</b>
@@ -89,16 +98,11 @@ const OrderHistory = () => {
                         <b>QUANTITY</b>
                       </p>
                     </div>
-                    <div className="heading">
-                      <p>
-                        <b>PAYMENT ID</b>
-                      </p>
-                    </div>
                   </div>
                   {orders &&
                     orders?.map((ele, i) => {
                       return (
-                        <HistoryOrder 
+                        <HistoryOrder
                           handelRemoveCart={handelRemoveCart}
                           key={i}
                           ele={ele}

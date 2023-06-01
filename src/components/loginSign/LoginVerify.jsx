@@ -16,11 +16,12 @@ const LoginVerify = () => {
 
   const { verifyLoginByNumber, authorization, user } = useGlobalContext();
 
-  const submitOtp = (e) => {
+  const submitOtp = async (e) => {
     e.preventDefault();
     setLoading(true);
-    verifyLoginByNumber(Number(otp));
+    await verifyLoginByNumber(Number(otp));
     setLoading(false);
+    console.log(user);
   };
 
   useEffect(() => {
@@ -38,10 +39,21 @@ const LoginVerify = () => {
         progress: undefined,
         theme: "dark",
       });
+    } else {
+      if (!user?.success) {
+        toast.error(user?.message, {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
     }
-  }, [authorization]);
-
-
+  }, [authorization, user]);
 
   return loading ? (
     <Loading />

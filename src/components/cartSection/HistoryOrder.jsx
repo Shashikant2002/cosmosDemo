@@ -82,25 +82,29 @@ const HistoryOrder = ({ ele, handelRemoveCart }) => {
             <div className="body">
               <p>{ele?.order_id}</p>
             </div>
-            <div className="body">
+            {/* <div className="body">
               <figure>
                 <img src={ele?.products[0]?.product_images[0]?.image_url} alt="" />
               </figure>
+            </div> */}
+            <div className="body">
+              <p>{ele.razorpay_payment_id}</p>
             </div>
             <div className="body">
               <p> {ele?.order_status}</p>
             </div>
             <div className="body">
-              <p>{new Date(ele?.updatedAt).getDate()}/{new Date(ele?.updatedAt).getMonth()}/{new Date(ele?.updatedAt).getFullYear()}</p>
+              <p>
+                {new Date(ele?.updatedAt).getDate()}/
+                {new Date(ele?.updatedAt).getMonth()}/
+                {new Date(ele?.updatedAt).getFullYear()}
+              </p>
             </div>
             <div className="body">
-              <p>{ele.product_sale_price}</p>
+              <p>{ele?.total_amount}</p>
             </div>
             <div className="body">
               <p>{ele?.products.length}</p>
-            </div>
-            <div className="body">
-              <p>{ele.razorpay_payment_id}</p>
             </div>
           </div>
         </>

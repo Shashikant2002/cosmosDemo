@@ -125,12 +125,15 @@ const Profile = ({ user }) => {
             </button>
 
             <button
-              style={{ marginLeft: "10px" }}
+              style={{ margin: "10px 10px" }}
               onClick={logoutProfile}
               className="filled-button"
             >
               Logout Profile
             </button>
+            <Link className="filled-button" to="/orderHistory">
+              Your Order
+            </Link>
           </div>
           <div className="rewards">
             <div className="mainContent flex align-center justify-center flex-column">

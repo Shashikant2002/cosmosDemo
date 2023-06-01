@@ -65,7 +65,7 @@ const BillingDetail = ({ setRender, render }) => {
       setLoading(true);
       let cartData = await fetch_cart();
 
-      const res = await axios.post(
+      let res = await axios.post(
         url,
         { productId: arr_product },
         { withCredentials: true }
@@ -113,8 +113,8 @@ const BillingDetail = ({ setRender, render }) => {
               });
             });
 
-            console.log("orderData =>", orderData);
-            const res = await axios.post(
+            console.log("orderData =>", orderData, res.data.order.amount);
+            const res_ = await axios.post(
               url,
               {
                 razorpay_order_id,
@@ -123,11 +123,12 @@ const BillingDetail = ({ setRender, render }) => {
                 cartData: orderData,
                 email,
                 address,
+                total_amount: (res?.data?.order?.amount) / 100,
               },
               { withCredentials: true }
             );
-            console.log(res);
-            if (res?.data?.success === true) {
+            console.log(res_);
+            if (res_?.data?.success === true) {
               window.localStorage.removeItem("cartPro");
               navigate("/orderHistory");
               setRender(!render);
@@ -189,7 +190,6 @@ const BillingDetail = ({ setRender, render }) => {
   const inputCheckRewords = () => {
     setRewordsCheck(!rewordCheck);
   };
-
 
   return loading ? (
     <Loading />

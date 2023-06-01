@@ -64,6 +64,7 @@ export const registerUserHReducer = (
 ) => {
   switch (action.type) {
     case "REGISTER_USER_H":
+      console.log(action.payload);
       return {
         ...state,
         user: action.payload,

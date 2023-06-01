@@ -174,7 +174,7 @@ const AppProvider = ({ children }) => {
 
       return verifyRegUserDispatch({
         type: "VERIFY_REG_USER",
-        payload: userCreate,
+        payload: userCreate?.data,
       });
     } catch (err) {
       console.log("Error: ", err);
