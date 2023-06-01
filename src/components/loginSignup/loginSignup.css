@@ -17,7 +17,12 @@
     position: absolute;
     margin-top: 0;
     color: var(--orange);
-    padding: 1px 5px;
+    /* padding: 2px 7px; */
+    width: 20px;
+    height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
     top: -9px;
     right: -14px;

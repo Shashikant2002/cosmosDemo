@@ -65,9 +65,16 @@ const BillingDetail = ({ setRender, render }) => {
       setLoading(true);
       let cartData = await fetch_cart();
 
+      let reword = 0;
+
+      if(rewordCheck){
+        reword = user?.rewords_points;
+      }
+      console.log("reword",reword);
+
       let res = await axios.post(
         url,
-        { productId: arr_product },
+        { productId: arr_product, reword },
         { withCredentials: true }
       );
       const keyRes = await axios.get(
@@ -123,7 +130,7 @@ const BillingDetail = ({ setRender, render }) => {
                 cartData: orderData,
                 email,
                 address,
-                total_amount: (res?.data?.order?.amount) / 100,
+                total_amount: res?.data?.order?.amount / 100,
               },
               { withCredentials: true }
             );
@@ -322,7 +329,9 @@ const BillingDetail = ({ setRender, render }) => {
                     onChange={inputCheckRewords}
                     ref={rewordsSub}
                     type="checkbox"
-                    // disabled={user?.rewords_points > 200 ? true : true}
+                    disabled={201 > 200 ? false : true}
+                    // disabled={user?.rewords_points > 200 ? false : true}
+                    checked={rewordCheck}
                   />
                 </div>
                 <div className="detailpayment flex">
@@ -337,6 +346,20 @@ const BillingDetail = ({ setRender, render }) => {
                     </p>
                   </div>
                 </div>
+                {/* {rewordCheck ? ( */}
+                  <div className="detailpayment flex">
+                    <div className="product">
+                      <p>
+                        <b>Grand Total</b>
+                      </p>
+                    </div>
+                    <div className="subtotal">
+                      <p>
+                        <b>Rs {rewordCheck ?subPrice - user?.rewords_points : subPrice}</b>
+                      </p>
+                    </div>
+                  </div>
+          
               </div>
             </div>
             <div className="paymentMethod">

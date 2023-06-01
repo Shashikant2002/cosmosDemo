@@ -38,6 +38,7 @@
     border-bottom: 1px solid rgba(128, 128, 128, 0.296);
     padding-bottom: 5px;
     margin-top: 10px;
+    align-items: center;
 }
 .billingDetail .listing > div:last-child{
     border-bottom: none;
