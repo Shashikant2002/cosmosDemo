@@ -129,7 +129,7 @@ const BillingDetail = ({ setRender, render }) => {
             console.log(res);
             if (res?.data?.success === true) {
               window.localStorage.removeItem("cartPro");
-              navigate("/profile");
+              navigate("/orderHistory");
               setRender(!render);
               // alert(`Payment Successful ${res?.data?.pay_id}`);
             }

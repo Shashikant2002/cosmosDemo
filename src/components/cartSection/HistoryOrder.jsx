@@ -4,7 +4,7 @@ import { useGlobalContext } from "../../context/context";
 import { fetch_cart, updateCart } from "../../utils/globalFunction";
 import Loading from "../loading/Loading";
 
-const CardCart = ({ ele, handelRemoveCart }) => {
+const HistoryOrder = ({ ele, handelRemoveCart }) => {
   const [qut, setQut] = useState(1);
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
@@ -68,62 +68,46 @@ const CardCart = ({ ele, handelRemoveCart }) => {
     setLoading(false);
   };
 
+  console.log(ele);
+
   return (
     <>
       {loading ? (
         <Loading />
       ) : (
+        // ele?.products?.map((product, i) => {
+        // console.log("product",i,product);
         <>
           <div className="table flex justify-spacebetween align-center">
             <div className="body">
-              <p>
-                <MdClose
-                  onClick={() => {
-                    handelRemoveCart(ele);
-                    totalQut();
-                    updateSubTotal();
-                  }}
-                />
-              </p>
+              <p>{ele?.order_id}</p>
             </div>
             <div className="body">
               <figure>
-                <img src={ele.data.product_images[0].image_url} alt="" />
+                <img src={ele?.products[0]?.product_images[0]?.image_url} alt="" />
               </figure>
             </div>
             <div className="body">
-              {ele.data.product_reword_point ? (
-                <p>{ele.data.product_reword_point}</p>
-              ) : (
-                <p>-</p>
-              )}
+              <p> {ele?.order_status}</p>
             </div>
             <div className="body">
-              <p>{ele.data.product_name}</p>
+              <p>{new Date(ele?.updatedAt).getDate()}/{new Date(ele?.updatedAt).getMonth()}/{new Date(ele?.updatedAt).getFullYear()}</p>
             </div>
             <div className="body">
-              <p>{ele.data.product_sale_price}</p>
+              <p>{ele.product_sale_price}</p>
             </div>
             <div className="body">
-              <div className="quentity flex">
-                <button onClick={decQutCart}>-</button>
-                <input
-                  className="text-center"
-                  value={qut}
-                  type="text"
-                  readOnly={true}
-                />
-                <button onClick={incQutCart}>+</button>
-              </div>
+              <p>{ele?.products.length}</p>
             </div>
             <div className="body">
-              <p>{qut * ele.data.product_sale_price}</p>
+              <p>{ele.razorpay_payment_id}</p>
             </div>
           </div>
         </>
+        // })
       )}
     </>
   );
 };
 
-export default CardCart;
+export default HistoryOrder;

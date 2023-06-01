@@ -25,7 +25,7 @@ const Career = () => {
       ) : (
         <>
           <InnerBanner
-            bgImg={"/assets/img/about-banner.jpg"}
+            bgImg={"/assets/img/banner_image.webp"}
             title={"Carerr"}
           />
           <WhereItAllBegain

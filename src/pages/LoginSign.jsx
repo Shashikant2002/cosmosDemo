@@ -24,7 +24,7 @@ const LoginSign = () => {
         <>
           {" "}
           <InnerBanner
-            bgImg={"/assets/img/about-1.jpg"}
+            bgImg={"/assets/img/banner_image.webp"}
             title={"Login Here"}
           />
           <LoginSignForm />

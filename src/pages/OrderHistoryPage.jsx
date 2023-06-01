@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import CartSection from "../components/cartSection/CartSection";
 import InnerBanner from "../components/innerBanner/InnerBanner";
 import Loading from "../components/loading/Loading";
+import OrderHistoryMain from "../components/cartSection/OrderHistory";
 
-const Cart = () => {
+const OrderHistoryPage = () => {
   const [loading, setLoading] = useState(false);
   const showLoading = () => {
     setLoading(true);
@@ -23,12 +23,12 @@ const Cart = () => {
       ) : (
         <>
           {" "}
-          <InnerBanner bgImg={"/assets/img/banner_image.webp"} title={"Cart"} />
-          <CartSection />
+          <InnerBanner bgImg={"/assets/img/banner_image.webp"} title={"Order History"} />
+          <OrderHistoryMain />
         </>
       )}
     </>
   );
 };
 
-export default Cart;
+export default OrderHistoryPage;

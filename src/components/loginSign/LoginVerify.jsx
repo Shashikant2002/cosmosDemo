@@ -6,12 +6,15 @@ import InnerBanner from "../innerBanner/InnerBanner";
 import { useGlobalContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const LoginVerify = () => {
   const [loading, setLoading] = useState(false);
   const [otp, setOtp] = useState(null);
   const navigate = useNavigate();
 
-  const { verifyLoginByNumber, authorization } = useGlobalContext();
+  const { verifyLoginByNumber, authorization, user } = useGlobalContext();
 
   const submitOtp = (e) => {
     e.preventDefault();
@@ -24,14 +27,30 @@ const LoginVerify = () => {
     if (authorization === true) {
       navigate("/profile");
     }
-  });
+    if (user?.success === true) {
+      toast.success(user?.message, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }, [authorization]);
+
 
 
   return loading ? (
     <Loading />
   ) : (
     <>
-      <InnerBanner bgImg={"/assets/img/about-1.jpg"} title={"Verify Your Login"} />
+      <InnerBanner
+        bgImg={"/assets/img/about-1.jpg"}
+        title={"Verify Your Login"}
+      />
       <div
         style={{ marginTop: "50px", padding: "0 20px" }}
         className="loginSign"
@@ -58,6 +77,7 @@ const LoginVerify = () => {
           {/* <p>If you are not Registered <span><Link to={"/register"}><p>Register Now</p></Link></span></p> */}
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };

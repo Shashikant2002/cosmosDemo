@@ -30,7 +30,7 @@ const CategoryInner = () => {
       ) : (
         <>
           <InnerBanner
-            bgImg="/assets/img/inner-banner.jpg"
+            bgImg="/assets/img/banner_image.webp"
             title={categoryText}
           />
           <CategoryInnerSect categoryProduct={allCategoryProduct} />

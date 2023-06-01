@@ -22,7 +22,7 @@ const Checkout = ({setRender, render}) => {
         <Loading />
       ) : (
         <>
-          <InnerBanner bgImg={"/assets/img/about-1.jpg"} title={"Check Out"} />
+          <InnerBanner bgImg={"/assets/img/banner_image.webp"} title={"Check Out"} />
           <BillingDetail setRender = {setRender} render={render} />
         </>
       )}

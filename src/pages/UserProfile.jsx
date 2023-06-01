@@ -16,7 +16,7 @@ const UserProfile = () => {
 
   return (
     <>
-      <InnerBanner bgImg={"/assets/img/about-banner.jpg"} title={"Profile"} />
+      <InnerBanner bgImg={"/assets/img/banner_image.webp"} title={"Profile"} />
       <Profile user = {user} />
     </>
   );

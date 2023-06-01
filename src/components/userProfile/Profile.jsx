@@ -6,6 +6,9 @@ import axios from "axios";
 import { useGlobalContext } from "../../context/context";
 import Loading from "../loading/Loading.jsx";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Profile = ({ user }) => {
   const updateProfilePopup = useRef();
   const { fetchLoginUser } = useGlobalContext();
@@ -22,11 +25,25 @@ const Profile = ({ user }) => {
       const url = `${process.env.REACT_APP_BASE_URL}api/user/logout`;
       const res = await axios.post(url, {}, { withCredentials: true });
       console.log(res);
-      setLoading(false);
-      window.location.href = window.location.href;
+      if (res?.data?.success === true) {
+        toast.success("Logout Successful !!", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        setLoading(false);
+        fetchLoginUser();
+        window.location.reload();
+      }
     } catch (ele) {
       console.log(ele);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -130,6 +147,7 @@ const Profile = ({ user }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

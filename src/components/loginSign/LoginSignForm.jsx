@@ -5,6 +5,8 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useGlobalContext } from "../../context/context";
 import Loading from "../loading/Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginSignForm = () => {
   const [value, setValue] = useState();
@@ -18,7 +20,17 @@ const LoginSignForm = () => {
     if (value) {
       if (value.length < 10) {
         setLoading(false);
-        return console.log("Number is Invalid");
+        toast.warn("Number is Invalid", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
       } else {
         await loginByNumber(value);
 
@@ -27,7 +39,17 @@ const LoginSignForm = () => {
       }
     } else {
       setLoading(false);
-      return console.log("Please Fill the Required field");
+      toast.warn("Please Fill the Required field", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
     }
   };
 
@@ -44,7 +66,28 @@ const LoginSignForm = () => {
 
   useEffect(() => {
     if (user?.success === true) {
+      toast.success(user?.message, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       navigate("/login_verify");
+    } else {
+      toast.error(user?.message, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
     if (authorization) {
       navigate("/profile");
@@ -91,6 +134,7 @@ const LoginSignForm = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

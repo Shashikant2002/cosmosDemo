@@ -22,6 +22,7 @@ import LocationsPage from "./pages/Locations";
 import InstaSticky from "./components/stickyFoot/InstaSticky";
 import RegVerify from "./components/loginSign/RegVerify";
 import LoginVerify from "./components/loginSign/LoginVerify";
+import OrderHistoryPage from "./pages/OrderHistoryPage";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -128,7 +129,7 @@ const App = () => {
               />
               <Route
                 exact={true}
-                path="/builk_booking"
+                path="/bulk_booking"
                 element={
                   <>
                     <BuilkBookingPage />
@@ -174,7 +175,7 @@ const App = () => {
               />
               <Route
                 exact={true}
-                path="register_verify"
+                path="/register_verify"
                 element={
                   <>
                     <RegVerify />
@@ -183,10 +184,19 @@ const App = () => {
               />
               <Route
                 exact={true}
-                path="login_verify"
+                path="/login_verify"
                 element={
                   <>
                     <LoginVerify />
+                  </>
+                }
+              />
+              <Route
+                exact={true}
+                path="/orderHistory"
+                element={
+                  <>
+                    <OrderHistoryPage />
                   </>
                 }
               />

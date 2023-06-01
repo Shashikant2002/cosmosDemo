@@ -6,6 +6,9 @@ import PhoneInput from "react-phone-number-input";
 import { useGlobalContext } from "../../context/context";
 import Loading from "../loading/Loading";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Register = () => {
   const navigate = useNavigate();
   const [mobile, setMobile] = useState();
@@ -26,11 +29,33 @@ const Register = () => {
     console.log(mobile, name);
     setLoading(true);
 
-    console.log(name.length, mobile.length);
-
-    if (!name.length > 3 || !mobile.length > 13) {
+    // console.log(name.length, mobile.length);
+    if (!name || !mobile) {
       setLoading(false);
-      alert("Please enter name or Phone number");
+      toast.warn("Please Fill The Name or Email !!", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
+    } else if (!name.length > 3 || !mobile.length > 13) {
+      setLoading(false);
+      toast.warn("Please enter name or Phone number !!", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
     } else {
       await registerUser(name, mobile);
       console.log("done", user);
@@ -39,6 +64,7 @@ const Register = () => {
   };
 
   useEffect(() => {
+    // toast("Wow so easy!");
     if (user?.success === true) {
       navigate("/register_verify");
     }
@@ -94,6 +120,7 @@ const Register = () => {
           </p>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
