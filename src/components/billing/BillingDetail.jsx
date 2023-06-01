@@ -8,6 +8,9 @@ import { useGlobalContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const BillingDetail = ({ setRender, render }) => {
   const [cart, setCart] = useState([]);
   const [subPrice, setSubPrice] = useState(0);
@@ -175,9 +178,29 @@ const BillingDetail = ({ setRender, render }) => {
     console.log(checkValidateForm());
 
     if (!authorization) {
-      return alert("Please Login And Try again !!");
+      toast.warn("Please Login And Try again !!", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
     } else if (!checkValidateForm()) {
-      alert("Please Fill all the Required Fields");
+      toast.warn("Please Fill all the Required Fields", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
     } else {
       let cartData = fetch_cart();
       console.log(cartData);
@@ -396,6 +419,8 @@ const BillingDetail = ({ setRender, render }) => {
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </>
   );
 };
