@@ -64,21 +64,21 @@ export const registerUserHReducer = (
 ) => {
   switch (action.type) {
     case "REGISTER_USER_H":
-      console.log(!action?.payload?.sccess);
-      
-      if (!action?.payload?.sccess) {
+      console.log("Success: => ",!action?.payload?.sccess);
 
-        setTimeout(() => {
-          return {
-            ...state,
-            user: null,
-          };
-        }, 5000);
+      if (action?.payload?.sccess) {
+        return {
+          ...state,
+          user: action.payload,
+          authorization: true,
+        };
+      } else {
+        return {
+          ...state,
+          user: action.payload,
+          authorization: false,
+        };
       }
-      return {
-        ...state,
-        user: action.payload,
-      };
 
     case "lOGIN_BY_PHONE":
       // console.log("Data", action?.payload?.token);
@@ -98,7 +98,7 @@ export const registerUserHReducer = (
 
     case "VERIFY_REG_USER":
       console.log(action?.payload.data);
-      if (action?.payload?.data?.success) {
+      if (action?.payload?.success) {
         console.log(state.authorization);
         return {
           ...state,
