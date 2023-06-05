@@ -80,6 +80,11 @@ const OrderHistory = () => {
                     </div>
                     <div className="heading">
                       <p>
+                        <b>PAYMENT TYPE</b>
+                      </p>
+                    </div>
+                    <div className="heading">
+                      <p>
                         <b>STATUS</b>
                       </p>
                     </div>

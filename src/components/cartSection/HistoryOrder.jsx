@@ -88,7 +88,10 @@ const HistoryOrder = ({ ele, handelRemoveCart }) => {
               </figure>
             </div> */}
             <div className="body">
-              <p>{ele.razorpay_payment_id}</p>
+              <p>{ele?.razorpay_payment_id}</p>
+            </div>
+            <div className="body">
+              <p>{ele?.paymentType}</p>
             </div>
             <div className="body">
               <p> {ele?.order_status}</p>

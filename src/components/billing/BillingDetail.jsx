@@ -63,17 +63,110 @@ const BillingDetail = ({ setRender, render }) => {
 
   const url = `${process.env.REACT_APP_BASE_URL}api/user/payment_add_reword`;
 
+  const makePaymentByRewords = async (e) => {
+    e.preventDefault();
+    try {
+      if (!authorization) {
+        toast.warn("Please Login And Try again !!", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
+      } else if (!checkValidateForm()) {
+        toast.warn("Please Fill all the Required Fields", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return;
+      }
+
+      const orderData = [];
+      cartData.map((ele) => {
+        orderData.push({
+          product_id: ele.data.product_id,
+          product_code: ele.data.product_code,
+          product_name: ele.data.product_name,
+          product_main_category: ele.data.product_main_category,
+          product_category: ele.data.product_category,
+          product_subcategory: ele.data.product_subcategory,
+          product_variant: ele.data.product_variant,
+          product_quantity: ele.changeQut,
+          product_reword_point: ele.data.product_reword_point,
+          product_images: ele.data.product_images,
+        });
+      });
+      const url = `${process.env.REACT_APP_BASE_URL}api/user/paymentVerifyRezorByReword`;
+
+      let reword = 0;
+      if (rewordCheck) {
+        reword = user?.rewords_points;
+      }
+
+      const res_ = await axios.post(
+        url,
+        {
+          cartData: orderData,
+          email,
+          address,
+          total_amount: subPrice,
+          reword,
+        },
+        { withCredentials: true }
+      );
+
+      console.log("res_ =>", res_);
+
+      if (res_?.data?.success === true) {
+        window.localStorage.removeItem("cartPro");
+        navigate("/orderHistory");
+        setRender(!render);
+        // alert(`Payment Successful ${res?.data?.pay_id}`);
+
+        toast.success("Your order is Created", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const makePayment = async (arr_product) => {
     try {
       setLoading(true);
+
       let cartData = await fetch_cart();
 
       let reword = 0;
 
-      if(rewordCheck){
+      if (rewordCheck) {
         reword = user?.rewords_points;
       }
-      console.log("reword",reword);
+
+      // if (reword < subPrice) {
+      //   return makePaymentByRewords(reword);
+      // }
+
+      console.log("reword", reword);
 
       let res = await axios.post(
         url,
@@ -123,7 +216,7 @@ const BillingDetail = ({ setRender, render }) => {
               });
             });
 
-            console.log("orderData =>", orderData, res.data.order.amount);
+            // console.log("orderData =>", orderData, res.data.order.amount);
             const res_ = await axios.post(
               url,
               {
@@ -134,6 +227,7 @@ const BillingDetail = ({ setRender, render }) => {
                 email,
                 address,
                 total_amount: res?.data?.order?.amount / 100,
+                reword,
               },
               { withCredentials: true }
             );
@@ -142,6 +236,17 @@ const BillingDetail = ({ setRender, render }) => {
               window.localStorage.removeItem("cartPro");
               navigate("/orderHistory");
               setRender(!render);
+
+              toast.success("Your order is Created", {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+              });
               // alert(`Payment Successful ${res?.data?.pay_id}`);
             }
           },
@@ -220,6 +325,8 @@ const BillingDetail = ({ setRender, render }) => {
   const inputCheckRewords = () => {
     setRewordsCheck(!rewordCheck);
   };
+
+  console.log(subPrice < user?.rewords_points);
 
   return loading ? (
     <Loading />
@@ -346,30 +453,45 @@ const BillingDetail = ({ setRender, render }) => {
                     </p>
                   </div>
                 </div>
-                <div className="detailpayment flex">
-                  <p>If You Have 200 Rewords Points You Can Use It</p>
-                  <input
-                    onChange={inputCheckRewords}
-                    ref={rewordsSub}
-                    type="checkbox"
-                    disabled={201 > 200 ? false : true}
-                    // disabled={user?.rewords_points > 200 ? false : true}
-                    checked={rewordCheck}
-                  />
-                </div>
-                <div className="detailpayment flex">
-                  <div className="product">
-                    <p>
-                      <b>Your Rewords</b>
-                    </p>
+                {authorization ? (
+                  <div className="detailpayment flex">
+                    <p>If You Have 200 Rewords Points You Can Use It</p>
+                    <input
+                      onChange={inputCheckRewords}
+                      ref={rewordsSub}
+                      type="checkbox"
+                      disabled={201 > 200 ? false : true}
+                      // disabled={user?.rewords_points > 200 ? false : true}
+                      checked={rewordCheck}
+                    />
                   </div>
-                  <div className="subtotal">
-                    <p>
-                      <b>Rs {user?.rewords_points}</b>
-                    </p>
+                ) : (
+                  ""
+                )}
+                {authorization ? (
+                  <div className="detailpayment flex">
+                    <div className="product">
+                      <p>
+                        <b>Your Rewords</b>
+                      </p>
+                    </div>
+                    <div className="subtotal">
+                      <p>
+                        <b>
+                          Rs{" "}
+                          {rewordCheck
+                            ? user?.rewords_points > subPrice
+                              ? user?.rewords_points - subPrice
+                              : 0
+                            : user?.rewords_points}
+                        </b>
+                      </p>
+                    </div>
                   </div>
-                </div>
-                {/* {rewordCheck ? ( */}
+                ) : (
+                  ""
+                )}
+                {authorization ? (
                   <div className="detailpayment flex">
                     <div className="product">
                       <p>
@@ -378,11 +500,20 @@ const BillingDetail = ({ setRender, render }) => {
                     </div>
                     <div className="subtotal">
                       <p>
-                        <b>Rs {rewordCheck ?subPrice - user?.rewords_points : subPrice}</b>
+                        <b>
+                          Rs{" "}
+                          {rewordCheck
+                            ? user?.rewords_points > subPrice
+                              ? "0"
+                              : subPrice - user?.rewords_points
+                            : subPrice}
+                        </b>
                       </p>
                     </div>
                   </div>
-          
+                ) : (
+                  ""
+                )}
               </div>
             </div>
             <div className="paymentMethod">
@@ -411,9 +542,31 @@ const BillingDetail = ({ setRender, render }) => {
                     <p>Cash on Delivery</p>
                   </label>
                 </div> */}
-                <button onClick={fetuchAllCatProduct} className="filled-button">
-                  Place Order
-                </button>
+
+                {rewordCheck ? (
+                  subPrice < user?.rewords_points ? (
+                    <button
+                      onClick={makePaymentByRewords}
+                      className="filled-button"
+                    >
+                      Place Order*
+                    </button>
+                  ) : (
+                    <button
+                      onClick={fetuchAllCatProduct}
+                      className="filled-button"
+                    >
+                      Place Order
+                    </button>
+                  )
+                ) : (
+                  <button
+                    onClick={fetuchAllCatProduct}
+                    className="filled-button"
+                  >
+                    Place Order
+                  </button>
+                )}
               </form>
             </div>
           </div>

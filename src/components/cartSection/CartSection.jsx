@@ -102,11 +102,11 @@ const CartSection = () => {
                   <div className="table">
                     <div className="subTotal flex">
                       <p>Subtotal</p>
-                      <p>${subPrice}</p>
+                      <p>₹ {subPrice}</p>
                     </div>
                     <div className="subTotal flex">
                       <p>Total</p>
-                      <p>${subPrice}</p>
+                      <p>₹ {subPrice}</p>
                     </div>
                   </div>
                   <Link to={"/checkout"} className="filled-button">
